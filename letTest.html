@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>letTest</title>
+</head>
+<body>
+<script>
+    var j = 0;
+    for(var i = 0;i<10;i++){
+        setTimeout(function(){
+            console.log(j++);
+        },1000);
+    }
+    for(let i = 0;i<10;i++){
+        setTimeout(function(){
+            console.log(i);
+        },1000);
+    }
+</script>
+</body>
+</html>
