@@ -1,0 +1,84 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>something about offset</title>
+    <style>
+        .test {
+            background: lightcoral;
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            top:100px;
+            left:100px;
+        }
+
+        .child {
+            background: lightgoldenrodyellow;
+            width: 50px;
+            height: 50px;
+            border:10px solid black;
+            position:absolute;
+            top:100px;
+            left:100px;
+        }
+        .blank{
+            width:100px;
+            height:100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blank"></div>
+    <div class="test">
+        <div class="child"></div>
+    </div>
+    <script>
+        var parent = document.getElementsByClassName("test")[0];
+        var child = document.getElementsByClassName("child")[0];
+        var poffsetleft = parent.offsetLeft;
+        var poffsettop = parent.offsetTop;
+        var poffsetwidth = parent.offsetWidth;
+        var poffsetheight = parent.offsetHeight;
+        var coffsetleft = child.offsetLeft;
+        var coffsettop = child.offsetTop;
+        var coffsetwidth = child.offsetWidth;
+        var coffsetheight = child.offsetHeight;
+        console.log("ptop: " + poffsettop + " pleft: " + poffsetleft + " pheight: " + poffsetheight + " pwidth: " + poffsetwidth);
+        console.log("ctop: " + coffsettop + " cleft: " + coffsetleft + " cheight: " + coffsetheight + " cwidth: " + coffsetwidth);
+        //四种情况分别如下
+        /***********
+        1、父元素和子元素均不设置定位
+        ptop: 108 pleft: 8 pheight: 100 pwidth: 100
+        ctop: 108 cleft: 8 cheight: 70 cwidth: 70
+
+        2、父：position:absolute;top:100px;left:100px;子：无
+        ptop: 100 pleft: 100 pheight: 100 pwidth: 100
+        ctop: 0 cleft: 0 cheight: 70 cwidth: 70
+
+        3、子：position:absolute;top:100px;left:100px;父：无
+        ptop: 108 pleft: 8 pheight: 100 pwidth: 100
+        ctop: 100 cleft: 100 cheight: 70 cwidth: 70
+
+        4、子：position:absolute;top:100px;left:100px;父：position:absolute;top:100px;left:100px;
+        ptop: 100 pleft: 100 pheight: 100 pwidth: 100
+        ctop: 100 cleft: 100 cheight: 70 cwidth: 70
+
+
+        *********/
+
+        /*************
+        2 offsetLeft(offsetTop)指的是子元素的边界，相对于父元素的边界，这两个边界到底指哪里 
+        其实归根到底总结为两种情况， 
+        a 如果父级元素没有定位，那么子元素的offsetLeft指的是子元素的 (content +padding+border)的border外边界相对于根元素 body 的边界的距离 
+        b 如果父级元素有定位，那么子元素的 offsetLeft 指的是子元素的（content+padding+border)的border边界距离父元素* border 内边界的距离，
+        如果没有border 则是相对于父元素的padding外边界*的距离。
+        四 offsetWidth 和 offsetHeight 指的是当前元素的 content+padding+border 的宽度和高度
+        **********/
+    </script>
+</body>
+
+</html>

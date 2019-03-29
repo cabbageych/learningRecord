@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>flex</title>
+    <style>
+        .box {
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-between;
+            /*设置项目在主轴上的布局方式*/
+            flex-wrap: wrap;
+            align-content: space-between;
+        }
+
+        .colum{
+            display: flex;
+            flex-basis: 100%;  /*定义项目在分配空余空间之前已有项目所占有的空间*/
+            justify-content:space-between;
+        }
+
+        .item {
+            background: black;
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<div class="box">
+    <div class="colum">
+        <span class="item"></span>
+        <span class="item"></span>
+    </div>
+    <div class="colum">
+        <span class="item"></span>
+        <span class="item"></span>
+    </div>
+</div>
+
+</html>

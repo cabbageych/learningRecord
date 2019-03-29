@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        .b {
+            background-color: #00f;
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            color: #fff;
+            font-size: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="b">1-1</div>
+    <script type="text/javascript">
+        b = document.getElementsByClassName("b")[0];
+        document.onmousemove = function (e) {
+            b.style.left = e.pageX+20+'px';
+            b.style.top = e.pageY+20+'px';
+        };
+        document.onclick = (function(e){
+            console.log("xixihaha!!!");
+        });
+        window.onresize = function(){
+            location.reload(true);
+        }
+    </script>
+</body>
+
+</html>

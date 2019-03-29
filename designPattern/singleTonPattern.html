@@ -1,0 +1,38 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>单例模式</title>
+</head>
+
+<body>
+    <script>
+        /*********
+        确保一个类仅有一个实例，并提供一个访问它的全局访问点。
+        ****************/
+        function createS(name){
+            this.name = name;
+        }
+        createS.prototype.print = function(){
+            console.log(this.name);
+        }
+        //获取类的实例
+        var singleT = (function(){
+            var instance;
+            return function(name){
+                if(!instance){
+                    instance = new createS(name);
+                }
+                return instance;
+            };
+        })();
+        var a = new singleT("cabbage");
+        var b = new singleT("xixihaha");
+        a.print();
+        b.print();
+        console.log(a === b);
+    </script>
+</body>
+
+</html>

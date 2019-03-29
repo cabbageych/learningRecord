@@ -1,0 +1,30 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>regTest</title>
+</head>
+
+<body>
+    <script>
+        var temp = "010-11112345123";
+        var reg = /\d{3}[-]\d{11,11}/;
+        //console.log(reg.test(temp));
+        //将字符串改为千分位模式
+        var testStr01 = 123456789123;
+        var reg = /(\d)(?=((\d){3})+$)/g;
+        function test01(str){
+            console.log(str.toString().replace(reg,"$1,"));
+        }
+        //test01(testStr01);
+        //匹配url
+        //var url = document.location.href;
+        var url = "http://www.huajiyang.com/chenhui/mainPage.html";
+        var reg = /(http|https):\/\/(www)\.[a-zA-Z0-9]*\.(cn|com)((\/)((([a-zA-Z0-9]*\.[a-zA-Z0-9]*)|([a-zA-Z0-9]*))))*/;
+        console.log(reg.test(url));
+        console.log(url.replace(reg,"test"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>async</title>
+</head>
+<body>
+    <script>
+        //有返回值的情况
+        async function test(){
+            return "hello async!";
+        }
+        console.log(test());
+
+        /*
+            async返回一个promise对象，具体信息如下：
+            Promise
+            __proto__: Promise
+            [[PromiseStatus]]: "resolved"
+            [[PromiseValue]]: "hello async!"
+        */
+        //使用then处理返回值
+        test().then(data=>{
+            console.log(data);
+        });
+        //若是没有返回值，则返回promise.resolve(undefined)
+        async function test02(){
+            console.log("hello async02!!!");
+        }
+        console.log(test02());
+    </script>
+</body>
+</html>

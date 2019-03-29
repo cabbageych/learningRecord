@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<script>
+    function Test(a,b,name) {
+        this.a = a;
+        this.b = b;
+        this.name = name;
+
+        this.print = function() {
+            console.log(this.a + " " + this.b+ " "+ this.name);
+        }
+    }
+    Test.prototype.emm = function(){
+        console.log("emmmm!");
+    }
+
+    function Test02(a,b,name) {
+        Test.call(this,a,b,name);
+    }
+    Test02.prototype = new Test();
+    Test02.prototype.constructor = Test02;
+    var t = new Test02(1,2,"cabbage");
+    //console.log(t.a);
+    //t.print();
+    //t.emm();
+    //console.log(t instanceof Test02);
+    //console.log(t instanceof Test);
+
+
+    class A{
+        constructor(a){
+            this.a = a;
+        }
+        print(){
+            console.log(this.a);
+        }
+    }
+    class B extends A{
+        constructor(a,b) {
+            super(a);
+            this.b = b;
+        }
+        printB(){
+            console.log(this.b);
+        }
+    }
+    var a = new A("a");
+    a.print();
+    var b = new B("m","b");
+    b.print();
+    b.printB();
+    console.log(b instanceof B);
+    console.log(b instanceof A);
+</script>
+</body>
+</html>

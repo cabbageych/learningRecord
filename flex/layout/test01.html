@@ -1,0 +1,57 @@
+<!DOCYTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>test01</title>
+    <style>
+        *{
+            border-radius:1%;
+        }
+        .myLayout{
+            display: flex;
+            display: -webkit-flex;
+            background:rgba(146, 147, 151, 0.068);
+            flex-direction: column;
+        }
+        .header{
+            height:10%;
+            background:lightblue;
+            text-align:center;
+        }
+        .header p{
+            position:relative;
+            top:50%;
+            font-size:20px;
+            margin-top:-10px;
+        }
+        .myLayout-body{
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            background:gray;
+            flex-basis: 100%;
+        }
+        aside{
+            background:lightcoral;
+            width:10%;
+            position:relative;
+            text-align:center;
+            font-size:30px;
+        }
+        .body-main{
+            flex-basis: 100%;
+            text-align: center;
+            font-size:50px;
+        }
+    </style>
+</head>
+<body class="myLayout">
+    <nav class="header"><p>我是导航栏</p></nav>
+    <div class="myLayout-body">
+        <aside>left</aside>
+        <main class="body-main">主体内容</main>
+        <aside>right</aside>
+    </div>
+</body>
+</html>

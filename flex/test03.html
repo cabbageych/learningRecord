@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>flex</title>
+    <style>
+        .box {
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-between; /*设置项目在主轴上的布局方式*/
+            flex-direction: column; /*项目的排列方向*/
+            align-items: flex-end; /*设置单个项目的布局方式与别人不一样*/
+        }
+        .item{
+            background:black;
+            position:relative;
+            width:200px;
+            height:200px;
+            border-radius:50%;
+        }
+        .item:nth-child(2){
+            align-self: center;
+        }
+        .item:nth-child(3){
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<div class="box">
+    <span class="item"></span>
+    <span class="item"></span>
+    <span class="item"></span>
+</div>
+
+</html>

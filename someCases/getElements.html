@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>jqueryTest</title>
+    </head>
+    <a href="www.baidu.com">百度一下</a>
+    <a href="www.baidu.com">百度一下</a>
+    <script>
+        var a = document.getElementsByTagName("a");
+        for(var i = 0;i<a.length;i++){
+            a[i].onclick = tip;
+        }
+        function tip(){
+            var tip = confirm("是否确认？")
+            if(tip){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
+</html>

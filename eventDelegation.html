@@ -1,0 +1,39 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>eventDelegation</title>
+</head>
+
+<body>
+    <div class="parent">
+        <a href="#">点击一下</a>
+        <a href="#">点击一下</a>
+        <a href="#">点击一下</a>
+        <p>emmm</p>
+    </div>
+    <script>
+        function tip() {
+            var confirm = ("确认点击？");
+            if (confirm) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        var parent = document.getElementsByClassName("parent")[0];
+        parent.addEventListener("click", function (e) {
+            if (e.target.tagName === "A") {
+                var sure = confirm("确认点击？");
+                if (sure) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

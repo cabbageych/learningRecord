@@ -1,0 +1,57 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>requestAnimationFrame</title>
+    <style>
+        #test {
+            background: lightcoral;
+            position: relative;
+            height: 100px;
+            width: 100px;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script>
+        //用法
+        /*
+           1.  写法：
+           handlerId = requestAnimationFrame(callback)
+           (1)  传入一个callback函数，即动画函数;
+           (2)  返回值handlerId为浏览器定义的、大于0的整数，唯一标识了该回调函数在列表中位置。
+           2.  浏览器执行过程:
+           (1)  首先要判断document.hidden属性是否为true,即页面处于可见状态下才会执行；
+           (2)  浏览器清空上一轮的动画函数；
+           (3)  这个方法返回的handlerId 值会和动画函数callback，以<handlerId , callback>  进入到动画帧请求回调函数列；
+           (4)  浏览器会遍历动画帧请求回调函数列表，根据handlerId 的值大小，依次去执行相应的动画函数。
+           3.  取消动画函数的方法：cancelAnimationFrame(handlerId)复制代 
+        */
+        var test = document.getElementById("test");
+        var left = 0;
+        var height = 0;
+        function move() {
+            if (height < 100) {
+                test.style.top = ++height + 'px';
+                test.style.left = ++left + 'px';
+                window.requestAnimationFrame(move);
+            }else if(height >=100){
+                test.style.top = 0;
+                test.style.left = 0;
+                height = 0;
+                left = 0;
+                window.requestAnimationFrame(move);
+            }
+
+        }
+        window.requestAnimationFrame(move);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>promiseTest02</title>
+</head>
+
+<body>
+    <script>
+        const ajax1 = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    try {
+                        Math.random() < 0.5 ? resolve("ajax1 成功") : reject("ajax1 失败");
+                    } catch{
+                        alert("error");
+                    }
+                }, 200);
+            });
+        };
+        const ajax2 = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("ajax 成功");
+                }, 200);
+            });
+        };
+        const doParallel = () => {
+            ajax1().then(data => { console.log(data) }, data => { console.log(data); });
+            ajax2().then(data => { console.log(data); });
+        };
+        const doSerial = () => {
+            ajax1().then(data => { console.log(data); }, data => { console.log(data); }).then(() => { ajax2().then(data => { console.log(data); }); });
+        }
+        doParallel();
+        doSerial();
+    </script>
+</body>
+
+</html>

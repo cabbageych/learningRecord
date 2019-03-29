@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OptionTest</title>
+</head>
+<body>
+年<select class="year">
+    <option>2019</option>
+</select>
+月<select class="month">
+</select>
+日<select class="day">
+</select>
+<script>
+    var year = document.getElementsByClassName("year")[0];
+    var month = document.getElementsByClassName("month")[0];
+    var day = document.getElementsByClassName("day")[0];
+    for (var i = 1970; i < 2020; i++) {
+        var option = document.createElement("option");
+        option.innerHTML = i;
+        year.appendChild(option);
+    }
+    month.addEventListener("click", function () {
+        day.innerHTML = '';
+    }, false);
+    year.addEventListener("click", function () {
+        day.innerHTML = '';
+    }, false);
+    day.addEventListener("click", function () {
+        day.innerHTML = '';
+        var temp = month.value;
+        var days;
+        if (temp == 1 || temp == 3 || temp == 5 || temp == 7 || temp == 8 || temp == 10 || temp == 12)
+            days = 31;
+        else if (temp == 4 || temp == 6 || temp == 9 || temp == 11)
+            days = 30;
+        else if (year.value % 4 == 0 || (year.value % 100 == 0 && year.value % 400 == 0))
+            days = 29;
+        else
+            days = 28;
+        for (var i = 1; i <= days; i++) {
+            var option = document.createElement("option");
+            option.innerHTML = i;
+            day.appendChild(option);
+        }
+    }, false);
+    for (var i = 1; i < 13; i++) {
+        var option = document.createElement("option");
+        option.innerHTML = i;
+        month.appendChild(option);
+    }
+
+</script>
+</body>
+</html>

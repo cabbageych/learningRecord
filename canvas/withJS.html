@@ -1,0 +1,91 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8">
+    <title>canvasWithJS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body onload="draw();">
+    <canvas id="myCanvas" width="150" height="150"></canvas>
+    <canvas id="myCanvas02" width="150" height="150"></canvas>
+    <canvas id="myCanvas03" width="150" height="150"></canvas>
+    <canvas id="myCanvas04" width="150" height="150"></canvas>
+    <canvas id="myCanvas05" width="400" height="400"></canvas>
+    <canvas id="myCanvas06" width="200" height="200"></canvas>
+    <script type="application/javascript">
+        function draw() {
+            var canvas = document.getElementById("myCanvas");
+            var canvas02 = document.getElementById("myCanvas02");
+            var canvas03 = document.getElementById("myCanvas03");
+            var canvas04 = document.getElementById("myCanvas04");
+            var canvas05 = document.getElementById("myCanvas05");
+            var canvas06 = document.getElementById("myCanvas06");
+            //实心矩形
+            if (canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+                ctx.fillStyle = "rgb(200,0,0)";   //当前样式设置对接下来的图形填充起效
+                ctx.fillRect(10, 10, 55, 50);
+                ctx.fillStyle = "rgba(1,1,1,0.5)";
+                ctx.fillRect(20,20,55,50);
+                ctx.clearRect(30,30,20,20);   //制定区域清除填充
+            }
+            //空心矩形
+            if(canvas02.getContext){
+                var ctx = canvas02.getContext("2d");
+                ctx.fillStyle = "rgb(100,100,20)";
+                ctx.strokeRect(10,10,50,50);
+            }
+            //实心文字
+            if(canvas03.getContext){
+                var ctx = canvas03.getContext("2d");
+                ctx.font = "30px serif";
+                ctx.fillText("cabbage!",50,50);
+            }
+
+            //空心文字
+            if(canvas04.getContext){
+                var ctx = canvas04.getContext("2d");
+                ctx.font = "30px serif";
+                ctx.strokeText("cabbage!",50,50);
+            }
+
+            //路径绘制
+            if(canvas05.getContext){
+                var ctx = canvas05.getContext("2d");
+                //绘制填充图形
+                ctx.fillStyle = "rgb(100,200,50)";
+                ctx.beginPath();
+                ctx.moveTo(20,20);
+                ctx.lineTo(100,20);
+                ctx.lineTo(60,60);
+                ctx.fill();
+                //绘制边框图形
+                ctx.moveTo(150,100);
+                ctx.lineTo(180,100);
+                ctx.lineTo(250,300);
+                ctx.lineTo(120,300);
+                ctx.closePath();
+                ctx.stroke();
+            }
+
+            //画圆
+            if(canvas06.getContext){
+                var ctx = canvas06.getContext("2d");
+                ctx.beginPath();
+                ctx.arc(100,100,100,0,2*Math.PI,true); //逆时针旋转
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(100,100,80,0,Math.PI,false); //顺时针旋转
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(100,100,40,0,Math.PI*2,false);
+                ctx.closePath();
+                //ctx.stroke();
+                ctx.fill();
+            }
+        }
+    </script>
+</body>
+
+</html>

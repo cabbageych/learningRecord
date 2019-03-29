@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test.test</title>
+</head>
+<body>
+<script>
+    class Test{
+        static  m=10;
+        static  t(){
+            console.log("emmm!!!");
+        }
+        constructor(a,b){
+            this.a = a;
+            this.b = b;
+        }
+        print(){
+            console.log(this.a+" "+this.b);
+        }
+    }
+    var a = new Test(1,2);
+    a.print();
+    console.log(Test.m);
+    Test.t();
+    //console.log(a.m);  //undefined
+</script>
+</body>
+</html>

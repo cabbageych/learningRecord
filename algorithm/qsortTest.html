@@ -1,0 +1,43 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>quickSort</title>
+</head>
+
+<body>
+    <script>
+        var a = [46,50,50,70,46];
+        function print(temp, index) {
+            console.log(temp + " " + index);
+        }
+        a.forEach(print);
+        function qSort(left, right) {
+            if (left >= right) {
+                return;
+            }
+            console.log(a[left]);
+            var start = left;
+            var end = right;
+            var temp = a[start];
+            while (start < end) {
+                while (a[end] >= temp && end > start) {
+                    --end;
+                }
+                a[start] = a[end];
+                while (a[start] <= temp && end > start) {
+                    ++start;
+                }
+                a[end] = a[start];                       
+            }
+            a[start] = temp;
+            qSort(left, start - 1);
+            qSort(start + 1, right);
+        }
+        qSort(0, a.length - 1);
+        a.forEach(print);
+    </script>
+</body>
+
+</html>

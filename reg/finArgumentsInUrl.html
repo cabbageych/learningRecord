@@ -1,0 +1,24 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>从URL中获取参数</title>
+</head>
+<body>
+    <script>
+        var url = "http://www.huajiyang.com/chenhui/mainPage.html?arg1=66&arg2=cabbage";
+        var result = {};
+        function findArgs(url){
+            var subStr = url.substr(url.indexOf('?')+1,url.length-url.indexOf('?'));
+            var temp = subStr.split("&");
+            for(var i in temp){
+                result[temp[i].split("=")[0]] = temp[i].split("=")[1]; 
+            }
+        }
+        findArgs(url);
+        for(var i in result){
+            console.log(result[i]);
+        }
+    </script>
+</body>
+</html>

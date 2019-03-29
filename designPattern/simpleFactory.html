@@ -1,0 +1,37 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>简单工厂模式</title>
+</head>
+
+<body>
+    <script>
+        /*********
+        简单工厂模式又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类的对象。
+        ****************/
+        function createPerson(name,age,sex,temp){
+            var person = new Object();
+            person.name = name;
+            person.age = age;
+            person.sex = sex;
+            person.ability = temp;
+            person.eat = function(){
+                console.log("I can eat!");
+            };
+            person.run = function(){
+                console.log("I can run!");
+            };
+            person.can = function(){
+                console.log("I can "+person.ability+"!");
+            };
+            return person;
+        }
+        var cabbage = createPerson("cabbage",22,"man","fly");
+        cabbage.can();
+        cabbage.eat();
+    </script>
+</body>
+
+</html>

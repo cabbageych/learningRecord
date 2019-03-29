@@ -1,0 +1,60 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>compare with promise 02</title>
+</head>
+
+<body>
+    <script>
+        //现在把业务要求改一下，仍然是三个步骤，但每一个步骤都需要之前每个步骤的结果。(感受async代码的简洁)
+        function takeLongTime(n) {
+            return new Promise(resolve => {
+                setTimeout(() => resolve(n + 200), n);
+            });
+        }
+
+        function step1(n) {
+            console.log(`step1 with ${n}`);
+            return takeLongTime(n);
+        }
+
+        function step2(n1, n) {
+            console.log(`step2 with ${n1} ${n}`);
+            return takeLongTime(n1);
+        }
+
+        function step3(n2,n1,n) {
+            console.log(`step3 with ${n2} ${n1} ${n}`);
+            return takeLongTime(n2);
+        }
+        //使用promise
+        function test() {
+            console.time("counting");
+            const time = 300;
+            step1(time).then((time1) => {
+                return step2(time1, time).then(time2 => [time2,time1,time])
+            }).then(times=>{
+                return step3(times[0],times[1],times[2]).then(totalTime=>{
+                    console.log(totalTime);
+                    console.timeEnd("counting");
+                })
+            });
+        }
+        //使用async
+        /*async function test(){
+            console.time("counting");
+            const time = 300;
+            const time2 = await step1(time);
+            const time3 = await step2(time2,time);
+            const result = await step3(time3,time2,time);
+            console.log(`result is ${result}`);
+            console.timeEnd("counting");
+        }*/
+        test();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test.test</title>
+</head>
+<body>
+<script>
+    var a = ()=>{console.log("xixihaha");};
+    a();
+    var b = a=>{console.log(a);}; //当函数的参数有且只有一个的时候省略括号
+    b("cabbage");
+    var c = (a,b)=>a+b; //当函数体只有一个return语句时省略花括号以及return
+    console.log(c(1,4));
+    //(()=>{console.log("xixihaha");})();
+    /*var adder = {
+        base : 1,
+
+        add : function(a) {
+            var f = v => v + this.base;
+            return f(a);
+        },
+
+        addThruCall: function(a) {
+            var f = v => v + this.base;
+            var b = {
+                base : 2
+            };
+
+            return f.call(b, a);
+        }
+    };
+
+    console.log(adder.add(1));         // 输出 2
+    console.log(adder.addThruCall(1));*/
+
+</script>
+</body>
+</html>
