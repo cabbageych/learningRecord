@@ -1,0 +1,31 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>exception</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Generator 函数体外，使用指针对象的 throw 方法抛出的错误，可以被函数体内的 
+        try ... catch 代码块捕获。这意味着，出错的代码与处理错误的代码，实现了时间
+        和空间上的分离，这对于异步编程无疑是很重要的。
+        */
+        function* gen(x) {
+            try {
+                var y = yield x + 2;
+            } catch (e) {
+                console.log(e);
+            }
+            return y;
+        }
+        var g = gen(1);
+        console.log(g.next()); //Object{done:false,value:3,__proto__:Object}
+        g.throw("Error!!!"); //Error!!!
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test02</title>
+</head>
+
+<body>
+    <script>
+        function* test02(x) {
+            var m = yield x + 3;
+            var n = yield m + 5;
+            return n;
+        }
+        var x = test02(3);
+        console.log(x); //test02 {<suspended>}
+        var temp = x.next();
+        console.log(temp);  //{value: 6, done: false}
+        console.log(x.next(temp.value)); //{value: 11, done: false}
+        console.log(x.next());//{value: undefined, done: true}
+    </script>
+</body>
+
+</html>
