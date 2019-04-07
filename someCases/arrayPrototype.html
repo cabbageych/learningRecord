@@ -1,0 +1,29 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>数组元素去重</title>
+</head>
+<body>
+    <script>
+        var arr = [11,3,4,55,3,22,11,4];
+        function print(value,index){
+            console.log(index + " " + value)
+        }
+        arr.forEach(print);
+        console.log("------boundary------")
+        Array.prototype.func = function(){
+            for(var i = 0;i<this.length;i++){
+                for(var j=i+1;j<this.length;j++){
+                    if(this[j] === this[i]){
+                        this.splice(j,1);
+                    }
+                }
+            }
+        }
+        arr.func();
+        arr.forEach(print);
+    </script>
+</body>
+</html>

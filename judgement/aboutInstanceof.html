@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>instanceof测试</title>
+</head>
+
+<body>
+    <script>
+        function test(){
+            this.name = "test";
+        }
+        var a = new test();
+        var m = [1,23,2,4];
+        var str = "slkdjf";
+        console.log(Array.prototype);
+        var arr = new Array();
+        arr.__proto__.constructor = test;
+        console.log(arr.__proto__);
+        console.log(arr instanceof Array);
+        console.log(Array.isArray(arr));
+        console.log(test instanceof Array);
+        a.__proto__.constructor = test;
+        console.log(a instanceof Array);
+    </script>
+</body>
+
+</html>

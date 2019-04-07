@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>iteratorWithForOf</title>
+</head>
+
+<body>
+    <p>test001!</p>
+    <p>test002!</p>
+    <div>
+        <p>test003!</p>
+    </div>
+    <script>
+        //迭代器for...of
+        //替代forEach
+        let a = ['a', 'b', 'c', 'd', 't', 'g'];
+        for (let i of a) {
+            console.log(i);
+        }
+        //与for...in对比，for...in只能获取对象键名，不能直接获取键值，
+        //而for...of允许直接获取键值。
+        for (let i in a) {
+            console.log(i);
+        }
+        //使用数组作为变量
+        let b = new Set([2, 5, 9]);
+        for (let a of b) {
+            console.log(a);
+        }
+        let c = new Map();
+        c.set('cabbage', 'hello world!');
+        c.set('cabbage02', 21);
+        for (let [a, b] of c) {
+            console.log(a + ": " + b);
+        }
+        //类数组对象
+        let d = "hello vue";
+        for (var i of d) {
+            console.log(i);
+        }
+        let e = document.querySelectorAll('p');
+        for(let i of e){
+            console.log(i);
+        }
+        function test(){
+            for(let i of arguments){
+                console.log(i);
+            }
+        }
+        test('a','cabbage');
+        //跳出for...of循环
+        for(let k of a){
+            if(k === 'c'){
+                break;
+            }
+            console.log(k);
+        }
+    </script>
+</body>
+
+</html>
