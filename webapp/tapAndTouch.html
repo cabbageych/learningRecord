@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>处理移动端点透事件</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="underLayer">底层元素</div>
+        <div id="popupLayer">
+            <div class="layer-title">弹出层</div>
+            <div class="layer-action">
+                <button class="btn" id="closePopup">关闭</button>
+            </div>
+        </div>
+    </div>
+    <div id="bgMask"></div>
+    <script src="../jquery-3.3.1.js"></script>
+    <script>
+        $('#closePopup').on('tap', function (e) {
+            $('#popupLayer').hide();
+            $('#bgMask').hide();
+        });
+
+        $('#underLayer').on('click', function () {
+            alert('underLayer clicked');
+        });
+    </script>
+</body>
+
+</html>

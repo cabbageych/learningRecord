@@ -14,11 +14,12 @@
     }
     //console.log(arr.length);
     Array.prototype.test = function () {
-        return "test";
+        return "test emmmm!";
     };
-    //console.log(arr.test.test());
+    //console.log(arr.test());
 
     var proTest = function(){
+        this.test = "for testing!!!";
         return "hello js!";
     };
     proTest.prototype = {

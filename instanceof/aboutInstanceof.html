@@ -13,15 +13,12 @@
         var a = new test();
         var m = [1,23,2,4];
         var str = "slkdjf";
-        console.log(Array.prototype);
         var arr = new Array();
-        arr.__proto__.constructor = test;
-        console.log(arr.__proto__);
         console.log(arr instanceof Array);
-        console.log(Array.isArray(arr));
-        console.log(test instanceof Array);
-        a.__proto__.constructor = test;
-        console.log(a instanceof Array);
+        console.log(arr);
+        arr.__proto__ = test.prototype;   //改变arr原型指向，使得instanceof判断出错
+        console.log(arr instanceof Array);
+        console.log(Array.isArray(arr));  //使用Array.isArray进行判断是否是数组是最稳妥的方法
     </script>
 </body>
 

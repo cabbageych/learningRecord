@@ -24,6 +24,7 @@
         }
         var parent = document.getElementsByClassName("parent")[0];
         parent.addEventListener("click", function (e) {
+            console.log(e);
             if (e.target.tagName === "A") {
                 var sure = confirm("确认点击？");
                 if (sure) {
