@@ -23,7 +23,7 @@
             var canvas06 = document.getElementById("myCanvas06");
             //实心矩形
             if (canvas.getContext) {
-                var ctx = canvas.getContext("2d");
+                var ctx = canvas.getContext("2d");//获取上下文环境
                 ctx.fillStyle = "rgb(200,0,0)";   //当前样式设置对接下来的图形填充起效
                 ctx.fillRect(10, 10, 55, 50);
                 ctx.fillStyle = "rgba(1,1,1,0.5)";
@@ -80,7 +80,7 @@
                 ctx.stroke();
                 ctx.beginPath();
                 ctx.arc(100,100,40,0,Math.PI*2,false);
-                ctx.closePath();
+                //ctx.closePath();
                 //ctx.stroke();
                 ctx.fill();
             }
