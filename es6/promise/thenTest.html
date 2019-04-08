@@ -16,7 +16,7 @@
             console.log("start!");
             resolve(5);
         });
-        p.then(num=>num+num).then(num=>{
+        p.then(num=>num+num).then(num=>{    //上一个then的返回值传给下一个then
             console.log(num);
         });
     </script>
