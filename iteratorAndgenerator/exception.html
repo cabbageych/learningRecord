@@ -17,8 +17,9 @@
         function* gen(x) {
             try {
                 var y = yield x + 2;
+                //var a = yield y / 0;
             } catch (e) {
-                console.log(e);
+                console.log("除法错误!");
             }
             return y;
         }

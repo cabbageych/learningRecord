@@ -18,6 +18,7 @@
         console.log(x); //test02 {<suspended>}
         var temp = x.next();
         console.log(temp);  //{value: 6, done: false}
+        //console.log(x.next());//{value: NaN, done: false}
         console.log(x.next(temp.value)); //{value: 11, done: false}
         console.log(x.next());//{value: undefined, done: true}
     </script>
