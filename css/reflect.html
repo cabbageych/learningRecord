@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>使用css3实现倒影</title>
+        <style>
+            #img{
+                -webkit-box-reflect: below 10px;/*above below right left*/
+            }
+            #img02{
+                position:relative;
+                left:500px;
+                height:200px;
+                width:200px;
+                background: url("../canvas/IMG_20170425_164207.jpg") no-repeat;
+                background-size: 200px 190px;
+            }
+            #img02::after{
+                content:'';
+                display: inline-block;
+                position:relative;
+                height:400px;
+                width:200px;
+                background:url("../canvas/IMG_20170425_164207.jpg") no-repeat;
+                background-size:200px 190px;
+                transform:scale(-1);
+            }
+        </style>
+    </head>
+    <body>
+        <img id="img" src="../canvas/IMG_20170425_164207.jpg" height=200 width=200>
+        <div id="img02"></div>
+        <script>
+        
+        </script>
+    </body>
+</html>

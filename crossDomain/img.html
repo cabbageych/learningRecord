@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>simple test</title>
+    <title>img</title>
     <style>
         #test01 {
             position: relative;
@@ -23,10 +23,12 @@
 </head>
 
 <body>
-    <iframe id="test01" name="tobiadu" src="https://www.baidu.com/"></iframe>
-    <iframe id="test02" name="tobeing" src="https://cn.bing.com"></iframe>
+    <img id="img" src="https://images3.alphacoders.com/825/825213.png" width=200px height=200>
     <script>
-
+        var img = document.getElementById("img");
+        img.onload = function () {
+            console.log("succeed!!!");
+        }
     </script>
 </body>
 

@@ -6,6 +6,29 @@
 </head>
 <body>
 <script>
+    //原型继承
+    function parent(){
+        this.a = 100;
+        this.b = 200;
+        this.func = function(){
+            console.log("parent's method");
+            console.log(this.a);
+        }
+    }
+    parent.prototype.print = function(){
+        console.log("parent console.log");
+    }
+    function child(){
+        this.a = 1000;   //子类中有的a覆盖父类中的a
+        this.c = 100;
+    }
+    child.prototype = new parent();
+    var p = new parent();
+    var c = new child();
+    p.print();
+    c.print();
+    c.func();
+    //call继承
     function Test(a,b,name) {
         this.a = a;
         this.b = b;
@@ -20,7 +43,7 @@
     }
 
     function Test02(a,b,name) {
-        Test.call(this,a,b,name);
+        Test.call(this,a,b,name); //this为当前实例，将父类中的属性和方法变成自己的
     }
     Test02.prototype = new Test();
     Test02.prototype.constructor = Test02;
@@ -31,7 +54,7 @@
     //console.log(t instanceof Test02);
     //console.log(t instanceof Test);
 
-
+    //extends继承
     class A{
         constructor(a){
             this.a = a;

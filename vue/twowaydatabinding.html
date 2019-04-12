@@ -15,19 +15,20 @@
     </body>
     <script type="text/javascript">
         var obj = {}
+        var temp;
         Object.defineProperty(obj, 'txt', {
             get: function () {     //获取值触发
-                console.log("get test!!!");
-                return "get test";
+                return temp;
             },
             set: function (newValue) {      //设置值触发
                 document.getElementById('txt').value = newValue;
                 document.getElementById('show').innerHTML = newValue;
-                console.log(newValue);
+                //console.log(newValue);
             }
         })
         document.addEventListener('keyup', function (e) {
             obj.txt = e.target.value;
+            temp = e.target.value;
             console.log(obj.txt);    //触发get函数
         })
     </script>

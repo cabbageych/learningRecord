@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>incetanceof typeof区别</title>
+    </head>
+    <body>
+
+        <script>
+            //object
+            var a = new Date();
+            var b = new Array();
+            var c = new Error();
+            var e = new RegExp();
+            var f = new Object();
+            //function
+            var d = new Function();
+            console.log(typeof a);
+            console.log(typeof b);
+            console.log(typeof c);
+            console.log(typeof d);
+            console.log(typeof e);
+            console.log(typeof f);
+            //true
+            console.log(a instanceof Date);
+            console.log(b instanceof Array);
+            console.log(c instanceof Error);
+            console.log(d instanceof Function);
+            console.log(e instanceof RegExp);
+            console.log(f instanceof Object);
+
+            console.log(!!2 == true); //true
+            var a = 100 -'2s';
+            var b = 100 -'2s';
+            console.log(isNaN(a));  //true
+            console.log(a === b);   //false  NaN类型的值无法进行判等，无论是==还是===，只能用isNaN进行判断
+        </script>
+    </body>
+</html>
