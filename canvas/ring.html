@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>利用canvas画环图</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <canvas id="can" width=500px; height=500px; style="position:relative;left:40%;top:100px;"></canvas>
+    <script>
+        var args = [
+            { start: 0, end: 0.4 * Math.PI, content: "green", fontsetting: "20px '微软雅黑'" },
+            { start: 0.4 * Math.PI, end: 1.2 * Math.PI, content: "yellow", fontsetting: "20px '微软雅黑'" },
+            { start: 1.2 * Math.PI, end: 1.8 * Math.PI, content: "black", fontsetting: "20px '微软雅黑'" },
+            { start: 1.8 * Math.PI, end: 2 * Math.PI, content: "red", fontsetting: "20px '微软雅黑'" },
+        ];
+        function draw() {
+            var can = document.getElementById("can");
+            var ctx = can.getContext("2d");
+            var x, y, temp;
+            for (let i = 0; i < args.length; i++) {
+                ctx.beginPath();
+                ctx.arc(250, 250, 100, args[i].start, args[i].end);
+                ctx.strokeStyle = args[i].content;
+                ctx.lineWidth = 30;
+                ctx.stroke();
+
+                //设置文字的位置
+                temp = (args[i].start + args[i].end) / 2;
+                x = 250 + 130 * Math.cos(temp);
+                y = 250 + 130 * Math.sin(temp);
+                ctx.font = args[i].fontsetting;
+                if (temp > Math.PI * 0.5 && temp < Math.PI * 1.5) {
+                    ctx.textAlign = 'end'; //设置文字的右侧在基线的左端
+                } else {
+                    ctx.textAlign = 'start';
+                }
+                ctx.fillText(args[i].content, x, y);  //设置文字
+            }
+        }
+        draw();
+    </script>
+</body>
+
+</html>
