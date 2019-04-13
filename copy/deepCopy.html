@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>深拷贝</title>
+</head>
+
+<body>
+    <script>
+        //通过JSON.parse(JSON.stringify(object))
+        var a = {
+            name: "cabbage",
+            inner: {
+                name: "cabbage-inner",
+                test: {}
+            }
+        }
+        var b = JSON.parse(JSON.stringify(a));
+        console.log(b.inner.name);
+        /*缺陷
+        会忽略 undefined
+        会忽略 symbol
+        不能序列化函数
+        不能解决循环引用的对象
+        */
+    </script>
+</body>
+
+</html>
