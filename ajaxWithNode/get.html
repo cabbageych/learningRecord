@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>test01</title>
+</head>
+
+<body>
+    <button onclick="ajax()">交互测试</button>
+    <script>
+        function ajax(){
+            var xml = new XMLHttpRequest();
+            xml.open('get','http://127.0.0.1:8080?data=emmmm');
+            let data = "testing!";
+            xml.onreadystatechange = function(){
+                if(xml.readyState !==4){
+                    return;
+                }
+                if(xml.status === 200){
+                    console.log(xml.responseText);
+                }else{
+                    console.log(xml.statusText);
+                }
+            }
+            xml.send(data);
+        }
+    </script>
+</body>
+
+</html>
