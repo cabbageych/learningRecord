@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jsonp实现</title>
+</head>
+
+<body>
+    <script>
+        function callback(name){
+            console.log('hello',name.name);
+        }
+        /*function jsonp(){
+            var xml = new XMLHttpRequest();
+            xml.open('get','http://127.0.0.1:8080?name=callback');
+            xml.send();
+            xml.onreadystatechange = function(){
+                if(xml.readyState !== 4){
+                    return;
+                }
+                if(xml.status === 200){
+                    console.log("success!");
+                }else{
+                    console.log(xml.statusText);
+                }
+            }
+        }
+        jsonp();*/
+        var script = document.createElement('script');
+        script.src = "http://127.0.0.1:8080?name=callback";
+        var body = document.getElementsByTagName('body')[0];
+        body.appendChild(script);
+    </script>
+    <!--<script src="http://127.0.0.1:8080?name=callback"></script>-->
+</body>
+
+</html>
