@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>深拷贝clone</title>
+</head>
+
+<body>
+    <script>
+        var x = {};
+        var y = {
+            name: "cabbage",
+            age: 21,
+            child: {
+                name: "cabbage child",
+                age: 21,
+                print: function () {
+                    console.log("print hello clone!");
+                },
+                child: {
+                    name: "cabbage grandchild",
+                    age: 21
+                }
+            }
+        };
+        var z = "string test";
+        function clone(b, a) {
+            if (typeof b !== "object")
+                throw new Error("no object!!!");
+            if (typeof a !== "object")
+                throw new Error("no object!!!");
+            for (let i in a) {
+                if (typeof a[i] === 'object') {
+                    b[i] = {};
+                    clone(b[i], a[i]);
+                } else {
+                    b[i] = a[i];
+                }
+            }
+        }
+        clone(x, y);
+        console.log(x);
+    </script>
+</body>
+
+</html>
