@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>scroll防抖</title>
+</head>
+
+<body>
+    <div style="position:relative;height:2000px;width:100px;"></div>
+    <script>
+        var i = 0;
+        function print(){
+            console.log(i++);
+        }
+        var antiShaking = (function(){
+            let timer;
+            return function(){
+                if(timer){
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(() => {
+                    print();
+                }, 500);
+            }
+        })();
+        window.addEventListener('scroll',antiShaking,false);
+    </script>
+</body>
+
+</html>
