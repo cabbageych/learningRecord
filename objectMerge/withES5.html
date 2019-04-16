@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>assignWithEs5</title>
+</head>
+
+<body>
+    <script>
+        var a = {
+            name: "cabbage",
+            age: 22,
+            a: "attributeFromA"
+        };
+        var b = {
+            name: "cabbage02",
+            age: 23,
+            b: "attributeFromB"
+        };
+        var c = "string test";
+        function assign() {
+            var temp = {};
+            for (let j = 0; j < arguments.length; j++) {
+                if(typeof arguments[j] !== 'object'){
+                    throw new Error("not object!");
+                }
+                for (let i in arguments[j]) {
+                    temp[i] = arguments[j][i];
+                }
+            }
+            console.log(temp);
+        }
+        assign(a, b);
+    </script>
+</body>
+
+</html>
