@@ -1,36 +1,142 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>简单数据双向绑定</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 
 <body>
-
-    <body>
-        <div id="app">
-            <input type="text" id="txt">     <!--触发set-->
-            <p id="show"></p>
-        </div>
-    </body>
+    <div id="app">
+        <input type="text" id="a" v-model="text">
+        <br>
+        {{ text }}
+        <br>
+        {{ test }}
+    </div>
     <script type="text/javascript">
-        var obj = {}
-        var temp;
-        Object.defineProperty(obj, 'txt', {
-            get: function () {     //获取值触发
-                return temp;
+        //   添加订阅者
+        Watcher.prototype = {
+            update: function () {
+                this.get();
+                this.node.nodeValue = this.value;
             },
-            set: function (newValue) {      //设置值触发
-                document.getElementById('txt').value = newValue;
-                document.getElementById('show').innerHTML = newValue;
-                //console.log(newValue);
+            get: function () {
+                // 在这里获取data里面的属性值，触发该属性的get方法，
+                // 将目标加入到订阅者数组
+                this.value = this.vm[this.name];
+            }
+        }
+
+        function Watcher(vm, node, name) {
+            Dep.target = this;
+            this.name = name;
+            this.node = node;
+            this.vm = vm;
+            this.update();
+            Dep.target = null;
+        }
+        // 编译器
+        function compile(node, vm) {
+            var reg = /\{\{(.*)\}\}/;//匹配两个大括号之间的任意值 
+            if (node.nodeType === 1) {// 节点类型为元素节点,表单
+                var attr = node.attributes;
+                for (var i = 0; i < attr.length; i++) {
+                    if (attr[i].nodeName == 'v-model') {
+                        var name = attr[i].nodeValue;
+                        node.addEventListener('input', function (e) {
+                            // 给元素添加监听器，事件触发，改变data里面的数据,set函数触发
+                            // 与此同时，将此订阅者加入到订阅者数组subs
+                            vm[name] = e.target.value;
+                        })
+                        node.value = vm[name];
+                        node.removeAttribute('v-model');
+                    }
+                }
+            }
+            if (node.nodeType === 3) {// 节点类型文本节点
+                if (reg.test(node.nodeValue)) {
+                    var name = RegExp.$1;
+                    name = name.trim();
+                    new Watcher(vm, node, name);
+                }
+            }
+        }
+        // 元素处理函数
+        function nodeToFragment(node, vm) {
+            var flag = document.createDocumentFragment();
+            var child;
+            while (child = node.firstChild) {
+                compile(child, vm);
+                flag.append(child);
+            }
+            return flag;
+        }
+        function Dep() {
+            this.subs = [];
+        }
+        Dep.prototype = {
+            addSub: function (sub) {
+                this.subs.push(sub);
+            },
+            notify: function () {
+                this.subs.forEach(function (sub) {
+                    sub.update();
+                })
+            }
+        }
+        // Vue类
+        function Vue(options) {
+            this.data = options.data;
+            var data = this.data;
+            // 数据监听
+            observe(data, this);
+            var id = options.el;
+            // 模板编译
+            var dom = nodeToFragment(document.getElementById(id), this);
+            document.getElementById(id).appendChild(dom);
+        }
+        // 实例化Vue类
+        var vm = new Vue({
+            el: 'app',
+            data: {
+                text: 'hello vue!',
+                test: 'hello world'
             }
         })
-        document.addEventListener('keyup', function (e) {
-            obj.txt = e.target.value;
-            temp = e.target.value;
-            console.log(obj.txt);    //触发get函数
-        })
+        // 观察函数
+        function observe(obj, vm) {
+            Object.keys(obj).forEach(function (key) {
+                defineReactive(vm, key, obj[key])
+            })
+        }
+
+        // 将传入的对象属性加上get和set
+        function defineReactive(obj, key, val) {
+            var dep = new Dep();
+            Object.defineProperty(obj, key, {
+                get: function () {
+                    // 在这里添加订阅者
+                    console.log(Dep.target)
+                    if (Dep.target)
+                        dep.addSub(Dep.target);
+                    return val;
+                },
+                set: function (newVal) {
+                    val = newVal;
+                    // 发布消息
+                    pub.publish(dep);
+                }
+            })
+        }
+
+        // 发布消息函数
+        var pub = {
+            publish: function (dep) {
+                dep.notify();
+            }
+        }        
     </script>
 </body>
 
