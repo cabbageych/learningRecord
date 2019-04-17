@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>手动实现promise.all</title>
+</head>
+
+<body>
+
+    <script>
+        var a = new Promise((resolve, reject) => {
+            console.log("promise 01");
+            resolve("resolve 01");
+        });
+        var b = new Promise((resolve, reject) => {
+            console.log("promise 02");
+            resolve("resolve 02");
+        });
+        var c = new Promise((resolve, reject) => {
+            console.log("promise 03");
+            reject("reject 03");
+        });
+        var d = new Promise((resolve, reject) => {
+            console.log("promise 04");
+            resolve("resolve 04");
+        });
+        var arr = [a, b, c, d];
+        function all(atr) {
+            var results = [];
+            var len = atr.length;
+            var count = 0;
+            return new Promise((resolve, reject) => {
+                for (let temp of atr) {
+                    temp.then((val) => {
+                        results[count++] = val;
+                        if(count == len){
+                            return resolve(results);
+                        }
+                    }, (err) => {
+                        return reject(err);
+                    })
+                }
+            });
+
+        };
+        var test = all(arr);
+        test.then((val)=>{
+            console.log(val);
+        },(err)=>{
+            console.log(err);
+        })
+        /*a.then((val)=>{
+            console.log(val);
+        });
+        c.then(()=>{},(val)=>{
+            console.log(val);
+        })*/
+    </script>
+</body>
+
+</html>
