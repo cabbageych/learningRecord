@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>属性拦截es6</title>
+</head>
+
+<body>
+    <script>
+        var a = {};
+        var temp;
+        a = new Proxy({}, {
+            get: function (target, property) {
+                console.log(property);
+                return "get test";
+            }
+        });
+        console.log(a.test);
+    </script>
+</body>
+
+</html>

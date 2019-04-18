@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>属性拦截es5</title>
+    </head>
+    <body>
+        <input id="input">
+        <label id="show"></label>
+        <script>
+            var a = {};
+            var temp;
+            Object.defineProperty(a,'test',{
+                set:function(newValue){
+                    tmep = newValue;
+                },
+                get:function(){
+                    return temp;
+                }
+            });
+            document.getElementById("input").addEventListener("keyup",function(e){
+                a.test = document.getElementById("input").value;
+                document.getElementById("show").innerHTML = e.target.value;
+            });
+        </script>
+    </body>
+</html>
