@@ -22,13 +22,13 @@
             var x, y, temp;
             for (let i = 0; i < args.length; i++) {
                 ctx.beginPath();
-                ctx.moveTo(100, 400);
+                //ctx.moveTo(100, 400);
                 x = (i + 1) * 100 - 50;
                 y = 500 - (args[i].height + 100);
                 ctx.fillStyle = args[i].content;
                 ctx.fillRect(x, y, 50, args[i].height);
                 ctx.font = args[i].fontsetting;
-                ctx.strokeText(args[i].content,x,450);
+                ctx.fillText(args[i].content,x,450);
             }
         }
         draw();

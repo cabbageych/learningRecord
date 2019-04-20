@@ -21,7 +21,10 @@
         //与for...in对比，for...in只能获取对象键名，不能直接获取键值，
         //而for...of允许直接获取键值。
         for (let i in a) {
-            console.log(i);
+            console.log(i); //0-5
+        }
+        for (let i of a) {
+            console.log(i);  //a-g
         }
         //使用数组作为变量
         let b = new Set([2, 5, 9]);
