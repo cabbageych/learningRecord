@@ -27,10 +27,10 @@
 <script>
     var parent = document.getElementsByClassName("parent")[0];
     var child = document.getElementsByClassName("child")[0];
-    document.body.addEventListener("click",function(e){
-        alert("click body!!! bubble");
+    document.addEventListener('click',function(){
+        alert("click documnet!!! bubble");
     },false);
-    parent.addEventListener("click",function(e){
+    parent.addEventListener("click",function(e){  //先定义冒泡行为，则处于parent目标阶段时，先触发冒泡事件；反之，先触发捕获事件
         alert("click parent!!! bubble");
     },false);
     parent.addEventListener("click",function(e){
@@ -38,6 +38,8 @@
         alert("click parent!!! capture");
     },true);
     child.addEventListener("click",function(e){
+        //停止冒泡
+        e.stopPropagation();
         alert("click child!!! bubble");
     },false)
 </script>

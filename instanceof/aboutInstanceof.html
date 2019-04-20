@@ -7,7 +7,8 @@
 
 <body>
     <script>
-        //instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。
+        //检测对象A是不是另一个对象B的实例的原理是：
+        //查看对象B的prototype属性指向的原型对象是否在对象A的原型链上，若在则返回true，若不在则返回false。
         function test(){
             this.name = "test";
         }
@@ -15,6 +16,9 @@
         var m = [1,23,2,4];
         var str = "slkdjf";
         var arr = new Array();
+        console.log(arr);
+        console.log(test.prototype);
+        console.log(Array.prototype);
         console.log(arr instanceof Array);
         console.log(arr);
         arr.__proto__ = test.prototype;   //改变arr原型指向，使得instanceof判断出错
