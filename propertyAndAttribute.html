@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>attrribute&property</title>
+    </head>
+    <body>
+        <div id="test" style="position:relative;" testId="888">test</div>
+        <script>
+            var test = document.getElementById("test");
+            //attributes
+            console.log(test.attributes); //NamedNodeMap {0: id, 1: style, 2: testid, id: id, style: style, testid: testid, length: 3}
+            console.log(test.attributes[0].name,test.attributes[0].value); //id test
+            console.log(test.getAttribute("id"));   //test
+
+
+            //property   无法操作自定义的attribute，两者无关联
+            //自定义property
+            test.selfPro = "self Property";
+            console.log(test.selfPro);
+
+            //property删除
+            delete test.selfPro;
+            console.log(test.selfPro); //undefined
+
+            console.log(test.id);  //test
+            console.log(test.testId); //undefined
+        </script>
+    </body>
+</html>
