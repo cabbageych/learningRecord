@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>forOfAndIn</title>
+</head>
+
+<body>
+    <script>
+        //迭代对象
+        var object01 = {
+            name: "cabbage",
+            age: 22,
+            child: {
+                name: "cabbage child",
+                age: 22,
+                grandchild: {
+                    name: "cabbage grandchild",
+                    age: 22
+                }
+            }
+        };
+        var object02 = {
+            name: "cabbage",
+            age: 22
+        }
+        object02.add = "add test";
+        //object02.__proto__.test = "emmm";
+        /*for (let i in object02) {
+            console.log(i);
+        }*/
+        function object03(){
+            this.name = "cabbage";
+            this.age = 22;
+        }
+        object03.prototype.b = "mmmme";
+        var temp  = new object03();
+        temp.a = "emmm";
+        console.log(temp);
+        for(let i in temp){
+            console.log(i);
+        }
+    </script>
+</body>
+
+</html>
