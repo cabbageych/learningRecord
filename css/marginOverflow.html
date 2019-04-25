@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>margin覆盖</title>
+    <style>
+        #absoluteTest {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            background: rgb(50, 204, 114);
+            margin-bottom: 50px;
+        }
+
+        #absoluteTest02 {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            background: rgb(50, 78, 204);
+            top:200px;
+            margin-top:0px;
+        }
+
+        #test01 {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            background: lightblue;
+            margin-bottom: 100px;
+            overflow: hidden;
+        }
+
+        #test02 {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            background: lightcoral;
+            margin-top: 150px;
+            /*div01和div02相距150px*/
+            margin-bottom: -50px;
+            /*div02和div03相距-50px*/
+        }
+
+        #test03 {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            background: rgb(50, 204, 114);
+            margin-top: -40px;
+        }
+        #container01{
+            position:relative;
+            left:500px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--<div id="absoluteTest"></div>
+    <div id="absoluteTest02"></div>-->
+    <div id="container01">
+        <div id="test01"></div>
+        <div id="test02"></div>
+        <div id="test03"></div>
+    </div>
+</body>
+
+</html>

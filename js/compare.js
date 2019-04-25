@@ -15,3 +15,4 @@ if(0<1<1){   //0<1返回true， true<1 ==> 1<1 结果为false
 }else{
     b();
 }
+//console.log("abc567"++);//error

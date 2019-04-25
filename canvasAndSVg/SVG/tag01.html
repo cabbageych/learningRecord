@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>标签</title>
+    <style>
+        .red {
+            fill: red;
+        }
+
+        .fancy {
+            fill: none;
+            stroke: black;
+            stroke-width: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>circle</h4>
+    <svg width="300" height="180">
+        <circle cx="30" cy="50" r="25"></circle>
+        <circle cx="90" cy="50" r="25" class="red"></circle>
+        <circle cx="150" cy="50" r="25" class="fancy"></circle>
+    </svg>
+    <p>
+        fill：填充色
+        stroke：描边色
+        stroke-width：边框宽度
+    </p>
+    <hr>
+    <h4>line</h4>
+    <svg width="300" height="50">
+        <line x1="0" y1="0" x2="200" y2="0" style="stroke:rgb(0,0,0);stroke-width:5">
+    </svg>
+    <p>
+        标签的x1属性和y1属性，表示线段起点的横坐标和纵坐标；x2属性和y2属性，表示线段终点的横坐标和纵坐标；
+        style属性表示线段的样式。
+    </p>
+    <hr>
+    <h4>polyline(折线)</h4>
+    <svg width="300" height="100">
+        <polyline points="3,3 30,28 280,50 200,80" fill="red" stroke="black">
+    </svg>
+    <p>
+        points属性指定了每个端点的坐标，横坐标与纵坐标之间与逗号分隔，点与点之间用空格分隔
+    </p>
+    <hr>
+    <h4>ellipse(椭圆)</h4>
+    <svg width="300" height="180">
+        <ellipse cx="60" cy="60" ry="40" rx="20" stroke="black" stroke-width="5" fill="silver">
+    </svg>
+    <p>
+        cx属性和cy属性，指定了椭圆中心的横坐标和纵坐标（单位像素）；rx属性和ry属性，指定了椭圆横向轴和纵向轴的半径
+    </p>
+    <hr>
+    <h4>polygon(多边形)</h4>
+    <svg width="300" height="180">
+        <polygon fill="green" stroke="orange" stroke-width="10" points="0,0 100,0 100,100 0,180 0,0"></polygon>
+    </svg>
+    <p>
+        points属性指定了每个端点的坐标，横坐标与纵坐标之间与逗号分隔，点与点之间用空格分隔。
+    </p>
+    <hr>
+    <h4>path(路径绘制)</h4>
+    <svg width="300" height="180">
+        <path d="M 18,3 L 22,13 L 46,40 L 161,90  L 250,40 Z"></path>
+    </svg>
+    <p>
+        d属性表示绘制顺序，它的值是一个长字符串，每个字母表示一个绘制动作，后面跟着坐标。
+        M：移动到（moveto）
+        L：画直线到（lineto）
+        Z：闭合路径
+    </p>
+    <hr>
+    <h4>text</h4>
+    <svg height="50" width="300">
+        <text x="50" y="25" fill="red">hello world</text>
+    </svg>
+    <p>
+        x属性和y属性，表示文本区块基线（baseline）起点的横坐标和纵坐标。文字的样式可以用class或style属性指定。
+    </p>
+    <hr>
+</body>
+
+</html>

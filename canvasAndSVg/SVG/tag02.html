@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>标签(use系列)</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h4>use</h4>
+    <svg viewBox="0 0 90 50" height="180" width="300">
+        <circle id="mycircle" cx="20" cy="20" r="10"></circle>
+        <use href="#mycircle" x="40" y="20" fill="blue"></use>
+        <use href="#mycircle" x="60" y="20" fill="white" stroke="blue"></use>
+    </svg>
+    <p>
+        use的href属性指定所要复制的节点，x属性和y属性是use左上角的坐标。另外，还可以指定width和height坐标。
+    </p>
+    <hr>
+    <h4>g(将多个形状组成一组，方便复用)</h4>
+    <svg width="300" height="100">
+        <g id="mygroup">
+            <text x="25" y="20">圆形</text>
+            <circle cx="50" cy="50" r="20" fill="lightblue"></circle>
+        </g>
+        <use href="#mygroup" x="100" y="0" fill="yellow"></use>
+        <use href="#mygroup" x="200" y="0" stroke="red"></use>
+    </svg>
+    <hr>
+    <h4>defs</h4>
+    <svg width="300" height="180">
+        <defs>
+            <g id="defsTest">
+                <text x="30" y="20" stroke-width="0">椭圆</text>
+                <ellipse cx="50" cy="50" rx="30" ry="20"></ellipse>
+            </g>
+        </defs>
+        <use href="#defsTest" x="0" y="0" fill="red"></use>
+        <use href="#defsTest" x="100" y="50" stroke-width="5" stroke="yellow"></use>
+    </svg>
+    <p>
+        用于自定义形状，它内部的代码不会显示，仅供引用。
+    </p>
+    <hr>
+    <h4>polygon(多边形)</h4>
+    <svg width="300" height="180">
+        <polygon fill="green" stroke="orange" stroke-width="10" points="0,0 100,0 100,100 0,180 0,0"></polygon>
+    </svg>
+    <p>
+        points属性指定了每个端点的坐标，横坐标与纵坐标之间与逗号分隔，点与点之间用空格分隔。
+    </p>
+    <hr>
+</body>
+
+</html>
