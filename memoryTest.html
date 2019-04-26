@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>内存泄漏查看</title>
+</head>
+
+<body>
+    <button onclick="test()">test!!!</button>
+    <script>
+        function test() {
+            var a;
+            setInterval(function () { console.log(a++) }, 1000);
+        }
+
+    </script>
+</body>
+
+</html>
