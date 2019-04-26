@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>animation</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h4>animate</h4>
+    <svg width="500px" height="150px">
+        <rect x="0" y="0" width="100" height="100" fill="gray">
+            <animate attributeName="x" from="0" to="500" dur="4s" repeatCount="indefinite"></animate>
+            <animate attributeName="width" to="200" dur="2s" repeatCount="indefinite"></animate>
+            <animate attributeName="fill" to="red" dur="1s" repeatCount="indefinite"></animate>
+        </rect>
+    </svg>
+    <p>
+        attributeName：发生动画效果的属性名。
+        from：单次动画的初始值。
+        to：单次动画的结束值。
+        dur：单次动画的持续时间。
+        repeatCount：动画的循环模式。
+    </p>
+    <hr>
+    <h4>animate02</h4>
+    <svg width="500px" height="200px">
+        <circle cx="50" cy="100" r="50" fill="green" stroke="red">
+            <animate attributeName="cx" from="50" to="500" dur="4s" repeatCount="indefinite"></animate>
+            <animate attributeName="r" to="100" dur="2s" repeatCount="indefinite"></animate>
+            <animate attributeName="fill" to="dark" dur="1s" repeatCount="indefinite"></animate>
+            <animate attributeName="stroke-width" to="10" dur="2s" repeatCount="indefinite"></animate>
+        </circle>
+    </svg>
+    <hr>
+    <h4>animateTransform</h4>
+    <svg width="500px" height="500px">
+        <rect x="0" y="0" width="50" height="50" fill="lightblue">
+            <animateTransform attributeName="transform" type="rotate" begin="0s" dur="10s" from="0 0 500" to="360 25 25"
+                repeatCount="indefinite"></animateTransform>
+        </rect>
+    </svg>
+    <p>
+        from和to属性值有三个数字，第一个数字是角度值，第二个值和第三个值是旋转中心的坐标。from="0 200 200"表示开始时，
+        角度为0，围绕(200, 200)开始旋转；to="360 400 400"表示结束时，角度为360，围绕(400, 400)旋转。
+    </p>
+    <hr>
+</body>
+
+</html>

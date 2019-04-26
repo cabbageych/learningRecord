@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>围绕中心旋转</title>
+        <style>
+            #outer{
+                position:relative;
+                margin:0 auto;
+                height:500px;
+                width:500px;
+                background:rgba(8, 6, 43, 0.877);
+            }
+            #children{
+                position:relative;
+                margin:0 auto;
+                padding:0;
+                height:50px;
+                width:50px;
+                border-radius: 50%;
+                background:yellow;
+                transform-origin: 25px 250px;
+                animation: round 5s linear infinite;
+                z-index: 1;
+            }
+            @keyframes round{
+                from{
+                    transform: rotate(0);
+                }
+                to{
+                    transform: rotate(360deg);
+                }
+            }
+            #track{
+                position:absolute;
+                top:20px;
+                left:20px;
+                height:460px;
+                width:460px;
+                border-radius: 50%;
+                border:2px solid white;
+            }
+            #center{
+                position:absolute;
+                height:100px;
+                width:100px;
+                background:radial-gradient(red,yellow 80%);
+                box-shadow: 0 0 20px lightgreen;
+                left:200px;
+                top:200px;
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="outer">
+            <div id="track"></div>
+            <div id="children"></div>
+            <div id="center"></div>
+        </div>
+    </body>
+</html>
