@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>some test about display</title>
+    <style>
+        #labelBlock {
+            display: block;
+        }
+        #setNone{
+            display: none;
+            position:relative;
+            height:100px;
+            width:100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label id="labelBlock">给label设置display:block;</label>
+        <label>p2</label>
+    </div>
+    <p id="setNone">将display设置为none后尝试获取宽度</p>
+    <script>
+        var none = document.getElementById("setNone");
+        console.log(none.style.width);
+    </script>
+</body>
+
+</html>

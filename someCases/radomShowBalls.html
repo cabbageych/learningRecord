@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>小球随机显示</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>屏幕任意显示【2,8】个圆形或正方形，颜色各不相同</h1>
+    <script>
+        let parent = document.createElement("div");
+        let width = document.documentElement.clientWidth;
+        let height = document.documentElement.clientHeight;
+        parent.style.position = "absolute";
+        parent.style.height = height+"px";
+        parent.style.width = width+"px";
+        console.log(height,width);
+        for (let i = 0; i < 8; i++) {
+            let div = document.createElement("div");
+            div.style.position = "absolute";
+            div.style.height = "200px";
+            div.style.width = "200px";
+            div.style.borderRadius = "50%";
+            div.style.left = Math.random() * width+"px";
+            div.style.top = Math.random() * height+"px";
+            div.style.backgroundColor = "rgb("+getColor()+","+getColor()+","+getColor()+")";
+            parent.appendChild(div);
+        }
+        function getColor(){
+            return Math.random()*255;
+        }
+        let body = document.getElementsByTagName("body")[0];
+        body.appendChild(parent);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>布局</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #left {
+            width: 10%;
+            height: 100vh;
+            background: lightblue;
+        }
+
+        #right {
+            width: 10%;
+            height: 100vh;
+            background: lightblue;
+        }
+
+        #middle {
+            flex: 1;
+            background: lightcoral;
+            text-align: center;
+        }
+
+        #middle::before {
+            content: '三列布局，左右两边固定，中间自适应';
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside id="left"></aside>
+    <div id="middle"></div>
+    <aside id="right"></aside>
+
+</body>
+
+</html>
