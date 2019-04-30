@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>getStyleValue</title>
+        <style>
+            #test01{
+                position:relative;
+                height:300px;
+                width:300px;
+                background:lightblue;
+                border:1px solid black;
+                margin:0 auto;
+            }
+            #test02{
+                position:relative;
+                height:50%;
+                width:50%;
+                border-radius:50%;
+                background:lightcoral;
+                border:1px solid yellow;
+                margin:0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="test01">
+            <div id="test02"></div>
+        </div>
+        <script>
+            var test01 = document.getElementById("test01");
+            var test02 = document.getElementById("test02");
+            //console.log(test01.style.width); //输出为空，直接使用style只可以获取内联样式
+            function getStyleValue(node,name){
+                 let temp = window.getComputedStyle(node)[name];
+                 
+                 console.log(temp);
+            }
+            getStyleValue(test01,"width");
+            getStyleValue(test02,"width");
+            getStyleValue(test02,"border-radius");
+        </script>
+    </body>
+</html>
