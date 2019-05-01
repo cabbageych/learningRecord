@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>drag</title>
+    <title>dataTransfer</title>
     <style>
         body {
             text-align: center;
@@ -51,21 +51,43 @@
     </div>
     <div id="tail"></div>
     <script>
-        var test01 = document.getElementById("drag01");
-        var test02 = document.getElementById("drag02");
-        test02.ondragover = enter;
-        test01.ondragover = enter;
+        //dataTransfer中的setData和getData配合实现数据拖动
+        var test01 = document.getElementById("test01");
+        var test02 = document.getElementById("test02");
+        test01.ondragstart = start;
+        test02.ondragstart = start;
+        test01.ondragenter = enter;
+        test02.ondragenter = enter;
+        test01.ondragover = over;
+        test02.ondragover = over;
+        test02.ondragleave = leave;
+        test01.ondragleave = leave;
         test01.ondrop = drop;
         test02.ondrop = drop;
+
+        function start(e){
+            e.dataTransfer.setData('id',e.target.id);
+            //console.log(e.target.id);
+        }
+
+        //取消enter和over的默认行为：拒绝添加任何拖动元素
         function enter(e){
             e.preventDefault();
-            let temp = e.dataTransfer.getData("Text");
-            console.log(temp);
+        }
+
+        function over(e){
+            e.preventDefault();
+        }
+
+        function leave(e){
+            e.preventDefault();
+            //let temp = e.dataTransfer.getData("id");
+            //console.log(temp);
         }
         function drop(e){
             e.preventDefault();
             e.stopPropagation();
-            let temp = e.dataTransfer.getData("drag");
+            let temp = e.dataTransfer.getData("id");
             if(temp){
                 e.target.appendChild(document.getElementById(temp));
             }
