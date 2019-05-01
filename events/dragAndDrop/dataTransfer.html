@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>drag</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #head {
+            position: relative;
+            height: 100px;
+            width: 100%;
+            background: lightblue;
+        }
+
+        #test01 {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            background: lightgoldenrodyellow;
+        }
+
+        #test02 {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            background: lightgoldenrodyellow;
+        }
+
+        #tail {
+            position: relative;
+            height: 100px;
+            width: 100%;
+            background: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="head"></div>
+    <div id="container">
+        <div id="test01">
+            <p id="drag01" draggable="true">message form div01!</p>
+        </div>
+        <!--元素设置draggable为true后拖动动画生效-->
+        <div id="test02">
+            <p id="drag02" draggable="true">message from div02!</p>
+        </div>
+    </div>
+    <div id="tail"></div>
+    <script>
+        var test01 = document.getElementById("drag01");
+        var test02 = document.getElementById("drag02");
+        test02.ondragover = enter;
+        test01.ondragover = enter;
+        test01.ondrop = drop;
+        test02.ondrop = drop;
+        function enter(e){
+            e.preventDefault();
+            let temp = e.dataTransfer.getData("Text");
+            console.log(temp);
+        }
+        function drop(e){
+            e.preventDefault();
+            e.stopPropagation();
+            let temp = e.dataTransfer.getData("drag");
+            if(temp){
+                e.target.appendChild(document.getElementById(temp));
+            }
+            console.log(temp);
+        }
+    </script>
+</body>
+
+</html>

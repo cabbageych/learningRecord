@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>drag</title>
+    <style>
+        #head {
+            position: relative;
+            height: 100px;
+            width: 100%;
+            background: lightblue;
+        }
+
+        #test01 {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            background: lightgoldenrodyellow;
+        }
+
+        #test02 {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            background: lightgreen;
+        }
+
+        #tail {
+            position: relative;
+            height: 100px;
+            width: 100%;
+            background: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="head"></div>
+    <div id="container">
+        <div id="test01" draggable="true"></div>
+        <!--元素设置draggable为true后拖动动画生效-->
+        <p id="test02" draggable="true">这是一段文字</p>
+    </div>
+    <div id="tail"></div>
+    <script>
+        var test01 = document.getElementById("test01");
+        var test02 = document.getElementById("test02");
+        //前提：元素的draggable设置为true
+        //拖动触发
+        test01.ondragstart = function () {
+            console.log("drag start!");
+        }
+        //拖动中
+        test01.ondrag = function (e) {
+            //console.log("draging!");
+            //console.log(e.pageX, e.pageY);
+        }
+        //拖动结束
+        test01.ondragend = function () {
+            console.log("drag end!");
+        }
+
+        //dragenter和dragover事件的默认行为是拒绝接受任何被拖放的元素。因此，我们必须阻止浏览器这种默认行为。e.preventDefault();
+        //目的地：被拖动元素所占据的位置
+        //鼠标点击的位置离开目的地：leave；鼠标点击：enter；鼠标拖动离开目的地过程中：over；
+        test01.ondragenter = function(e){
+            console.log("元素进入目的时触发！");
+            e.preventDefault();
+        }
+        test01.ondragover = function(e){
+            console.log("元素在目的地时触发!");
+            e.preventDefault();
+        }
+        test01.ondragleave = function(e){
+            console.log("元素离开目的地时触发");
+            e.preventDefault();
+        }   
+
+
+        //drop
+        test01.ondrop = function(e){
+            console.log("drop!");
+            e.preventDefault();
+        }
+    </script>
+</body>
+
+</html>
