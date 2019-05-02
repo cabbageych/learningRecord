@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>实现virtualList</title>
+    <style>
+        #container {
+            position: relative;
+            height: 300px;
+            ;
+            width: 500px;
+            border: 1px solid black;
+            background: rgb(163, 208, 236);
+            margin: 100px auto;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .list-item {
+            position: relative;
+            border: 1px solid yellow;
+            text-align: center;
+            width: 500px;
+            height: 60px;
+            line-height: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="list-item" id="div01">1</div>
+        <div class="list-item" id="div02">2</div>
+        <div class="list-item" id="div03">3</div>
+        <div class="list-item" id="div04">4</div>
+        <div class="list-item" id="div05">5</div>
+        <div class="list-item" id="div06">6</div>
+        <div class="list-item" id="div07">7</div>
+    </div>
+    <script>
+        var container = document.getElementById("container");
+        var tempArr = [];
+        var count = 8;
+        var totalRecord = 0, tempRecord = 0;
+        for (let i = 1; i <= 7; i++) {
+            let div = document.getElementById("div0" + i);
+            tempArr.push(div);
+        }
+        container.addEventListener("scroll", function (e) {
+            let start = 0;
+            if (this.scrollTop >= 70) {
+                totalRecord += this.scrollTop - 70;
+                tempRecord = this.scrollTop;
+
+                start = Math.floor((totalRecord) / 60);
+                if (start >= 0) {
+                    for (let i = 0; i < tempArr.length; i++) {
+                        tempArr[i].innerHTML = start++;
+                    }
+                }
+            } else {
+                totalRecord -= (70 - this.scrollTop);
+                tempRecord = this.scrollTop;
+
+                start = Math.floor((totalRecord) / 60);
+                if (start >= 0) {
+                    for (let i = 0; i < tempArr.length; i++) {
+                        tempArr[i].innerHTML = start++;
+                    }
+                }
+            }
+
+            this.scrollTop = 70;
+        }, false);
+    </script>
+</body>
+
+</html>
