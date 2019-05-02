@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+</head>
+
+<body>
+    <button onclick="sub()">连接测试</button>
+    <script>
+        function sub(){
+            var xml = new XMLHttpRequest();
+            xml.open('post',"http://localhost:8080");
+            xml.send();
+            xml.onreadystatechange = function(){
+                if(xml.readyState != 4){
+                    return;
+                }
+                if(xml.status == 200){
+                    console.log("success!");
+                }else{
+                    console.log("fail!");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
