@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>printArr</title>
+</head>
+
+<body>
+    <script>
+        let a = [1, 2, 3, 4];
+        let b = ['a', 'b', 'c'];
+        var count = 0;
+        var temp;
+
+        let worker = new Worker("http://localhost:8080/worker.js");
+        async function print() {
+            let temp;
+            for (let i = 0; i < b.length; i++) {
+                worker.postMessage({ char: b[i] });
+                temp = await printB();
+                console.log(a[i]);
+                console.log(temp);
+            }
+            /*worker.postMessage({ char: b[0] });
+            temp = await printB();
+            console.log(a[0]);
+            console.log(temp);
+            worker.postMessage({ char: b[1] });
+            temp = await printB();
+            console.log(a[1]);
+            console.log(temp);
+            worker.postMessage({ char: b[2] });
+            temp = await printB();
+            console.log(a[2]);
+            console.log(temp);*/
+
+            console.log(a[3]);
+        }
+
+        function printB() {
+            return new Promise((resolve, reject) => {
+                worker.onmessage = function (event) {
+                    resolve(event.data);
+                }
+            });
+        }
+        print();
+        /*
+        worker.postMessage({ char: b[0] });
+        var test = new Promise((resolve, reject) => {
+            console.log(a[0]);
+            worker.onmessage = function (event) {
+                resolve(event.data);
+            };
+            worker.postMessage({ char: b[1] });
+        }).then((val) => {
+            console.log(val);
+            console.log(a[1]);
+            return new Promise((resolve, reject) => {
+                worker.onmessage = function (event) {
+                    resolve(event.data);
+                };
+            }).then((val) => val);
+        }).then(val => {
+            console.log(val);
+            console.log(a[2]);
+            worker.postMessage({char:b[2]});
+        }).then(() => {
+            return new Promise((resolve, reject) => {
+                worker.onmessage = function (event) {
+                    resolve(event.data);
+                }
+            }).then((val) => val);
+        }).then((val) => {
+            console.log(val);
+            console.log(a[3]);
+        });*/
+    </script>
+</body>
+
+</html>
