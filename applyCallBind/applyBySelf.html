@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>实现apply</title>
+</head>
+
+<body>
+    <script>
+        //实现apply
+        function print() {
+            console.log(this.data);
+        }
+        var a = {
+            data: "cabbage"
+        };
+        //print.apply(a);
+        print.prototype.apply = function(a){
+            console.log(this.constructor);
+            a.fn = this.constructor;
+            a.fn();
+            delete a.fn;
+        }
+        print.prototype.apply(a);
+    </script>
+</body>
+
+</html>

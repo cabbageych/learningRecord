@@ -1,39 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>test.test</title>
+    <title>arrowTest</title>
 </head>
+
 <body>
-<script>
-    var a = ()=>{console.log("xixihaha");};
-    a();
-    var b = a=>{console.log(a);}; //当函数的参数有且只有一个的时候省略括号
-    b("cabbage");
-    var c = (a,b)=>a+b; //当函数体只有一个return语句时省略花括号以及return
-    console.log(c(1,4));
-    //(()=>{console.log("xixihaha");})();
-    /*var adder = {
-        base : 1,
 
-        add : function(a) {
-            var f = v => v + this.base;
-            return f(a);
-        },
+    <script>
+        var a = () => { console.log("xixihaha"); };
+        a();
+        var b = a => { console.log(a); }; //当函数的参数有且只有一个的时候省略括号
+        b("cabbage");
+        var c = (a, b) => a + b; //当函数体只有一个return语句时省略花括号以及return
+        console.log(c(1, 4));
 
-        addThruCall: function(a) {
-            var f = v => v + this.base;
-            var b = {
-                base : 2
-            };
 
-            return f.call(b, a);
+        //默认绑定外层this
+        var thisTest = "cabbage window";
+        var test = () => {
+            console.log(this.thisTest);  
         }
-    };
-
-    console.log(adder.add(1));         // 输出 2
-    console.log(adder.addThruCall(1));*/
-
-</script>
+        test();   //cabbage window
+        function test02() {
+            this.thisTest = "cabbage test02";
+            var func = () => {
+                console.log(this.thisTest);
+            }
+            return func();
+        }
+        test02();  //cabbage test02
+    </script>
 </body>
+
 </html>
