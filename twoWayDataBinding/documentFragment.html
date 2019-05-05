@@ -1,0 +1,27 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>文档片段</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" id="a">
+        <span id="b"></span>
+    </div>
+    <script>
+        var dom = nodeToFragment(document.getElementById('app'));
+        console.log(dom);
+
+        function nodeToFragment(node){
+            var flag = document.createDocumentFragment();
+            var child;
+            while(child = node.firstChild){
+                flag.append(child);  //劫持node的所有子节点（通过append,dom中的节点会被自动删除，添加到documentFragment中）
+            }
+            return flag;
+        }
+    </script>
+</body>
+</html>

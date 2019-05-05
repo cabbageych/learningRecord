@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoader = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 const SpritesmithPlugin = require('webpack-spritesmith');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
+
 
 
 module.exports = {
@@ -33,7 +35,19 @@ module.exports = {
         ]
     },
     plugins: [
-        //通过new一个类来使用刚才引入的插件        
+        //通过new一个类来使用刚才引入的插件 
+        //开启gzip压缩     
+        new CompressionWebpackPlugin({
+            filename: '[path].gz[query]',// 目标文件名
+            algorithm: 'gzip',// 使用gzip压缩
+            test: new RegExp(
+                '\\.(js|css)$' // 压缩 js 与 css
+            ),
+            threshold: 10240,// 资源文件大于10240B=10kB时会被压缩
+            minRatio: 0.8 // 最小压缩比达到0.8时才会被压缩
+        }),
+
+
         new HtmlwebpackPlugin({
             template: './app/views/index.html', //模板文件的位置       
         }),
@@ -81,7 +95,7 @@ module.exports = {
             apiOptions: {
                 cssImageRef: './sprites-generated.png'
             },
-            
+
             spritesmithOptions: {
                 algorithm: 'top-down'
             }
