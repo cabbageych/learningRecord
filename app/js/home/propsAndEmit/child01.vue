@@ -15,13 +15,13 @@ export default {
     };
   },
   // 接受父组件的值
-  props: {
+  props: {    //使用props接受父组件传来的值
     inputName: String,
     required: true
   },
   methods: {
     toP: function() {
-      this.$emit("fromChild", this.toParent);
+      this.$emit("fromChild", this.toParent);  //使用$emit向父组件传值
     }
   }
 };

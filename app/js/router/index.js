@@ -9,11 +9,14 @@ import ConditionRendering from '../home/conditionRendering.vue'
 import ListRendering from '../home/listRendering.vue'
 import Event from '../home/event.vue'
 import FormInputBinding from '../home/formInputBinding.vue'
-import Component from '../home/component.vue'
-import props from '../home/props.vue'
-import animaiton01 from '../home/animation01.vue'*/
+import component from '../home/component.vue'
+/*import props from '../home/props.vue'
+import animaiton01 from '../home/animation01.vue'
 import animaiton02 from '../home/animation02.vue'
-
+import parent from '../home/propsAndEmit/parent.vue'
+import brother01 from '../home/propsAndEmit/brother01.vue'
+import brother02 from '../home/propsAndEmit/brother02.vue'*/
+import reverseList from '../home/cases/reverseList.vue'
 //使用路由
 Vue.use(Router)
 //新建路由
@@ -25,10 +28,35 @@ export default new Router({
     routes: [
         {
             path: "/",
-            name: "animation02",
-            component: animaiton02
+            name: "reverseList",
+            component: reverseList
         },
         /*{
+            path: "/",
+            name: "component",
+            component: component
+        },
+        {
+            path: "/",
+            name: "brother01",
+            component: brother01
+        },
+        {
+            path: "/brother01",
+            name: "brother01",
+            component: brother01
+        },
+        {
+            path: "/brother02",
+            name: "brother02",
+            component: brother02
+        },
+        {
+            path: "/",
+            name: "parent",
+            component: parent
+        },
+        {
             path: "/",
             name: "animation01",
             component: animaiton01
@@ -37,11 +65,6 @@ export default new Router({
             path: "/",
             name: "props",
             component: props
-        },
-        /*{
-            path: "/",
-            name: "Component",
-            component: Component
         },
         {
             path: "/",

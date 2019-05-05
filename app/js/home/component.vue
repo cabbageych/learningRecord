@@ -21,21 +21,20 @@
     <hr>
     <div>
       <h1>使用局部注册组件</h1>
-      <component-a></component-a>
+      <component-a :value="temp"></component-a>
       <my-test></my-test>
     </div>
   </div>
 </template>
 <script>
 //var test =() => import('./testC.vue');
-import test from './testC.vue'
+import test from "./testC.vue";
 //局部主键注册
-var ComponentA = {
-  template:'<div>局部注册组件a</div>'
-}
+//var ComponentA =
 export default {
   data() {
     return {
+      temp: "test",
       test: [
         { id: 1, title: "my journary with vue" },
         { id: 2, title: "blogging with vue" },
@@ -43,9 +42,19 @@ export default {
       ]
     };
   },
-  components:{
-    'component-a':ComponentA,
-    'my-test':test
+  components: {
+    "component-a": {
+      template: "<div>{{value}}</div>",
+      props:[
+        'value'
+      ],
+      data: function() {
+        return {
+          value: this.value
+        };
+      }
+    },
+    "my-test": test
   }
 };
 </script>
