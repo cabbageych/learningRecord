@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>transition</title>
+    <style>
+        h3,ul{
+            text-align: center;
+        }
+        #test01{
+            position:relative;
+            height:200px;
+            width:200px;
+            background: lightblue;
+            transition: background 2s linear 0s,width 3s linear 0s;
+        }
+        #test01:hover{
+            background:yellow;
+            width:400px;
+        }
+        #test02{
+            border:none;
+            margin:0;
+            padding:0;
+            position:relative;
+            height:50px;
+            width:100px;
+            background: lightgreen;
+            font-size: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            transition: width 1s linear 0s,height 1s linear 0s,color 0.8s linear 0s;
+        }
+        #test02:hover{
+            width:200px;
+            height:100px;
+            color:white;
+        }
+        #test02:focus{
+            outline:none;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>css的transition允许css的属性值在一定的时间区间内平滑地过渡</h3>
+    <ul>
+        <ol>
+            transition-property是用来指定当元素其中一个属性改变时执行transition效果，其主要有以下几个值：<br>
+            none(没有属性改变),transition马上停止执行.<br>
+            all（所有属性改变）这个也是其默认值,元素产生任何属性值变化时都将执行transition效果.<br>
+            indent（元素属性名）,可以指定元素的某一个属性值.<br>
+        </ol>
+        <ol>
+            transition-duration是用来指定元素,转换过程的持续时间
+        </ol>
+        <ol>
+            transition-timing-function:匀速 逐渐慢下来 加速 减速 先加速后减速
+        </ol>
+        <ol>
+            transition-delay[延迟] ：是用来指定一个动画开始执行的时间，也就是说当改变元素属性值后多长时间开始执行transition效果
+        </ol>
+    </ul>
+    <div id="test01">test01</div>
+    <input type="button" value="click" id="test02">
+</body>
+
+</html>
