@@ -13,7 +13,7 @@
     </div>
     <div>
       <h1>prop验证</h1>
-      <my-validation :propB=666 propC="hello vue"></my-validation>
+      <my-validation :propB=666 propC="hello vue" propF="succe"></my-validation>
     </div>
   </div>
 </template>

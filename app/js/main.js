@@ -59,11 +59,12 @@ Vue.component('my-validation', {
         },
         propF: {
             validator: function (value) {
+                //console.log(value);
                 return ['success', 'warning', 'danger'].indexOf(value) !== -1
             }
         }
     },
-    template: '<h3>propC:{{propC}} propB:{{propB}}</h3>'
+    template: '<h3>propC:{{propC}} propB:{{propB}} propF:{{propF}}</h3>'
 })
 
 
