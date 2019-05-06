@@ -1,0 +1,50 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>requestAnimationFrame</title>
+    <style>
+        #test {
+            background: lightcoral;
+            position: relative;
+            height: 300px;
+            width: 300px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script>
+        var test = document.getElementById("test");
+        function shiftUp() {
+            let left = window.getComputedStyle(test)["left"];
+            let temp = left.split("px");
+            let len = parseInt(temp[0]);
+            test.style.left = len + 1 + 'px';
+            //console.log(len);
+            if (len < 100)
+                return requestAnimationFrame(shiftUp);
+            else
+                return requestAnimationFrame(shiftDown);
+        }
+        function shiftDown() {
+            let left = window.getComputedStyle(test)["left"];
+            let temp = left.split("px");
+            let len = parseInt(temp[0]);
+            test.style.left = len - 1 + 'px';
+            if (len <= 0)
+                return requestAnimationFrame(shiftUp);
+            else
+                return requestAnimationFrame(shiftDown);
+        }
+        var handler = requestAnimationFrame(shiftUp);
+    </script>
+</body>
+
+</html>

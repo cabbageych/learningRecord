@@ -15,7 +15,7 @@ function test01(){
             throw new Error("error test02...");
         }).catch((e)=>{console.log(e.message)});
     }catch(e){
-        console.log(e.message);
+        console.log("emmmm");
     }
 }
 test01();

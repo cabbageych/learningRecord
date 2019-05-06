@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>test</title>
+</head>
+
+<body>
+    <div>
+        <h1>通过设置相同name实现互斥</h1>
+        <input id="a" type="radio" name="select" value="aName" onclick="show()"><label>a</label>
+        <input id="b" type="radio" name="select" value="bName" onclick="show()"><label>b</label>
+    </div>
+    <script>
+        function show() {
+            var a = document.getElementById("a");
+            console.log(a.checked,a.value);
+        }
+
+    </script>
+</body>
+
+</html>
