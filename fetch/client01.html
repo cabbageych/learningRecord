@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>fetch</title>
+</head>
+
+<body>
+    <script>
+        fetch("http://localhost:8080").then((response) => {
+            //console.log(response.text());
+            return response.text();
+        }).then((response)=>{
+            console.log(response);
+        });
+    </script>
+</body>
+
+</html>
