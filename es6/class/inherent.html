@@ -23,6 +23,7 @@
         this.c = 100;
     }
     child.prototype = new parent();
+    child.prototype.constructor = child;
     var p = new parent();
     var c = new child();
     p.print();
