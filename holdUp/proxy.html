@@ -6,16 +6,31 @@
 </head>
 
 <body>
+    <input id="input"><label id="show"></label>
     <script>
         var a = {};
         var temp;
-        a = new Proxy({}, {
+        var input = document.getElementById("input");
+        var show = document.getElementById("show");
+        new Proxy(a, {      //a = new Proxy({},{})直接使用引用
             get: function (target, property) {
-                console.log(property);
-                return "get test";
+                //console.log(property);
+                //console.log(this);
+                return this.property;
+            },
+            //obj:目标对象 property：属性名 val:属性值
+            set: function (obj, property, val) {
+                this.property = val;
+                //console.log(val);
+                //console.log(property);
+                //console.log(target);
             }
         });
-        console.log(a.test);
+
+        input.addEventListener('keyup',function(e){
+            a.attr = e.target.value;
+            show.innerHTML = a.attr;
+        });
     </script>
 </body>
 

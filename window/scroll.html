@@ -10,21 +10,23 @@
     <div style="position:relative;height:2000px;width:100px;"></div>
     <script>
         var i = 0;
-        function print(){
+        function print() {
             console.log(i++);
         }
-        var antiShaking = (function(){
-            let timer;
-            return function(){
-                if(timer){
-                    clearTimeout(timer);
-                }
-                timer = setTimeout(() => {
+        var antiShaking = (function () {
+            let timer = new Date();
+            return function () {
+                let temp = new Date();
+                if (temp - timer > 300) {
+                    //console.log(temp - timer);
+                    //setTimeout(() => {
                     print();
-                }, 500);
+                    //}, 0);
+                    timer = temp;
+                }
             }
         })();
-        window.addEventListener('scroll',antiShaking,false);
+        window.addEventListener('scroll', antiShaking, false);
     </script>
 </body>
 

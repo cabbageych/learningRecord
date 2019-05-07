@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>test</title>
@@ -17,11 +17,11 @@
             else
                 return "Over!";
         };
-        return func;
+        return func();
     };
-    //console.log(temp());
+    console.log(closureTest());
     //用闭包模拟私有方法
-    var test02 = (function (){
+    /*var test02 = (function (){
         var i = 0;
         function operateI(a){
             i+=a;
@@ -57,7 +57,7 @@
         }
     })();
     //var temp = new a();
-    a.print();
+    a.print();*/
 </script>
 </body>
 </html>

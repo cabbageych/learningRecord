@@ -6,8 +6,8 @@
     <body>
         <script>
             var str = '1234567890';
-            var reg = /(\d)(?=((\d{3})+)$)/g;
-            console.log(str.replace(reg,'$1,'));
+            var reg = /(\d)(?=(((\d){3})+$))/g;
+            console.log(str.replace(reg,"$1,"))
         </script>
     </body>
 </html>

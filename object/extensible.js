@@ -39,7 +39,9 @@ console.log(object01);
 Object.preventExtensions(object01);
 console.log(Object.isExtensible(object01));  //false
 try{
-    Object.defineProperty(object01,"attr01",{value:"cabbage01"});
+    Object.defineProperty(object01,"attr01",{value:"cabbage01"});//throw new Error
+    object01.test = "emmm";
+    console.log(object01.test);  //undefined
 }catch(e){
     console.log("Error:cant't definedProperty!");
 }

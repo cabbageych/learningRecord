@@ -28,6 +28,7 @@
     p.print();
     c.print();
     c.func();
+    console.log(c);
     //call继承
     function Test(a,b,name) {
         this.a = a;
@@ -48,6 +49,7 @@
     Test02.prototype = new Test();
     Test02.prototype.constructor = Test02;
     var t = new Test02(1,2,"cabbage");
+    console.log(t);
     //console.log(t.a);
     //t.print();
     //t.emm();

@@ -22,26 +22,32 @@
     <div id="test"></div>
     <script>
         var test = document.getElementById("test");
+        var handler;
         function shiftUp() {
             let left = window.getComputedStyle(test)["left"];
             let temp = left.split("px");
             let len = parseInt(temp[0]);
+            
             test.style.left = len + 1 + 'px';
             //console.log(len);
             if (len < 100)
-                return requestAnimationFrame(shiftUp);
+                handler = requestAnimationFrame(shiftUp);
             else
-                return requestAnimationFrame(shiftDown);
+                handler = requestAnimationFrame(shiftDown);
         }
         function shiftDown() {
             let left = window.getComputedStyle(test)["left"];
             let temp = left.split("px");
             let len = parseInt(temp[0]);
+            if (len == 50){
+                console.log("cancel failed!");
+                cancelAnimationFrame(handler);
+            }
             test.style.left = len - 1 + 'px';
             if (len <= 0)
-                return requestAnimationFrame(shiftUp);
+                handler = requestAnimationFrame(shiftUp);
             else
-                return requestAnimationFrame(shiftDown);
+                handler = requestAnimationFrame(shiftDown);
         }
         var handler = requestAnimationFrame(shiftUp);
     </script>
