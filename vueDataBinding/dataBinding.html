@@ -1,0 +1,106 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模拟vue双向数据绑定-dataBinding</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" id="a" v-model="text">{{text}}
+        <span id="b"></span>
+    </div>
+    <script>
+        //var dom = nodeToFragment(document.getElementById("app"));
+        //console.log(dom);
+
+
+        function compile(node, vm) {
+            var reg = /\{\{(.*)\}\}/;
+
+            //解析元素类型的节点
+            if (node.nodeType === 1) {
+                var attr = node.attributes;
+                //解析属性
+                for (var i = 0; i < attr.length; i++) {
+                    if (attr[i].nodeName == 'v-model') {
+                        var name = attr[i].nodeValue; //获取v-mode绑定的属性名
+                        node.addEventListener('input', function (e) {
+                            //给响应的data属性赋值，进而触发该属性的set方法
+                            vm[name] = e.target.value;
+                        });
+                        node.value = vm.data[name]; //将data的值赋给该node
+                        node.removeAttribute('v-model');
+                    }
+                }
+            }
+
+            //解析文本类型的节点
+            if (node.nodeType === 3) {
+                if (reg.test(node.nodeValue)) {
+                    var name = RegExp.$1; //获取匹配到的字符串
+                    name = name.trim();
+                    //触发get方法
+                    node.nodeValue = vm.data[name]; //奖data的值赋给该node
+                }
+            }
+        }
+
+        function nodeToFragment(node, vm) {
+            var flag = document.createDocumentFragment();
+            var child;
+            while (child = node.firstChild) {
+                //flag.append(child);
+                //console.log(child);
+                compile(child, vm);
+                flag.append(child);  //奖子节点劫持到文档片段中
+            }
+            return flag;
+        }
+
+        function defineReactive(obj,key,val){
+            Object.defineProperty(obj,key,{
+                get:function(){
+                    return val;
+                },
+                set:function(newVal){
+                    if(newVal === val) return;
+                    val = newVal;
+                    console.log(val); ////////////////////
+                }
+            })
+        }
+
+        function observer(obj, vm) {
+            //object.keys返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用 for…in 循环遍历该对象时返回的顺序一致 
+            Object.keys(obj).forEach(function (key) {
+                defineReactive(vm, key, obj[key]);
+            })
+        }
+
+        function Vue(options) {
+            this.data = options.data;
+            var data = this.data;
+
+            observer(data, this);
+
+            var id = options.el;
+            var dom = nodeToFragment(document.getElementById(id), this);
+            //编译完成后，将dom返回到app中
+            document.getElementById(id).appendChild(dom);
+        }
+
+
+        var vm = new Vue({
+            el: 'app',
+            data: {
+                text: 'hello world'
+            }
+        });
+
+    </script>
+</body>
+
+</html>
