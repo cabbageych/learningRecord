@@ -9,7 +9,8 @@
 
 <body>
     <div id="app">
-        <input type="text" id="a" v-model="text">{{text}}
+        <input type="text" id="a" v-model="text">{{text}}<br>
+        <input type="text" id="b" v-model="text02">{{text02}}
     </div>
     <script>
         //var dom = nodeToFragment(document.getElementById("app"));
@@ -30,16 +31,14 @@
                 });
             }
         }
+        //定义全局dep，用来添加watcher，监听数据变化
+        var dep = new Dep();
 
         function Watcher(vm,node,name){
-            Dep.target = this;
-            //console.log(Dep.target);
             this.name = name;
             this.node = node;
             this.vm = vm;
             this.update();
-            //将 Dep.target 设为空。因为它是全局变量，也是 watcher 与 dep 关联的唯一桥梁，任何时刻都必须保证 Dep.target 只有一个值。
-            Dep.target = null;
         }
 
         Watcher.prototype = {
@@ -81,10 +80,11 @@
                 if (reg.test(node.nodeValue)) {
                     var name = RegExp.$1; //获取匹配到的字符串
                     name = name.trim();
-                    //node.nodeValue = vm.data[name]; //奖data的值赋给该node
+                    //node.nodeValue = vm.data[name]; //将data的值赋给该node
 
-
-                    new Watcher(vm,node,name);
+                    //把订阅者watcher添加到主题dep中,监听数据变化
+                    let temp = new Watcher(vm,node,name);
+                    dep.addSub(temp);
                 }
             }
         }
@@ -102,16 +102,8 @@
         }
 
         function defineReactive(obj,key,val){
-            var dep = new Dep();
-            
             Object.defineProperty(obj,key,{
                 get:function(){
-                    //添加订阅者watcher到主题对象Dep
-                    if(Dep.target){
-                        dep.addSub(Dep.target);
-                        console.log(Dep.target);
-                    }
-                    
                     return val;
                 },
                 set:function(newVal){
@@ -147,7 +139,8 @@
         var vm = new Vue({
             el: 'app',
             data: {
-                text: 'hello world'
+                text: 'hello world',
+                text02:'hello cabbage'
             }
         });
 
