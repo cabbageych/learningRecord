@@ -34,6 +34,7 @@
 
         function Watcher(vm,node,name){
             Dep.target = this;
+            //console.log(Dep.target);
             this.name = name;
             this.node = node;
             this.vm = vm;
@@ -96,21 +97,22 @@
                 //flag.append(child);
                 //console.log(child);
                 compile(child, vm);
-                flag.append(child);  //奖子节点劫持到文档片段中
+                flag.append(child);  //将子节点劫持到文档片段中
             }
             return flag;
         }
 
         function defineReactive(obj,key,val){
             var dep = new Dep();
-
+            
             Object.defineProperty(obj,key,{
                 get:function(){
                     //添加订阅者watcher到主题对象Dep
                     if(Dep.target){
                         dep.addSub(Dep.target);
+                        console.log(Dep.target);
                     }
-
+                    
                     return val;
                 },
                 set:function(newVal){
