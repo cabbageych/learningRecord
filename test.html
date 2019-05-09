@@ -12,15 +12,20 @@
         <input type="radio"><label>b</label>
     </div>
     <script>
-        var myCanvas = document.getElementById("myCanvas");
-        var ctx = myCanvas.getContext("2d");
-        ctx.beginPath();
-        ctx.moveTo(100, 100);
-        ctx.fillStyle = 'red';
-        ctx.fillRect(0, 0, 100, 100);
-        ctx.font = "20px '微软雅黑'";
-        ctx.fillText("cabbage", 100, 200);
-
+        var arr1 = [1, 2, 1, 1, 2];
+        var arr2 = [1, 2, 1, 2, 2];
+        var line = [1,2,1,2,2,1];
+        var way = 1, n = 6;
+        function print(l,n){
+            if(n === 1){
+                console.log(l[n-1],n);
+                return;
+            }else{
+                print(l,n-1);
+                console.log(l[n-1],n);
+            }
+        }
+        print(line,n);
     </script>
 </body>
 
