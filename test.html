@@ -3,13 +3,21 @@
 
 <head>
     <title>test</title>
+    <style>
+        #test{
+            color:red;
+        }
+        #test:focus{
+            color:blue;
+        }
+    </style>
 </head>
 
 <body>
-    <canvas id="myCanvas" height="300" width="300"></canvas>
+    
     <div>
-        <input type="radio"><label>a</label>
-        <input type="radio"><label>b</label>
+        <button id="test">test</button>
+        
     </div>
     <script>
         var arr1 = [1, 2, 1, 1, 2];

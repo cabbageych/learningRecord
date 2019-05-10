@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>timeRecord</title>
+    <style>
+        div{
+            background:url('../lazyload/01.jpg');
+        }
+        p{
+            background:url('../lazyload/02.jpg');
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <div style="position:relative;height:100px;width:200px;"></div>
+    <p style="position:relative;height:100px;width:200px;"></p>
+    <p style="position:relative;height:100px;width:200px;"></p>
+    <p style="position:relative;height:100px;width:200px;"></p>
+    <p style="position:relative;height:100px;width:200px;"></p>
+    <p style="position:relative;height:100px;width:200px;"></p>
+    <p style="position:relative;height:100px;width:200px;"></p>
+    <p style="position:relative;height:100px;width:200px;"></p>
+    <script>
+        //监控静态资源下载时间
+        let start, end;
+        let body = document.getElementsByTagName('body')[0];
+        let div = document.createElement('div');
+        document.addEventListener('DOMContentLoaded',function () {
+            start = new Date();
+            console.log(start);
+        }); 
+        window.onload = function () {
+            end = new Date();
+            console.log(end);
+            var ans = end - start;
+            console.log(ans);
+            fetch('http://localhost:8080?ans=' + ans).then((response) => {
+                return response;
+            }).then(()=>{console.log('done!')});
+        }
+    </script>
+</body>
+
+</html>
