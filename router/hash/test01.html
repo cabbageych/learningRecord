@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>hash01</title>
+</head>
+
+<body>
+    <p>hash值为url后,#所跟着的内容.hash值不会提交到服务端，而是用来定位显示网页中相对应内容的位置</p>
+    <button onclick="test()">点击增加hash值</button>
+    <hr>
+    <input placeholder="input to change the value of hash" id="hashValue">
+    <button onclick="sethash()">set hash</button>
+    <script>
+        let i = 0;
+        function test(){
+            window.location.hash = i++;
+        }
+        window.onhashchange = function(){
+            console.log(window.location.hash);
+        }
+
+        function sethash(){
+            let hashValue = document.getElementById('hashValue');
+            if(hashValue.value.trim() !== ''){
+                window.location.hash = hashValue.value.trim();
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>router02</title>
+</head>
+
+<body>
+    <h1>router02</h1>
+    <a href="./test01.html">go to test01.html</a>
+    <button onclick="back()">前往上一页</button>
+    <script>
+        console.log("test02:");
+        console.log(history);
+        console.log("History.length: "+history.length);
+        console.log("History.state: "+history.state);
+        function back(){
+            history.go(-1); //前往上一页，效果等同于浏览器页面后退按钮
+        }
+    </script>
+</body>
+
+</html>

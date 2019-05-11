@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>router01</title>
+</head>
+
+<body>
+    <h1>router01</h1>
+    <a href="./test02.html">go to test02.html</a>
+    <a href="./test03.html">go to test03.html</a>
+    <a href="https://www.baidu.com/">前往百度</a>
+    <a href="https://www.google.com.hk">前往谷歌</a>
+    <button onclick="forward()">前往下一页</button>
+    <hr>
+    <button onclick="pushState()">pushState</button>
+    <button onclick="replaceState()">replaceState</button>
+    <script>
+        console.log("test01:");
+        console.log(history);
+        //History.length 是一个只读属性，返回当前 session 中的 history 个数，包含当前页面在内。
+        //举个例子，对于新开一个 tab 加载的页面当前属性返回值 1 
+        console.log("History.length: "+history.length); 
+        console.log("History.state: "+history.state);
+
+
+        function forward(){
+            history.go(1);  //前往下一页，通过当前页面的相对位置从浏览器历史记录中加载页面
+        }
+
+
+        //replece和push都会操作浏览器历史记录，两者都会修改地址栏的url，但是却不会引起页面的刷新，可以手动刷新后跳转到新的页面
+        //再从跳转后的页面使用history.go返回，同样改变url但是需要手动刷新才可以实现页面跳转
+        function pushState(){
+            window.history.pushState(null,null,"test02.html"); //修改浏览器地址栏的url，传入的地址必须是同源的，否则会报错
+        }
+
+        //pushState会增加一条新的历史记录，replaceState则会替换当前的历史记录
+        function replaceState(){
+            window.history.replaceState(null,null,"test03.html");  //从历史记录中将test01.html页面替换成test03.html,再从test03.html返回上一页则无法回到test01.html页面
+        }
+    </script>
+</body>
+
+</html>
