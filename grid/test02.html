@@ -36,6 +36,7 @@
             width: 100%;
             background: rgb(160, 151, 159);
             display: flex;
+            justify-content: space-around;
         }
 
         #container {
@@ -141,12 +142,37 @@
             grid-column-end: 3;
         }
 
-        #container09{
-            display:grid;
+        #container09 {
+            line-height: 50px;
+            display: grid;
             margin-right: 20px;
+            height: 320px;
+            width: 320px;
+            border: 2px solid yellow;
             grid-template-columns: 100px 100px 100px;
             grid-template-rows: 100px 100px 100px;
             grid-gap: 10px 10px;
+            /*两者的取值有start end center stretch(沾满整个单元格，也是默认值)*/
+            justify-items: end;
+            align-items: end;
+            /*由于行高的原因无法看到实际效果*/
+            /*place-items:justify-items align-items 两者的合并写法，如果省略第二个值，则默认与第一个值相等*/
+        }
+
+        #container10 {
+            line-height: 50px;
+            display: grid;
+            margin-right: 20px;
+            height: 320px;
+            width: 320px;
+            border: 2px solid yellow;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            grid-gap: 10px 10px;
+            /*设置真个网格在父级容器中的位置*/
+            /*嵌套在flex内部影响布局效果*/
+            justify-content: end; /*水平方向设置，取值参考flex start | end | center | stretch | space-around | space-between | space-evenly;*/
+            align-content: end; /*竖直方向设置,取值参考flex*/
         }
     </style>
 </head>
@@ -248,16 +274,27 @@
                 <span id="9" style="background:lightcoral;">9</span>
             </div>
             <div id="container09">
-                    <span id="1" style="background:lightblue;">1</span>
-                    <span id="2" style="background:rgb(228, 228, 103);">2</span>
-                    <span id="3" style="background:green;">3</span>
-                    <span id="4" style="background:rgb(233, 137, 220);color:white;">4</span>
-                    <span id="5" style="background:purple;color:white;">5</span>
-                    <span id="6" style="background:rgb(80, 66, 66);color:white;">6</span>
-                    <span id="7" style="background:rgb(126, 126, 224);">7</span>
-                    <span id="8" style="background:rgb(207, 88, 88);">8</span>
-                    <span id="9" style="background:lightcoral;">9</span>
-                </div>
+                <span id="1" style="background:lightblue;">1</span>
+                <span id="2" style="background:rgb(228, 228, 103);">2</span>
+                <span id="3" style="background:green;">3</span>
+                <span id="4" style="background:rgb(233, 137, 220);color:white;">4</span>
+                <span id="5" style="background:purple;color:white;">5</span>
+                <span id="6" style="background:rgb(80, 66, 66);color:white;">6</span>
+                <span id="7" style="background:rgb(126, 126, 224);">7</span>
+                <span id="8" style="background:rgb(207, 88, 88);">8</span>
+                <span id="9" style="background:lightcoral;">9</span>
+            </div>
+            <div id="container10">
+                <span id="1" style="background:lightblue;">1</span>
+                <span id="2" style="background:rgb(228, 228, 103);">2</span>
+                <span id="3" style="background:green;">3</span>
+                <span id="4" style="background:rgb(233, 137, 220);color:white;">4</span>
+                <span id="5" style="background:purple;color:white;">5</span>
+                <span id="6" style="background:rgb(80, 66, 66);color:white;">6</span>
+                <span id="7" style="background:rgb(126, 126, 224);">7</span>
+                <span id="8" style="background:rgb(207, 88, 88);">8</span>
+                <span id="9" style="background:lightcoral;">9</span>
+            </div>
         </div>
     </div>
 </body>
