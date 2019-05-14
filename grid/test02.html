@@ -14,14 +14,14 @@
             display: flex;
             position: relative;
             flex-direction: column;
-            height: 100vh;
+            height: 110vh;
             width: 100%;
             background: lightgreen;
         }
 
         #line01 {
             position: relative;
-            height: 33.33%;
+            height: 30%;
             width: 100%;
             background: rgb(235, 209, 213);
             display: flex;
@@ -32,11 +32,20 @@
 
         #line02 {
             position: relative;
-            height: 40%;
+            height: 35%;
             width: 100%;
             background: rgb(160, 151, 159);
             display: flex;
             justify-content: space-around;
+        }
+
+        #line03 {
+            position: relative;
+            height: 35%;
+            width: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
         }
 
         #container {
@@ -171,8 +180,141 @@
             grid-gap: 10px 10px;
             /*设置真个网格在父级容器中的位置*/
             /*嵌套在flex内部影响布局效果*/
-            justify-content: end; /*水平方向设置，取值参考flex start | end | center | stretch | space-around | space-between | space-evenly;*/
-            align-content: end; /*竖直方向设置,取值参考flex*/
+            justify-content: end;
+            /*水平方向设置，取值参考flex start | end | center | stretch | space-around | space-between | space-evenly;*/
+            align-content: end;
+            /*竖直方向设置,取值参考flex*/
+        }
+
+        #container11 {
+            line-height: 50px;
+            display: grid;
+            margin-right: 20px;
+            height: 400px;
+            width: 320px;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            grid-gap: 10px 10px;
+            grid-auto-rows: 50px;
+            /*在现有网格之外指定格子位置设置属性*/
+        }
+
+        #g1108 {
+            grid-column-start: 2;
+            grid-row-start: 4;
+        }
+
+        #g1109 {
+            grid-row-start: 5;
+            grid-column-start: 3;
+        }
+
+        #container12 {
+            line-height: 50px;
+            display: grid;
+            margin-right: 20px;
+            height: 400px;
+            width: 320px;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            grid-gap: 10px 10px;
+            grid-auto-flow: row dense;
+        }
+
+        #g1201 {
+            grid-column-start: 2;
+            grid-column-end: 4;
+        }
+
+        #g1202 {
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+
+        #g1205 {
+            /*使用span跨网格,第二个参数表示跨的网格个数*/
+            grid-row-start: span 2;
+            grid-column-start: span 2;
+        }
+
+        #container13 {
+            line-height: 50px;
+            display: grid;
+            margin-right: 20px;
+            height: 400px;
+            width: 320px;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            grid-gap: 10px 10px;
+            grid-auto-flow: row dense;
+        }
+
+        /*使用grid-column(row)合并grid-column(row)-start(end)*/
+        #g1301 {
+            grid-column: 1 / 4;
+            grid-row: 2 / 4;
+        }
+
+        /*斜杠以及之后的参数可省略，默认占据一个网格*/
+        #g1302 {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        #container14 {
+            line-height: 50px;
+            display: grid;
+            margin-right: 20px;
+            height: 400px;
+            width: 320px;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            grid-gap: 10px 10px;
+            grid-auto-flow: row dense;
+            grid-template-areas: 'a b c'
+                'd e f'
+                'g h i';
+        }
+
+
+        /*指定网格对应的具体位置，前提是container指定了grid-template-areas*/
+        #g1401 {
+            grid-area: e;
+        }
+
+        #g1402 {
+            grid-area: d;
+        }
+
+        /*grid-area还可用作grid-area:grid-row-start / grid-column-start / grid-row-end / grid-column-end*/
+        #g1403 {
+            grid-area: 3 / 1 / 5 / 3;
+        }
+
+
+        #container15 {
+            line-height: 50px;
+            display: grid;
+            margin-right: 20px;
+            height: 400px;
+            width: 320px;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            grid-gap: 10px 10px;
+            grid-auto-flow: row dense;
+        }
+
+
+        /*align-self justify-align 用法与align(justify)-items相同，前者作用于单独网格，后者作用于整个网格*/
+        /*place-self用法同place-items*/
+        /*受line-height影响，align-self无法按预期显示*/
+        #g1501 {
+            align-self: end;
+            justify-self: start;
+        }
+
+        #g1502 {
+            place-self: start end;
         }
     </style>
 </head>
@@ -287,6 +429,63 @@
             <div id="container10">
                 <span id="1" style="background:lightblue;">1</span>
                 <span id="2" style="background:rgb(228, 228, 103);">2</span>
+                <span id="3" style="background:green;">3</span>
+                <span id="4" style="background:rgb(233, 137, 220);color:white;">4</span>
+                <span id="5" style="background:purple;color:white;">5</span>
+                <span id="6" style="background:rgb(80, 66, 66);color:white;">6</span>
+                <span id="7" style="background:rgb(126, 126, 224);">7</span>
+                <span id="8" style="background:rgb(207, 88, 88);">8</span>
+                <span id="9" style="background:lightcoral;">9</span>
+            </div>
+        </div>
+        <div id="line03">
+            <div id="container11">
+                <span id="1" style="background:lightblue;">1</span>
+                <span id="2" style="background:rgb(228, 228, 103);">2</span>
+                <span id="3" style="background:green;">3</span>
+                <span id="4" style="background:rgb(233, 137, 220);color:white;">4</span>
+                <span id="5" style="background:purple;color:white;">5</span>
+                <span id="6" style="background:rgb(80, 66, 66);color:white;">6</span>
+                <span id="7" style="background:rgb(126, 126, 224);">7</span>
+                <span id="g1108" style="background:rgb(207, 88, 88);">8</span>
+                <span id="g1109" style="background:lightcoral;">9</span>
+            </div>
+            <div id="container12">
+                <span id="g1201" style="background:lightblue;">1</span>
+                <span id="g1202" style="background:rgb(228, 228, 103);">2</span>
+                <span id="g1203" style="background:green;">3</span>
+                <span id="g1204" style="background:rgb(233, 137, 220);color:white;">4</span>
+                <span id="g1205" style="background:purple;color:white;">5</span>
+                <span id="6" style="background:rgb(80, 66, 66);color:white;">6</span>
+                <span id="7" style="background:rgb(126, 126, 224);">7</span>
+                <span id="8" style="background:rgb(207, 88, 88);">8</span>
+                <span id="9" style="background:lightcoral;">9</span>
+            </div>
+            <div id="container13">
+                <span id="g1301" style="background:lightblue;">1</span>
+                <span id="g1302" style="background:rgb(228, 228, 103);">2</span>
+                <span id="3" style="background:green;">3</span>
+                <span id="4" style="background:rgb(233, 137, 220);color:white;">4</span>
+                <span id="5" style="background:purple;color:white;">5</span>
+                <span id="6" style="background:rgb(80, 66, 66);color:white;">6</span>
+                <span id="7" style="background:rgb(126, 126, 224);">7</span>
+                <span id="8" style="background:rgb(207, 88, 88);">8</span>
+                <span id="9" style="background:lightcoral;">9</span>
+            </div>
+            <div id="container14">
+                <span id="g1401" style="background:lightblue;">1</span>
+                <span id="g1402" style="background:rgb(228, 228, 103);">2</span>
+                <span id="g1403" style="background:green;">3</span>
+                <span id="4" style="background:rgb(233, 137, 220);color:white;">4</span>
+                <span id="5" style="background:purple;color:white;">5</span>
+                <span id="6" style="background:rgb(80, 66, 66);color:white;">6</span>
+                <span id="7" style="background:rgb(126, 126, 224);">7</span>
+                <span id="8" style="background:rgb(207, 88, 88);">8</span>
+                <span id="9" style="background:lightcoral;">9</span>
+            </div>
+            <div id="container15">
+                <span id="g1501" style="background:lightblue;">1</span>
+                <span id="g1502" style="background:rgb(228, 228, 103);">2</span>
                 <span id="3" style="background:green;">3</span>
                 <span id="4" style="background:rgb(233, 137, 220);color:white;">4</span>
                 <span id="5" style="background:purple;color:white;">5</span>
