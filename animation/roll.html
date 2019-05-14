@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>滚动</title>
+    <style>
+        #ball {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            background: radial-gradient(red, yellow 80%);
+            box-shadow: 0 0 20px gray;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ball"></div>
+    <hr>
+    <script>
+        var ball = document.getElementById('ball');
+        var len = 0;
+        ball.addEventListener('mouseenter', function () {
+            requestAnimationFrame(roll);
+            ball.style.pointerEvents = 'none';
+        });
+
+        function roll() {
+            if (len >= 300) {
+                requestAnimationFrame(back);
+            }
+            ball.style.marginLeft = len + 'px';
+            len += 5;
+            requestAnimationFrame(roll);
+        }
+
+        function back() {
+            if (len <= 0) {
+                ball.style.pointerEvents = 'auto';
+                len = 0;
+                return;
+            }
+            ball.style.marginLeft = len + 'px';
+            len -= 5;
+            requestAnimationFrame(back);
+        }
+    </script>
+</body>
+
+</html>
