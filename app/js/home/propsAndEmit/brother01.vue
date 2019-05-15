@@ -28,11 +28,11 @@ export default {
     };
   },
   mounted: function() {
+    console.log("brother01");
     var _this = this;
-    bus.$on("txt", function(msg) {
-      this.msg = _this.msg;
-      _this.msg = msg;
-      console.log(msg);
+    bus.$on("txt", function(__this) {
+      __this.msg = "message send from brother01";
+      console.log("send message");
     });
   }
 };

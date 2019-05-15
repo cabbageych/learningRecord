@@ -22,7 +22,7 @@
     <div>
       <h1>使用局部注册组件</h1>
       <component-a :value="temp"></component-a>
-      <my-test></my-test>
+      <test></test>
     </div>
   </div>
 </template>
@@ -42,19 +42,12 @@ export default {
       ]
     };
   },
-  components: {
-    "component-a": {
-      template: "<div>{{value}}</div>",
-      props:[
-        'value'
-      ],
-      data: function() {
-        return {
-          value: this.value
-        };
-      }
+  components:{
+    'component-a':{
+      props:['value'],
+      template:'<p>{{value}}</p>'
     },
-    "my-test": test
+    'test':test
   }
 };
 </script>

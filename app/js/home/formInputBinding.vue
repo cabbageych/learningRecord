@@ -42,13 +42,14 @@
         </div>
         <div>
             <h1>值绑定</h1>
-            <input type="checkbox" v-model="toggle" true-value="hello cabbage" false-value="hello vue">
+            <input type="checkbox" v-model="toggle" :true-value="helloCabbage" false-value="hello vue">
             <p>toggle:{{toggle}}</p>
             <h1>选择框绑定对象</h1>
             <select v-model="object">
                 <option :value="{name:'cabbage'}">cabbage</option>
+                <option :value="{age:22}">22</option>
             </select>
-            <p>object.name:{{object.name}}</p>
+            <p>object.name:{{object}}</p>
         </div>
     </div>
 </template>
@@ -56,6 +57,7 @@
 export default {
     data(){
         return{
+            helloCabbage:'hello cabbage!',
             message:"null",
             checked:false,
             checkedArr:[],

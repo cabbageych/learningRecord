@@ -8,14 +8,14 @@ import TwoWayDataBinding from '../home/two-wayDataBinding.vue'
 import ConditionRendering from '../home/conditionRendering.vue'
 import ListRendering from '../home/listRendering.vue'
 import Event from '../home/event.vue'
-import FormInputBinding from '../home/formInputBinding.vue'
-import component from '../home/component.vue'*/
-import props from '../home/props.vue'/*
+import formInputBinding from '../home/formInputBinding.vue'*/
+import component from '../home/component.vue'/*
+import props from '../home/props.vue'
 import animaiton01 from '../home/animation01.vue'
 import animaiton02 from '../home/animation02.vue'
-import parent from '../home/propsAndEmit/parent.vue'
+import parent from '../home/propsAndEmit/parent.vue'*/
 import brother01 from '../home/propsAndEmit/brother01.vue'
-import brother02 from '../home/propsAndEmit/brother02.vue'
+import brother02 from '../home/propsAndEmit/brother02.vue'/*
 import reverseList from '../home/cases/reverseList.vue'*/
 //使用路由
 Vue.use(Router)
@@ -28,8 +28,18 @@ export default new Router({
     routes: [
         {
             path: "/",
-            name: "props",
-            component: props
+            name: "component",
+            component: component
+        },
+        {
+            path: "/brother01",
+            name: "brother01",
+            component: brother01
+        },
+        {
+            path: "/brother02",
+            name: "brother02",
+            component: brother02
         },
         /*{
             path: "/",

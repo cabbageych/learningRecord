@@ -5,8 +5,8 @@
       <h1 style="text-align:center;">单个根元素</h1>
       <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></blog-post>
     </div>
-    <!--<router-link to="/brother01">toBrother01</router-link>
-    <router-link to="/brother02">toBrother02</router-link>-->
+    <router-link to="/brother01">toBrother01</router-link>
+    <router-link to="/brother02">toBrother02</router-link>
     <router-view></router-view>
     <!--<reverse-list :list="myList"></reverse-list>-->
   </div>

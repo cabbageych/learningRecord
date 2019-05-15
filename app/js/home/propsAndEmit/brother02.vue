@@ -14,8 +14,7 @@ export default {
     };
   },
   mounted: function() {
-    bus.$emit("txt", this.msg);
-    
+    bus.$emit("txt", this);
   }
 };
 </script>
