@@ -11,6 +11,7 @@ var server = http.createServer(function(request,response){
     response.setHeader("Access-Control-Allow-Headers", "Content-Type,Access-Token");
     if(request.method == 'GET'){
         console.log("get connection...");
+        //response.writeHead(404,{"Content-Type":"text/html"});
         response.write("fetch connection test.");
         response.end();
     }else if(request.method == "POST"){
