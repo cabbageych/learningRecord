@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 
 var results = [];
 
+var s = "123.456";
+console.log(++s);
+
 var server = http.createServer(function(request,response){
     let pathname = url.parse(request.url).pathname;
     response.setHeader("Access-Control-Allow-Origin","*");
