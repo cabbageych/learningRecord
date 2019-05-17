@@ -6,34 +6,22 @@
     <style>
         #test{
             color:red;
-        }
-        #test:focus{
-            color:blue;
+            visibility: hidden;
         }
     </style>
 </head>
 
 <body>
-    
-    <div>
-        <button id="test">test</button>
-        
-    </div>
+    <div id="test">cabbage test</div>
     <script>
-        var arr1 = [1, 2, 1, 1, 2];
-        var arr2 = [1, 2, 1, 2, 2];
-        var line = [1,2,1,2,2,1];
-        var way = 1, n = 6;
-        function print(l,n){
-            if(n === 1){
-                console.log(l[n-1],n);
-                return;
-            }else{
-                print(l,n-1);
-                console.log(l[n-1],n);
-            }
-        }
-        print(line,n);
+       let temp = {};
+       let arr = [];
+       for(let i = 0;i<3;i++){
+           temp.name = 'cabbage';
+           temp.age = i;
+            arr.push(temp);
+       }
+       console.log(arr);
     </script>
 </body>
 
