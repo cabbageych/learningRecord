@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>属性拦截es5</title>
+        <meta charset="utf-8">
+        <title>es5</title>
     </head>
     <body>
         <input id="input">
@@ -15,12 +16,14 @@
                     //a.test = newValue;
                 },
                 get:function(){
+                    console.log("get...");
+                    temp = document.getElementById('input').value;
                     return temp;
                 }
             });
             document.getElementById("input").addEventListener("keyup",function(e){
                 a.test = document.getElementById("input").value;
-                document.getElementById("show").innerHTML = e.target.value;
+                document.getElementById("show").innerHTML = a.test;
             });
         </script>
     </body>

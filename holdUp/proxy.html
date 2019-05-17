@@ -12,24 +12,28 @@
         var temp;
         var input = document.getElementById("input");
         var show = document.getElementById("show");
-        new Proxy(a, {      //a = new Proxy({},{})直接使用引用
+        //Proxy对应definedProperty升级：无需指定需要拦截的属性，proxy拦截传入对象的所有属性
+        //proxy需要返回值承接返回的对象
+        let a = new Proxy({}, {      
+            //target:需要拦截的目标对象  property:目标对象对应的属性
             get: function (target, property) {
-                //console.log(property);
-                //console.log(this);
+                console.log(target,this);
+                console.log("get: "+property);
                 return this.property;
             },
             //obj:目标对象 property：属性名 val:属性值
             set: function (obj, property, val) {
                 this.property = val;
-                //console.log(val);
-                //console.log(property);
-                //console.log(target);
+                console.log(obj);
+                console.log("set: "+property+" "+val);
             }
         });
 
         input.addEventListener('keyup',function(e){
             a.attr = e.target.value;
             show.innerHTML = a.attr;
+            a.test = 'emmm';
+            console.log(a.test);
         });
     </script>
 </body>
