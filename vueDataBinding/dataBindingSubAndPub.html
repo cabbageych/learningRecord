@@ -66,7 +66,7 @@
                     if (attr[i].nodeName == 'v-model') {
                         var name = attr[i].nodeValue; //获取v-mode绑定的属性名
                         node.addEventListener('input', function (e) {
-                            //给响应的data属性赋值，进而触发该属性的set方法
+                            //给相应的data属性赋值，进而触发该属性的set方法
                             vm[name] = e.target.value;
                         });
                         node.value = vm.data[name]; //将data的值赋给该node

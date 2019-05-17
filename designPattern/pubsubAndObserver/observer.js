@@ -46,6 +46,8 @@ var observer03 = new Observer("cabbage03");
 
 //定义被观察者
 var subject = new Subject();
+
+//添加观察者
 subject.add(observer01);
 subject.add(observer02);
 subject.add(observer03);

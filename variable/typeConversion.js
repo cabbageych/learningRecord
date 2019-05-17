@@ -15,7 +15,7 @@ console.log(Boolean([]), Boolean({})); //将所有对象包括空对象转成布
 console.log(Boolean(null));  //false
 console.log([] == ![]); //true
 /*步骤如下
-[] 转成 true，然后取反变成 false
+[] 转成 true，然后取反变成 false 
 [] == false
 [] == ToNumber(false)
 [] == 0

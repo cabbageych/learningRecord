@@ -26,8 +26,12 @@ var pub = {
     }
 };
 
+//创建全局的主题对象实例
 var dep = new Dep();
+//添加订阅者到主题对象实例中
 dep.add(sub1);
 dep.add(sub2);
 dep.add(sub3);
+
+//发布者通知更新
 pub.publish();

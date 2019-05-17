@@ -51,7 +51,6 @@
             let start = 0;
             if (this.scrollTop >= 70) {
                 totalRecord += this.scrollTop - 70;
-                tempRecord = this.scrollTop;
 
                 start = Math.floor((totalRecord) / 60);
                 if (start >= 0) {
@@ -61,16 +60,16 @@
                 }
             } else {
                 totalRecord -= (70 - this.scrollTop);
-                tempRecord = this.scrollTop;
-
                 start = Math.floor((totalRecord) / 60);
-                if (start >= 0) {
+                if (start >= 1) {
                     for (let i = 0; i < tempArr.length; i++) {
                         tempArr[i].innerHTML = start++;
                     }
                 }
             }
-
+            if(totalRecord < 70 && this.scrollTop<70){
+                return;
+            }
             this.scrollTop = 70;
         }, false);
     </script>

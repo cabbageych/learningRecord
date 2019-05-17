@@ -12,16 +12,17 @@
         一段时间内多次请求执行，只执行一次
         */
         var throtting = (function () {
-            let tag = true;
-            return function () {
-                if (tag) {
-                    tag = !tag;
-                    timer = setTimeout(() => {
+            flag = true;
+            function inner() {
+                if (flag) {
+                    flag = !flag;
+                    setTimeout(() => {
                         console.log("throtting!");
-                        tag = !tag;
+                        flag = !flag;
                     }, 2000);
                 }
             }
+            return inner;
         })();
     </script>
 </body>

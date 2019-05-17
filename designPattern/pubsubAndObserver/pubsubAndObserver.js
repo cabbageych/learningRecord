@@ -18,15 +18,24 @@ subject.prototype = {
     }
 };
 
-var observer01 = {update:function(){console.log("observer01 接收到通知。")}};
-var observer02 = {update:function(){console.log("observer02 接收到通知。")}};
-var observer03 = {update:function(){console.log("observer03 接收到通知。")}};
+//观察者
+function observer(name){
+    this.name = name;
+}
+observer.prototype.update = function(){
+    console.log(this.name+" 收到通知!");
+}
+
+
+var observer01 = new observer("cabbage01");
+var observer02 = new observer("cabbage02");
+var observer03 = new observer("cabbage03");
 
 var Subject = new subject();
 Subject.addObservers(observer01);
 Subject.addObservers(observer02);
 Subject.addObservers(observer03);
-//Subject.notify();
+Subject.notify();
 
 //发布订阅
 /**
