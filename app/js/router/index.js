@@ -17,6 +17,7 @@ import parent from '../home/propsAndEmit/parent.vue'*/
 import brother01 from '../home/propsAndEmit/brother01.vue'
 import brother02 from '../home/propsAndEmit/brother02.vue'/*
 import reverseList from '../home/cases/reverseList.vue'*/
+import lifecycle from '../home/lifecycle.vue'
 //使用路由
 Vue.use(Router)
 //新建路由
@@ -28,8 +29,8 @@ export default new Router({
     routes: [
         {
             path: "/",
-            name: "component",
-            component: component
+            name: "lifecycle",
+            component: lifecycle
         },
         {
             path: "/brother01",
