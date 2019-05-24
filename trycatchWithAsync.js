@@ -5,7 +5,7 @@ var test = new Promise((resolve, reject) => {
         //reject("reject!");
         throw new Error("this is an error!");
     } catch (e) {
-        console.log(e.message);
+        console.log("emmmmmm...");
     }
 });
 test.then((val)=>console.log(val),(val)=>console.log(val)).catch((e)=>{console.log("promise catch...")});

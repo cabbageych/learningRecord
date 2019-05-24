@@ -41,20 +41,19 @@
                     })
                 }
             });
-
         };
+        /*var all = Promise.all(arr);
+        all.then((val)=>{
+            console.log(val);
+        },(val)=>{
+            console.log(val);
+        });*/
         var test = all(arr);
         test.then((val)=>{
             console.log(val);
         },(err)=>{
             console.log(err);
-        })
-        /*a.then((val)=>{
-            console.log(val);
         });
-        c.then(()=>{},(val)=>{
-            console.log(val);
-        })*/
     </script>
 </body>
 
