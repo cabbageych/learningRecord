@@ -1,2 +1,2 @@
 # ajaxWithFetch
-ajaxAndFetch
+ajax和Fetch的用法比较
