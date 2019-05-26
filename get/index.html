@@ -14,7 +14,8 @@
         var fetchData = document.getElementById('fetchData');
         function ajaxSub() {
             let xml = new XMLHttpRequest();
-            //xml.withCredentials = true;
+            //设置跨域时带上cookie信息
+            xml.withCredentials = true;
             xml.open('GET', 'http://localhost:8080?name=cabbage&age=18', true);
             xml.onreadystatechange = function () {
                 if (xml.readyState != 4) {
