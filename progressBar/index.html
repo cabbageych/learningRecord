@@ -12,17 +12,39 @@
     <script>
         var ajaxData = document.getElementById('ajaxData');
         var fetchData = document.getElementById('fetchData');
+        var dataToSend = {name:'cabbage',age:'18'};
         function ajaxSub() {
-           
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:8080', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState != 4) {
+                    return;
+                }
+                if (xhr.status < 300 && xhr.status >= 200) {
+                    if(isJSON(xhr.responseText)){
+                        ajaxData.innerHTML = 'isJSON';
+                        console.log(JSON.parse(xhr.responseText));
+                    }else{
+                        ajaxData.innerHTML = xhr.responseText;
+                    }
+                }else{
+                    console.log(xhr.statusText);
+                }
+            }
+            xhr.send(JSON.parse(dataToSend));
         }
 
         function fetchSub() {
-            
+
         }
 
 
         function isJSON(str) {
-           
+            if(JSON.parse(str)){
+                return true;
+            }else{
+                return false;
+            }
         }
     </script>
 </body>
