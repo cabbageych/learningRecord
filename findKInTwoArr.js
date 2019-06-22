@@ -14,7 +14,7 @@ for (let i = 1; i < len2; i++) {
 }
 
 
-//寻找第k大数
+//???k???k?0??
 let k = Math.floor(Math.random() * (len1 + len2));
 
 /*
