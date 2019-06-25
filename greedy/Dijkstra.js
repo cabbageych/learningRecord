@@ -64,11 +64,11 @@ function dijkstra() {
                 }
             }
             set[pos] = 1;
+            //console.log(pos);
             //console.log(distance);
         }
     }
 }
 
 dijkstra();
-
 console.log(distance);
