@@ -30,6 +30,12 @@
             return func();
         }
         test02();  //cabbage test02
+
+        let newTest = ()=>{
+            this.a  = 666;
+            this.b = 'cabbage';
+        };
+        let t = new newTest();
     </script>
 </body>
 
