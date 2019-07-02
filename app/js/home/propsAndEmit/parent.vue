@@ -2,7 +2,7 @@
   <div>
     父组件:
     <span>childValue:{{childValue}}</span>
-    <child :inputName="name" v-on:fromChild="showValueC"></child>
+    <child :parentArr="arr" :inputName="name" v-on:fromChild="showValueC" v-on:arrTest="showTest"></child>
     父组件传值给子组件:name:<input v-model="name">{{name}}
   </div>
 </template>
@@ -15,12 +15,17 @@ export default {
   data() {
     return {
       name: "toChild",
-      childValue: "waiting..."
+      childValue: "waiting...",
+      arr:[1,2]
     };
   },
   methods: {
     showValueC: function(tempstr) {
       this.childValue = tempstr;
+    },
+    showTest:function(){
+      console.log("parent:");
+      console.log(this.arr);
     }
   }
 };
