@@ -71,7 +71,7 @@ Vue.component('my-validation', {
 
 
 //新建一个vue对象
-new Vue({
+var vm = new Vue({
     el: "#app",
     router,
     components: {
