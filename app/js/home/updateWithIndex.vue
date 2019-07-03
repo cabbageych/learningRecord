@@ -3,7 +3,6 @@
     {{arr}}
     <h3 v-for="item in arr">{{item}}</h3>
     <button @click="change">changeArr</button>
-    {{temp}}
   </div>
 </template>
 
@@ -17,10 +16,9 @@ export default {
   },
   methods: {
     change: function() {
-      vm.arr[3] = 6;
-      this.arr.length = 1;
       this.arr[2] = this.arr[2] + 1;
       this.temp = this.arr[2];
+      alert(this.temp);
     }
   }
 };
