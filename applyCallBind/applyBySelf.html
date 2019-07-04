@@ -15,13 +15,14 @@
             data: "cabbage"
         };
         //print.apply(a);
-        print.prototype.apply = function(a){
-            console.log(this.constructor);
-            a.fn = this.constructor;
+        Object.__proto__.apply = function(a){
+            console.log(this);
+            a.fn = this;
             a.fn();
             delete a.fn;
         }
-        print.prototype.apply(a);
+        print.apply(a);
+        //console.log(Object.__proto__);
     </script>
 </body>
 

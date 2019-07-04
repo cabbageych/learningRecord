@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>incetanceofDIY</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3];
+        let a = arr.__proto__;
+        //console.log(a);
+        //console.log(Array.prototype);
+        function incetance(a,b){
+
+            if(b == null){
+                return null;
+            }
+            if(a == b){
+                return true;
+            }else{
+                incetance(a,b.__proto__);
+            }
+        }
+        let ans = incetance(a,Array.prototype);
+        console.log(ans);
+        //console.log(a == Array.prototype);
+    </script>
+</body>
+
+</html>

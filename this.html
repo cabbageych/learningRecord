@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>this</title>
+</head>
+
+<body>
+
+    <script>
+        var a = 2;
+        var obj = {
+            a: 1,
+            fun: function () {
+                console.log(this.a);
+            }
+        };
+        function print() {
+            console.log(this.a);
+        }
+        print(); //2
+        obj.fun(); //1
+
+        var a = 2;
+        var obj = {
+            a: 999,
+            inner: {
+                a: 1,
+                b: this.a,
+                fun: function () {
+                    console.log(this.b); //2
+                }
+            }
+
+        };
+        obj.inner.fun();
+
+        var test = {
+            b: 666
+        };
+        obj.inner.fun.call(test);
+    </script>
+</body>
+
+</html>
