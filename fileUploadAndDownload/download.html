@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>fileDownload</title>
+    <style>
+        #wrap {
+            position: relative;
+            top: 100px;
+            text-align: center;
+        }
+
+        #wrap>button {
+            position: relative;
+            border: none;
+            font-size: 16px;
+            box-shadow: 0 0 3px gray;
+            border-radius: 3px;
+        }
+
+        #wrap>button:hover {
+            background: rgb(18, 101, 226);
+            color: white;
+        }
+
+        #bar {
+            position: relative;
+            height: 25px;
+            width: 0px;
+            border: none;
+            margin: 0;
+            padding: 0;
+            background: rgb(93, 149, 231);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <button onclick="download()">download</button>
+        <br><br>
+        下载进度:&nbsp;<input id="bar">&nbsp;<span id="showProgress"></span>
+    </div>
+    <script>
+        function download() {
+            let xhr = new XMLHttpRequest();
+            let url = "http://localhost:8080/huaji.jpg";
+            //设置blob用于接收文件
+            xhr.responseType = 'blob';
+            xhr.onprogress = function (event) {
+                console.log(event);
+                if (event.lengthComputable) {
+                    let percent = Math.floor(event.loaded / event.total * 100);
+                    let bar = document.getElementById("bar");
+                    let show = document.getElementById("showProgress");
+                    bar.style.width = 2 * percent + 'px';
+                    show.innerText = percent + '%';
+                }
+            }
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState != 4) {
+                    return;
+                }
+                if (xhr.status == 200) {
+                    let blob = new Blob([this.response], { type: this.response.type });
+                    let a = document.createElement("a");
+                    //产生url
+                    a.href = window.URL.createObjectURL(blob);
+                    let reg = /\/([\.|\w]*$)/;
+                    let fileName = url.match(reg)[1];
+                    a.download = fileName;
+                    a.click();
+                    //释放url
+                    window.URL.revokeObjectURL(a.href);
+                } else {
+                    console.log(xhr.statusText);
+                }
+            }
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>
