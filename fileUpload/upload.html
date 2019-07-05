@@ -45,6 +45,7 @@
             };
             // 获取上传进度
             xhr.upload.onprogress = function (event) {
+                //console.log(event);
                 if (event.lengthComputable) {
                     var percent = Math.floor(event.loaded / event.total * 100);
                     // 设置进度显示
