@@ -3,6 +3,7 @@ const fs = require('fs');
 const url = require('url');
 const resHORI = require('./htmlAndImage');
 const fileDownload = require('./fileDownload');
+const fileUpload = require('./fileUpload');
 
 const server = http.createServer((request, response) => {
     let pathname = url.parse(request.url).pathname;
@@ -12,15 +13,14 @@ const server = http.createServer((request, response) => {
     }
     if (request.method == 'GET') {
         let reg = /[jpg|jpeg|gif|png|html|txt]/;
-        if(reg.test(pathname)){
-            resHORI.resHtmlOrImage(request,response,pathname.substr(1));
-        }else{
-            fileDownload.fd(request,response,pathname);
+        if (reg.test(pathname)) {
+            resHORI.resHtmlOrImage(request, response, pathname.substr(1));
+        } else {
+            fileDownload.fd(request, response, pathname);
         }
-
     }
-    if(request.method == 'POST'){
-
+    if (request.method == 'POST') {
+        fileUpload.fu(pathname, request, response);
     }
 });
 
