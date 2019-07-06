@@ -8,7 +8,7 @@
 <body>
     <script>
         let arr = [1, 2, 3];
-        let a = arr.__proto__;
+        let a = arr;
         //console.log(a);
         //console.log(Array.prototype);
         function incetance(a,b){
@@ -19,12 +19,16 @@
             if(a == b){
                 return true;
             }else{
-                incetance(a,b.__proto__);
+                console.log('test');
+                return incetance(a.__proto__,b);
             }
         }
         let ans = incetance(a,Array.prototype);
         console.log(ans);
-        //console.log(a == Array.prototype);
+        
+        let temp = new incetance();
+        console.log(incetance.prototype); //constructor
+        console.log(temp.__proto__); //constructor
     </script>
 </body>
 
