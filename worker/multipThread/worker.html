@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>worker</title>
+</head>
+
+<body>
+    <button onclick="start()">start</button>
+    <script>
+        function start() {
+            let worker = new Worker("http://localhost:8080/worker02.js");
+            let a = {
+                name: 'cabbage',
+                age: 18
+            }
+            worker.postMessage(a);
+            worker.addEventListener('message', (e) => {
+                console.log(e.data);
+            })
+        }
+    </script>
+</body>
+
+</html>

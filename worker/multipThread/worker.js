@@ -1,3 +1,4 @@
-self.addEventListener('message',function(e){
-    self.postMessage(e.data.char);
+self.addEventListener('message',(e)=>{
+    //console.log(e.data);
+    self.postMessage(e.data);
 });

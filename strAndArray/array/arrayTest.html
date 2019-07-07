@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>test.test</title>
 </head>
+
 <body>
-<script>
-    var a = new Array(10);
-    var b = new Array(15);
-    for (var i = 0; i < 10; i++) {
-        a[i] = i;
-    }
-    for (var i = 0; i < 15; i++) {
-        b[i] = Math.floor(Math.random()*100);
-    }
-    function sortByNum(a,b){
-        return a-b;
-    }
-    console.log(a.concat(b));
-    console.log(b.sort()); //未实现按大小排序
-    console.log(b.sort(sortByNum)); //按数字大小排序
-    console.log(a.pop()); //删除并返回数组的最后一个元素
-    console.log(a.reverse());
-    console.log(a.join("|"));
-    console.log(a.unshift(666)+" "+a[0]);
-</script>
+    <script>
+        var a = new Array(10);
+        var b = new Array(15);
+        for (var i = 0; i < 10; i++) {
+            a[i] = i;
+        }
+        for (var i = 0; i < 15; i++) {
+            b[i] = Math.floor(Math.random() * 100);
+        }
+        function sortByNum(a, b) {
+            return a - b;
+        }
+        console.log(a.concat(b));
+        console.log(b.sort()); //未实现按大小排序
+        console.log(b.sort(sortByNum)); //按数字大小排序
+        console.log(a.pop()); //删除并返回数组的最后一个元素
+        console.log(a.reverse());
+        console.log(a.join("|"));
+        console.log(a.unshift(666) + " " + a[0]);
+        console.log(a.shift(), a);
+    </script>
 </body>
+
 </html>

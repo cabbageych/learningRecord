@@ -1,0 +1,36 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cookie And Storage</title>
+</head>
+
+<body>
+    <script>
+        //localStorage与sessionstorage的用法一样
+        localStorage.setItem("key01", "cabbage");
+        localStorage.setItem("key02", "xixihaha");
+        localStorage.setItem("key03", "removeTeset");
+        console.log(localStorage.getItem("key02"));
+        console.log(localStorage.key(0));
+        console.log(localStorage.getItem("key03")); //removeTest
+        localStorage.removeItem("key03");
+        console.log(localStorage.getItem("key03")); //null
+
+        //数组和对象
+        let arr = [1, 2, 3, 4, 5, 6];
+        localStorage.setItem("arr", JSON.stringify(arr));
+        console.log(JSON.parse(localStorage.getItem("arr")));
+        let a = {
+            name: "cabbage",
+            age: 22,
+        }
+        localStorage.setItem("object", JSON.stringify(a));
+        console.log(JSON.parse(localStorage.getItem("object")));
+        localStorage.clear();
+    </script>
+</body>
+
+</html>
