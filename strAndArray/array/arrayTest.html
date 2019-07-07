@@ -19,14 +19,20 @@
         function sortByNum(a, b) {
             return a - b;
         }
-        console.log(a.concat(b));
-        console.log(b.sort()); //未实现按大小排序
-        console.log(b.sort(sortByNum)); //按数字大小排序
-        console.log(a.pop()); //删除并返回数组的最后一个元素
-        console.log(a.reverse());
+        console.log("a", a);
+        console.log("b", b);
+        //不改变原数组
+        console.log(a.concat(b), a);
         console.log(a.join("|"));
-        console.log(a.unshift(666) + " " + a[0]);
-        console.log(a.shift(), a);
+        console.log(a.slice(2, 3), a);
+        //改变原数组
+        console.log(b.sort(), b); //未实现按大小排序
+        console.log(b.sort(sortByNum), b); //按数字大小排序
+        console.log(a.pop(), a); //删除并返回数组的最后一个元素
+        console.log(a.reverse(), a);
+        console.log(a.unshift(666), a); //添加首个元素
+        console.log(a.shift(), a); //移除首个元素
+        console.log(a.splice(2, 1), a); //删除指定位置开始的n个元素
     </script>
 </body>
 

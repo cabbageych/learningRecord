@@ -8,28 +8,25 @@
 <body>
     <input id="input"><label id="show"></label>
     <script>
-        var a = {};
         var temp;
         var input = document.getElementById("input");
         var show = document.getElementById("show");
         //Proxy对应definedProperty升级：无需指定需要拦截的属性，proxy拦截传入对象的所有属性
         //proxy需要返回值承接返回的对象
-        let a = new Proxy({}, {      
+        let a = new Proxy({}, {
             //target:需要拦截的目标对象  property:目标对象对应的属性
             get: function (target, property) {
-                console.log(target,this);
-                console.log("get: "+property);
+                console.log("get: " + property + " " + this.property);
                 return this.property;
             },
             //obj:目标对象 property：属性名 val:属性值
             set: function (obj, property, val) {
                 this.property = val;
-                console.log(obj);
-                console.log("set: "+property+" "+val);
+                console.log("set: " + property + " " + val);
             }
         });
 
-        input.addEventListener('keyup',function(e){
+        input.addEventListener('keyup', function (e) {
             a.attr = e.target.value;
             show.innerHTML = a.attr;
             a.test = 'emmm';

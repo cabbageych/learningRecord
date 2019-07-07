@@ -4,7 +4,7 @@ var b = 77;
 
 //实现模版字符串
 var str = "~b-a: ${b-a}~";
-var reg = /\$\{([\w+-\\*\\]*)\}/;
+var reg = /\$\{(.*)\}/;
 var temp = str.match(reg)[1];
 var result = str.replace(reg,eval(temp));
 result = result.substr(1,result.length-2);

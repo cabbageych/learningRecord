@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>append</title>
+</head>
+
+<body>
+    <button onclick="append()">append</button>
+    <script>
+        let container = document.createDocumentFragment();
+        let body = document.getElementsByTagName('body')[0];
+        let div = document.createElement('div');
+        for (let i = 0; i < 20; i++) {
+            let p = document.createElement('p');
+            p.innerHTML = i;
+            div.append(p);
+        }
+        body.append(div);
+        let pSet = document.getElementsByTagName('p');
+        function append() {
+            container.appendChild(pSet[pSet.length - 1]);
+            console.log(container);
+        }
+    </script>
+</body>
+
+</html>

@@ -9,23 +9,27 @@
     <input id="input">
     <label id="show"></label>
     <script>
-        var obj = {};
-        var temp = "";
-        Object.defineProperty(obj,'test',{
-            get:function(){
+        var obj = {
+            test: 'test',
+            name: 'cabbage'
+        };
+        var temp = obj.test;
+        Object.defineProperty(obj, 'test', {
+            get: function () {
                 return temp;
             },
-            set:function(newValue){
+            set: function (newValue) {
                 temp = newValue;
                 let value = document.getElementById("input").value;
-                document.getElementById("show").innerHTML  = value;
+                document.getElementById("show").innerHTML = value;
             }
         });
         var input = document.getElementById("input");
-        input.addEventListener('keyup',function(e){
+        input.addEventListener('keyup', function (e) {
+            console.log(obj.test);
             obj.test = e.target.value;
             temp = e.target.value;
-        },false);
+        }, false);
     </script>
 </body>
 
