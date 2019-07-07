@@ -25,7 +25,8 @@
         var parent = document.getElementsByClassName("parent")[0];
         parent.addEventListener("click", function (e) {
             console.log(e.target.getAttribute("class"));
-            if (e.target.tagName === "A") {
+            console.log(e.target.tagName);
+            if (e.target.tagName === "A") { //tagName均为大写
                 var sure = confirm("确认点击？");
                 if (sure) {
                     return true;

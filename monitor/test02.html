@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>timeRecord</title>
     <style>
-        
+
     </style>
 </head>
 
@@ -14,12 +14,12 @@
     <script>
         console.log(history);
         //监控用户停留页面时间
-        console.log(window,location);
+        console.log(window, location);
         let start, end;
-        document.addEventListener('DOMContentLoaded',function () {
+        document.addEventListener('DOMContentLoaded', function () {
             start = new Date();
             console.log(start);
-        }); 
+        });
 
         window.onbeforeunload = function () {
             alert("test");
@@ -29,7 +29,7 @@
             //console.log(ans);
             fetch('http://localhost:8080?ans=' + ans).then((response) => {
                 return response;
-            }).then(()=>{});
+            }).then(() => { });
         }
     </script>
 </body>

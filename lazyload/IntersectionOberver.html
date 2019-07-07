@@ -31,7 +31,7 @@
         let test = new IntersectionObserver(args => {
             args.forEach(function (arg) {
                 if (arg.intersectionRatio <= 0) {
-                    console.log(arg.target.getAttribute('src'),arg.target.getAttribute('data-src'));
+                    console.log(arg.target.getAttribute('src'), arg.target.getAttribute('data-src'));
                     return;
                 }
                 arg.target.src = arg.target.getAttribute('data-src');
@@ -44,7 +44,7 @@
             });
         });
         let arr = document.getElementsByTagName('img');
-        for (let i = 0; i < arr.length; i++) { 
+        for (let i = 0; i < arr.length; i++) {
             test.observe(arr[i]);
         }
     </script>

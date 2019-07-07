@@ -62,24 +62,25 @@
 
         //dragenter和dragover事件的默认行为是拒绝接受任何被拖放的元素。因此，我们必须阻止浏览器这种默认行为。e.preventDefault();
         //鼠标点击的位置离开目的地：leave；鼠标点击：enter；鼠标拖动离开目的地过程中：over；
-        test01.ondragenter = function(e){
+        test01.ondragenter = function (e) {
             console.log("元素进入目的时触发！");
             e.preventDefault();
         }
-        test01.ondragover = function(e){
+        test01.ondragover = function (e) {
             console.log("元素在目的地时触发!");
             e.preventDefault();
         }
-        test01.ondragleave = function(e){
+        test01.ondragleave = function (e) {
             console.log("元素离开目的地时触发");
             e.preventDefault();
-        }   
+        }
 
 
         //drop当被拖动元素在目的地元素里放下时触发，一般需要取消浏览器的默认行为。
-        test01.ondrop = function(e){
+        test01.ondrop = function (e) {
             console.log("drop!");
             e.preventDefault();
+            e.stopPropagation();
         }
     </script>
 </body>
