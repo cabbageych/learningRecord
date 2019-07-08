@@ -26,33 +26,33 @@
             return takeLongTime(n1);
         }
 
-        function step3(n2,n1,n) {
+        function step3(n2, n1, n) {
             console.log(`step3 with ${n2} ${n1} ${n}`);
             return takeLongTime(n2);
         }
         //使用promise
-        function test() {
-            console.time("counting");
-            const time = 300;
-            step1(time).then((time1) => {
-                return step2(time1, time).then(time2 => [time2,time1,time])
-            }).then(times=>{
-                return step3(times[0],times[1],times[2]).then(totalTime=>{
-                    console.log(totalTime);
-                    console.timeEnd("counting");
-                })
-            });
-        }
-        //使用async
-        /*async function test(){
-            console.time("counting");
-            const time = 300;
-            const time2 = await step1(time);
-            const time3 = await step2(time2,time);
-            const result = await step3(time3,time2,time);
-            console.log(`result is ${result}`);
-            console.timeEnd("counting");
+        /*function test() {
+            console.time('time');
+            let timer1 = 300;
+            step1(timer1).then(timer2 => {
+                return step2(timer2, timer1).then(timer3 => [timer3, timer2, timer1]);
+            }).then(arr => {
+                return step3(arr[0], arr[1], arr[2]).then(result => [result, arr[0], arr[1], arr[2]]);
+            }).then(ans => {
+                console.log('result', ans);
+                console.timeEnd('time');
+            })
         }*/
+        //使用async
+        async function test() {
+            console.time("counting");
+            let timer1 = 300;
+            let timer2 = await step1(timer1);
+            let timer3 = await step2(timer2, timer1);
+            let result = await step3(timer3, timer2, timer1);
+            console.log('result', result, timer3, timer2, timer1);
+            console.timeEnd("counting");
+        }
         test();
     </script>
 </body>

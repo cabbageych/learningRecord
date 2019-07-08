@@ -33,10 +33,10 @@
         console.log(g.return('hello'));//{value: "hello", done: true}
         console.log(g.next());//{value: undefined, done: true}
         //yield*后面跟的是一个可迭代的结构(以数组为例)，它会调用该结构的迭代器接口。
-        function * f3() {
+        function* f3() {
             yield 1;
             yield 2;
-            yield * ['hello','cabbage','21'];
+            yield* ['hello', 'cabbage', '21'];
             yield 4;
             return 5;
         }
@@ -44,7 +44,6 @@
         for (let k of f3()) {
             console.log(k);
         }
-        console.log(a);
     </script>
 </body>
 

@@ -15,6 +15,7 @@
         优势就能体现出来了（很有意思，Promise 通过 then 链来解决多层回调的问题，现在又用 async/await 来进一步优化它）。
         */
         //假设一个业务，分多个步骤完成，每个步骤都是异步的，而且依赖于上一个步骤的结果。
+
         function takeLongTime(n) {
             return new Promise(resolve => {
                 setTimeout(() => resolve(n + 200), n);
@@ -36,7 +37,8 @@
             return takeLongTime(n);
         }
         //使用promise
-        /*function doIt() {
+        /*实现1
+        function doIt() {
             console.time("doIt");
             const time1 = 300;
             step1(time1)
@@ -47,16 +49,31 @@
                     console.timeEnd("doIt");
                 });
         }
-        doIt(); //doIt: 1511.7548828125ms*/
+        doIt(); //doIt: 1511.7548828125ms
+        //实现2
+        function test(time) {
+            console.time('time');
+            step1(time).then(val => {
+                return step2(val).then(val => val);
+            }).then(val => {
+                return step3(val).then(val => val);
+            }).then(val => {
+                console.log(`end with ${val}`);
+                console.timeEnd('time');
+            })
+        }
+        test(300);
+        */
+
         //使用async
         async function doIt() {
-            console.time("doIt");
-            const time1 = 300;
-            const time2 = await step1(time1);
-            const time3 = await step2(time2);
-            const result = await step3(time3);
-            console.log(`result is ${result}`);
-            console.timeEnd("doIt"); //doIt: 1508.626220703125ms
+            console.time('doIt');
+            let timer1 = 300;
+            let timer2 = await step1(timer1);
+            let timer3 = await step2(timer2);
+            let result = await step3(timer3);
+            console.log('end', result);
+            console.timeEnd('doIt');
         }
         doIt();
     </script>

@@ -12,7 +12,6 @@
         function* test02(x) {
             var m = yield x + 3;
             var n = yield m + 5;
-            return n;
         }
         var x = test02(3);
         console.log(x); //test02 {<suspended>}

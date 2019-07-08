@@ -7,7 +7,6 @@
 
 <body>
     <script>
-        //迭代对象
         var object01 = {
             name: "cabbage",
             age: 22,
@@ -20,24 +19,32 @@
                 }
             }
         };
+        console.log('----------Object01-----------');
+        for (let i in object01) {
+            console.log(i, object01[i]);
+        }
+
+        console.log('----------Object02-----------');
         var object02 = {
             name: "cabbage",
             age: 22
         }
         object02.add = "add test";
-        //object02.__proto__.test = "emmm";
-        /*for (let i in object02) {
+        object02.__proto__.test = "emmm";
+        for (let i in object02) {
             console.log(i);
-        }*/
-        function object03(){
+        }
+
+        console.log('----------Object03-----------');
+        function object03() {
             this.name = "cabbage";
             this.age = 22;
         }
         object03.prototype.b = "mmmme";
-        var temp  = new object03();
+        var temp = new object03();
         temp.a = "emmm";
         console.log(temp);
-        for(let i in temp){
+        for (let i in temp) {
             console.log(i);
         }
     </script>

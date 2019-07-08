@@ -6,6 +6,7 @@
     <title>canvasWithJS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body onload="draw();">
     <canvas id="myCanvas" width="150" height="150"></canvas>
     <canvas id="myCanvas02" width="150" height="150"></canvas>
@@ -27,59 +28,62 @@
                 ctx.fillStyle = "rgb(200,0,0)";   //当前样式设置对接下来的图形填充起效
                 ctx.fillRect(10, 10, 55, 50);
                 ctx.fillStyle = "rgba(1,1,1,0.5)";
-                ctx.fillRect(20,20,55,50);
-                ctx.clearRect(30,30,20,20);   //制定区域清除填充
+                ctx.fillRect(20, 20, 55, 50);
+                ctx.clearRect(30, 30, 20, 20);   //制定区域清除填充
             }
             //空心矩形
-            if(canvas02.getContext){
+            if (canvas02.getContext) {
                 var ctx = canvas02.getContext("2d");
-                ctx.fillStyle = "rgb(100,100,20)";
-                ctx.strokeRect(10,10,50,50);
+                ctx.strokeStyle = 'red';
+                ctx.lineWidth = 10;
+                ctx.strokeRect(10, 10, 50, 50);
             }
             //实心文字
-            if(canvas03.getContext){
+            if (canvas03.getContext) {
                 var ctx = canvas03.getContext("2d");
                 ctx.font = "30px serif";
-                ctx.fillText("cabbage!",50,50);
+                ctx.fillText("cabbage!", 50, 50);
             }
 
             //空心文字
-            if(canvas04.getContext){
+            if (canvas04.getContext) {
                 var ctx = canvas04.getContext("2d");
                 ctx.font = "30px serif";
-                ctx.strokeText("cabbage!",50,50);
+                ctx.strokeText("cabbage!", 50, 50);
             }
 
             //路径绘制
-            if(canvas05.getContext){
+            if (canvas05.getContext) {
                 var ctx = canvas05.getContext("2d");
                 //绘制填充图形
                 ctx.fillStyle = "rgb(100,200,50)";
                 ctx.beginPath();
-                ctx.moveTo(20,20);
-                ctx.lineTo(100,20);
-                ctx.lineTo(60,60);
+                ctx.moveTo(20, 20);
+                ctx.lineTo(100, 20);
+                ctx.lineTo(60, 60);
                 ctx.fill();
                 //绘制边框图形
-                ctx.moveTo(150,100);
-                ctx.lineTo(180,100);
-                ctx.lineTo(250,300);
-                ctx.lineTo(120,300);
+                ctx.moveTo(150, 100);
+                ctx.lineTo(180, 100);
+                ctx.lineTo(250, 300);
+                ctx.lineTo(120, 300);
+                ctx.strokeStyle = 'blue';
+                ctx.lineWidth = 1;
                 ctx.closePath();
                 ctx.stroke();
             }
 
             //画圆
-            if(canvas06.getContext){
+            if (canvas06.getContext) {
                 var ctx = canvas06.getContext("2d");
                 ctx.beginPath();
-                ctx.arc(100,100,100,0,2*Math.PI,true); //逆时针旋转
+                ctx.arc(100, 100, 100, 0, Math.PI, true); //逆时针旋转
                 ctx.stroke();
                 ctx.beginPath();
-                ctx.arc(100,100,80,0,Math.PI,false); //顺时针旋转
+                ctx.arc(100, 100, 80, 0, Math.PI, false); //顺时针旋转(默认情况)
                 ctx.stroke();
                 ctx.beginPath();
-                ctx.arc(100,100,40,0,Math.PI*2,false);
+                ctx.arc(100, 100, 40, 0, Math.PI * 2, false);
                 //ctx.closePath();
                 //ctx.stroke();
                 ctx.fill();

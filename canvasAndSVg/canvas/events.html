@@ -30,7 +30,7 @@
                     ctx.moveTo(250, 250);
                     ctx.arc(250, 250, 205, args[i].begin, args[i].end);
                     if (ctx.isPointInPath(e.offsetX, e.offsetY)) {
-                        if (args[i].count === 0) {
+                        if (args[i].count === 0) {//确认当前块的状态为未点击
                             ctx.shadowBlur = 30;
                             ctx.shadowColor = 'black';
                             ctx.fillStyle = args[i].color;

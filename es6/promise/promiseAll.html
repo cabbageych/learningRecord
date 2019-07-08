@@ -18,13 +18,20 @@
         });
         var c = new Promise((resolve, reject) => {
             console.log("promise 03");
-            reject("reject 03");
+            let a = Math.random();
+            console.log(a);
+            a > 0.5 ? reject("reject 03") : resolve('resolve 03');
         });
         var d = new Promise((resolve, reject) => {
             console.log("promise 04");
             resolve("resolve 04");
-        });
+        })//.then(val => console.log('then04', val));
         var arr = [a, b, c, d];
+        /*Promise.all(arr).then((val) => { console.log(val) }, val => console.log(val)).catch((e) => {
+            console.log('catch');
+            console.log(e);
+        });*/
+
         function all(atr) {
             var results = [];
             var len = atr.length;
@@ -33,7 +40,7 @@
                 for (let temp of atr) {
                     temp.then((val) => {
                         results[count++] = val;
-                        if(count == len){
+                        if (count == len) {
                             return resolve(results);
                         }
                     }, (err) => {
@@ -42,16 +49,10 @@
                 }
             });
         };
-        /*var all = Promise.all(arr);
-        all.then((val)=>{
-            console.log(val);
-        },(val)=>{
-            console.log(val);
-        });*/
         var test = all(arr);
-        test.then((val)=>{
+        test.then((val) => {
             console.log(val);
-        },(err)=>{
+        }, (err) => {
             console.log(err);
         });
     </script>
