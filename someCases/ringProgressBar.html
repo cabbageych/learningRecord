@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>环形进度条</title>
+    <style>
+        h2 {
+            position: relative;
+            text-align: center;
+            margin: 0 auto;
+            padding-bottom: 50px;
+        }
+
+        #wrapper {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            height: 340px;
+            width: 340px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -80%);
+            border-radius: 50%;
+            box-shadow: 0 0 5px gray;
+        }
+
+        #left {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            height: 340px;
+            width: 170px;
+            overflow: hidden;
+            border:none;
+        }
+
+        #ringL {
+            position: absolute;
+            height: 300px;
+            width: 300px;
+            border: 20px solid transparent;
+            border-right: 20px solid lightblue;
+            border-top: 20px solid lightblue;
+            border-radius: 50%;
+            transform: rotate(45deg);
+            animation: rotateL 5s linear infinite;
+        }
+
+        #right {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            left: 170px;
+            height: 340px;
+            width: 170px;
+            overflow: hidden;
+            border:none;
+        }
+
+        #ringR {
+            position: absolute;
+            height: 300px;
+            width: 300px;
+            border: 20px solid transparent;
+            border-left: 20px solid lightblue;
+            border-bottom: 20px solid lightblue;
+            border-radius: 50%;
+            transform: rotate(45deg);
+            left: -170px;
+            animation: rotateR 5s linear infinite;
+        }
+
+        @keyframes rotateL {
+            from {
+                transform: rotate(45deg);
+            }
+
+            40% {
+                transform: rotate(45deg);
+            }
+
+            80% {
+                transform: rotate(225deg);
+            }
+
+            to {
+                transform: rotate(225deg);
+            }
+
+        }
+
+        @keyframes rotateR {
+            from {
+                transform: rotate(45deg);
+            }
+
+            40% {
+                transform: rotate(225deg);
+            }
+
+            to {
+                transform: rotate(225deg);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>环形进度条</h2>
+    <div id="wrapper">
+        <div id="left">
+            <div id="ringL"></div>
+        </div>
+        <div id="right">
+            <div id="ringR"></div>
+        </div>
+    </div>
+</body>
+
+</html>

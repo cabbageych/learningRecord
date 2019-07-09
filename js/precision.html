@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>precision</title>
+</head>
+
+<body>
+    <script>
+        //最大到2的53次方不会出现精度丢失问题
+        let num = Math.pow(2, 53);
+        let num02 = num - 1;
+        num = num.toString();
+        console.log(num, num.length);
+        console.log(num02);
+        console.log(num02 == num);
+        let num03 = 164379764419858435;
+        console.log(num03); //164379764419858430(精度丢失，少了5)
+
+
+        console.log('---------浮点数操作---------')
+        //小数比较
+        function floatCompare(a, b, operation) {
+            let str = a.toString();
+            let len1 = (str.substr(str.indexOf('.'))).length;
+            str = b.toString();
+            let len2 = (str.substr(str.indexOf('.'))).length;
+            let len = len1 > len2 ? len1 : len2;
+            for (let i = 0; i < len; i++) {
+                a *= 10;
+                b *= 10;
+            }
+            let ans;
+            switch (operation) {
+                case '+':
+                    ans = a + b;
+                    break;
+                case '-':
+                    ans = a - b;
+                    break;
+                case '*':
+                    ans = a * b;
+                    break;
+                case '/':
+                    ans = a / b;
+                    break;
+            }
+            for (let i = 0; i < len; i++) {
+                ans /= 10;
+            }
+            return ans;
+        }
+        console.log(floatCompare(0.32, 0.5, '+'),'结果正确'); //0.82
+        console.log(0.32 + 0.5,'精度丢失'); //0.8200000000000001(精度丢失)
+        console.log(0.32 + 0.4 == 0.82); //false
+    </script>
+</body>
+
+</html>
