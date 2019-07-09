@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>promise</title>
+</head>
+
+<body>
+    <script>
+        function Promise(fn) {
+            var value = null,
+                callbacks = [], //promise状态
+                state = 'pending';  //callbacks为数组，因为可能同时有很多个回调
+            this.then = function (onFulfilled) {
+                if (state == 'pending') {
+                    callbacks.push(onFulfilled);
+                    return this;
+                }
+                onFulfilled(value);
+                return this;
+            };
+            function resolve(newValue) {
+                /**
+                 * callbacks.forEach(function (callback) {
+                 *  callback(value);
+                 * });
+                 * */
+                value = newValue;
+                state = 'fulfilled';
+                //加入延时机制,避免在then方法注册回调之前调用resolve
+                setTimeout(() => {
+                    callbacks.forEach((ele) => {
+                        ele(value);
+                    })
+                }, 0)
+            }
+
+            fn(resolve);
+        }
+
+        let a = new Promise((resolve) => {
+            resolve('test');
+            /*setTimeout(() => {
+                resolve('test');
+            }, (1000));*/
+        }).then(val => {
+            console.log(val);
+        }).then(val => {
+            console.log('then02', val);
+        });
+
+        /*
+        Promise((resolve) => {
+            setTimeout(() => {
+                resolve('test');
+            }, (1000));
+        })*/
+    </script>
+</body>
+
+</html>

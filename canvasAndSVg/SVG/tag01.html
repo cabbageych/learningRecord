@@ -14,8 +14,8 @@
             stroke-width: 3px;
         }
 
-        #test{
-            border:5px solid red;
+        #test {
+            border: 5px solid red;
         }
     </style>
 </head>
@@ -75,7 +75,7 @@
     <hr>
     <h4>path(路径绘制)</h4>
     <svg width="300" height="180">
-        <path d="M 18,3 L 22,13 L 46,40 L 161,90  L 250,40 Z"></path>
+        <path d="M 0,0 L 22,13 L 46,40 L 161,90  L 250,40 Z"></path>
     </svg>
     <p>
         d属性表示绘制顺序，它的值是一个长字符串，每个字母表示一个绘制动作，后面跟着坐标。
@@ -91,6 +91,15 @@
     <p>
         x属性和y属性，表示文本区块基线（baseline）起点的横坐标和纵坐标。文字的样式可以用class或style属性指定。
     </p>
+    <hr>
+    <h4>animateMotion</h4>
+    <svg width="360" height="200" xmlns="http://www.w3.org/2000/svg">
+        <text font-family="microsoft yahei" font-size="40" x="0" y="0" fill="#cd0000">马
+            <animateMotion path="M10,80 q100,120 120,20 q140,-50 160,0" begin="0s" dur="3s" rotate="auto"
+                repeatCount="indefinite" />
+        </text>
+        <path d="M10,80 q100,120 120,20 q140,-50 160,0" stroke="#cd0000" stroke-width="2" fill="none" />
+    </svg>
     <hr>
 </body>
 

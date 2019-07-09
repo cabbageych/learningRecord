@@ -4,8 +4,8 @@
 <head>
     <title>test</title>
     <style>
-        #test{
-            color:red;
+        #test {
+            color: red;
             visibility: hidden;
         }
     </style>
@@ -14,14 +14,13 @@
 <body>
     <div id="test">cabbage test</div>
     <script>
-       let temp = {};
-       let arr = [];
-       for(let i = 0;i<3;i++){
-           temp.name = 'cabbage';
-           temp.age = i;
-            arr.push(temp);
-       }
-       console.log(arr);
+        let test = new Promise((resolve, reject) => {
+            resolve('test');
+        }).then(val => {
+            console.log(val);
+        }).then(val => {
+            console.log(val);
+        })
     </script>
 </body>
 

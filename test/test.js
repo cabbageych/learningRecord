@@ -25,3 +25,4 @@ function isCircle(obj) {
 }
 
 console.log(isCircle(obj));
+
