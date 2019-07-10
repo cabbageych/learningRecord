@@ -46,10 +46,7 @@ export default {
   text-align: center;
   margin-bottom: 50px;
 }
-hr {
-  height: 10px;
-  background: lightblue;
-}
+
 .blog-post {
   text-align: center;
 }

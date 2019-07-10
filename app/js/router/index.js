@@ -20,6 +20,10 @@ import reverseList from '../home/cases/reverseList.vue'*/
 import lifecycle from '../home/lifecycle.vue'
 import updateWithIndex from '../home/updateWithIndex.vue'
 import watchAndComputed from '../home/watchAndComputed.vue'
+import citylist from '../home/store/citylist.vue'
+import store01 from '../home/store/store01.vue'
+import store02 from '../home/store/store02.vue'
+import store02Child from '../home/store/store02Child.vue'
 //使用路由
 Vue.use(Router)
 //新建路由
@@ -31,8 +35,23 @@ export default new Router({
     routes: [
         {
             path: "/",
-            name: watchAndComputed,
-            component: watchAndComputed
+            name: store02,
+            component: store02
+        },
+        {
+            path:'/citylist',
+            name:citylist,
+            component:citylist
+        },
+        {
+            path:'/store02',
+            name:store02,
+            component:store02
+        },
+        {
+            path:'/store02Child',
+            name:store02Child,
+            component:store02Child
         }
         /*
         {

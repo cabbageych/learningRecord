@@ -28,5 +28,8 @@
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1",
     "webpack-spritesmith": "^1.0.0"
+  },
+  "dependencies": {
+    "vuex": "^3.1.1"
   }
 }

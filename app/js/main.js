@@ -3,7 +3,13 @@ import App from "./App.vue" //vue的入口文件
 import router from "./router" //路由文件，用于页面管理
 import '../css/style.css' //样式文件
 import '../css/sprites-generated.css'
+import store from './store/store.js'
 Vue.config.productionTip = false
+
+
+
+
+
 //创建组件
 Vue.component('button-counter', {
     data() {
@@ -74,6 +80,7 @@ Vue.component('my-validation', {
 var vm = new Vue({
     el: "#app",
     router,
+    store,
     components: {
         App
     },
