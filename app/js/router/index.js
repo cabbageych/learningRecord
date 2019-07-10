@@ -19,6 +19,7 @@ import brother02 from '../home/propsAndEmit/brother02.vue'
 import reverseList from '../home/cases/reverseList.vue'*/
 import lifecycle from '../home/lifecycle.vue'
 import updateWithIndex from '../home/updateWithIndex.vue'
+import watchAndComputed from '../home/watchAndComputed.vue'
 //使用路由
 Vue.use(Router)
 //新建路由
@@ -30,98 +31,14 @@ export default new Router({
     routes: [
         {
             path: "/",
-            name: updateWithIndex,
-            component: updateWithIndex
+            name: watchAndComputed,
+            component: watchAndComputed
         }
-        /*{
-            path: "/",
-            name: "parent",
-            component: parent
-        },
+        /*
         {
             path: "/brother01",
             name: "brother01",
             component: brother01
-        },
-        {
-            path: "/brother02",
-            name: "brother02",
-            component: brother02
-        },
-        {
-            path: "/",
-            name: "component",
-            component: component
-        },
-        {
-            path: "/",
-            name: "brother01",
-            component: brother01
-        },
-        {
-            path: "/brother01",
-            name: "brother01",
-            component: brother01
-        },
-        {
-            path: "/brother02",
-            name: "brother02",
-            component: brother02
-        },
-        {
-            path: "/",
-            name: "parent",
-            component: parent
-        },
-        {
-            path: "/",
-            name: "animation01",
-            component: animaiton01
-        },
-        {
-            path: "/",
-            name: "props",
-            component: props
-        },
-        {
-            path: "/",
-            name: "FormInputBinding",
-            component: FormInputBinding
-        },
-        {
-            path: "/",
-            name: "Event",
-            component: Event
-        },
-        {
-            path: "/",
-            name: "ListRendering",
-            component: ListRendering
-        },
-        {
-            path: "/",
-            name: "ConditionRendering",
-            component: ConditionRendering
-        },
-        {
-            path: "/",
-            name: "TwoWayDataBinding",
-            component: TwoWayDataBinding
-        },
-        {
-            path: "/",
-            name: "ClassAndStyle",
-            component: ClassAndStyle
-        },
-        {
-            path: "/",
-            name: "TemplateSyntax",
-            component: TemplateSyntax
-        },
-        {
-            path: "/",
-            name: "Index",
-            component: Index
-        }*/
+        },*/
     ]
 })
