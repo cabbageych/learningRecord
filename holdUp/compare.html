@@ -47,15 +47,16 @@
         let obj02 = new Proxy(arr02, {
             set: function (target, key, newVal, receiver) {
                 console.log('set', 'index:', key, 'newVal:', newVal);
-                return Reflect.set(target, key, newVal, receiver)
+                return Reflect.set(target, key, newVal, receiver);
             },
             get: function (target, key, receiver) {
                 console.log('get', 'index:', key, 'value:', target[key]);
-                return Reflect.get(target, key, receiver)
+                return target[key];
             }
         })
 
-        obj02.push(2);
+        //obj02.push(2);
+        obj02.unshift(111);
         pro.addEventListener('keyup', (e) => {
             //obj02 = [1, 2, 3, 4, 5, 56]; //修改obj02指向，proxy设置失效
             obj02[2] = e.target.value; //触发set: set index: 2 newVal: 2
