@@ -14,13 +14,18 @@
 <body>
     <div id="test">cabbage test</div>
     <script>
-        let test = new Promise((resolve, reject) => {
-            resolve('test');
-        }).then(val => {
-            console.log(val);
-        }).then(val => {
-            console.log(val);
-        })
+        a = {
+            name: 'cabbage',
+            age: 21
+        }
+
+        console.log = (function (fun) {
+            return function (arg) {
+                fun('hello',arg);
+                //fun.call(console, 'hello', arg);
+            }
+        })(console.log);
+        console.log(a);
     </script>
 </body>
 

@@ -4,6 +4,12 @@
 <head>
     <title>margin覆盖</title>
     <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
         #absoluteTest {
             position: relative;
             height: 200px;
@@ -17,8 +23,8 @@
             height: 200px;
             width: 200px;
             background: rgb(50, 78, 204);
-            top:200px;
-            margin-top:0px;
+            top: 200px;
+            margin-top: 0px;
         }
 
         #test01 {
@@ -50,6 +56,7 @@
             margin-bottom: 50px;
             /*div03和div04相距-50px*/
         }
+
         #test04 {
             position: relative;
             height: 200px;
@@ -57,9 +64,34 @@
             background: rgb(122, 50, 204);
             margin-top: -100px;
         }
-        #container01{
-            position:relative;
-            left:500px;
+
+        #container01 {
+            position: relative;
+        }
+
+        #container02{
+            margin-top: 200px;
+            background: lightcyan;
+        }
+
+        #test05 {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            background: rgb(122, 50, 204);
+            margin-bottom: 50px;
+        }
+
+        #test06 {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            margin-top: 40px;
+            background: rgb(68, 204, 50);
+        }
+
+        #wrapper{
+            overflow: hidden;
         }
     </style>
 </head>
@@ -72,6 +104,12 @@
         <div id="test02"></div>
         <div id="test03"></div>
         <div id="test04"></div>
+    </div>
+    <div id="container02">
+        <div id="wrapper">
+            <div id="test05"></div>
+        </div>
+        <div id="test06"></div>
     </div>
 </body>
 
