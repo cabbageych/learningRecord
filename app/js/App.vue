@@ -1,6 +1,13 @@
 <template>
   <div id="app">
     <h1 class="title">vueLearning</h1>
+    <div>
+      <router-link to="/brother01">brother01</router-link>
+      <router-link to="/brother02">brother02</router-link>
+      <router-link to="/parent">parent</router-link>
+      <router-link to="/store01">store01</router-link>
+      <router-link to="/">root</router-link>
+    </div>
     <!--<div>
       <h1 style="text-align:center;">单个根元素</h1>
       <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></blog-post>
@@ -9,10 +16,14 @@
     <router-link to="/brother02">toBrother02</router-link>
     <reverse-list :list="myList"></reverse-list>-->
     <router-view></router-view>
+    <brother01></brother01>
+    <brother02></brother02>
   </div>
 </template>
 <script>
 import reverseList from "./home/cases/reverseList.vue";
+import brother01 from './home/propsAndEmit/brother01.vue';
+import brother02 from './home/propsAndEmit/brother02.vue';
 export default {
   data() {
     return {
@@ -29,7 +40,9 @@ export default {
     };
   },
   components: {
-    reverseList: reverseList
+    reverseList: reverseList,
+    brother01:brother01,
+    brother02:brother02
   },
   mounted() {
     //let c = document.getElementById("cabbage");

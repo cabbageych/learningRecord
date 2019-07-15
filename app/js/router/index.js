@@ -13,10 +13,10 @@ import component from '../home/component.vue'/*
 import props from '../home/props.vue'
 import animaiton01 from '../home/animation01.vue'
 import animaiton02 from '../home/animation02.vue'*/
-import parent from '../home/propsAndEmit/parent.vue'/*
+import parent from '../home/propsAndEmit/parent.vue'
 import brother01 from '../home/propsAndEmit/brother01.vue'
 import brother02 from '../home/propsAndEmit/brother02.vue'
-import reverseList from '../home/cases/reverseList.vue'*/
+import reverseList from '../home/cases/reverseList.vue'
 import lifecycle from '../home/lifecycle.vue'
 import updateWithIndex from '../home/updateWithIndex.vue'
 import watchAndComputed from '../home/watchAndComputed.vue'
@@ -44,6 +44,11 @@ export default new Router({
             component:citylist
         },
         {
+            path:'/store01',
+            name:store01,
+            component:store01
+        },
+        {
             path:'/store02',
             name:store02,
             component:store02
@@ -52,12 +57,21 @@ export default new Router({
             path:'/store02Child',
             name:store02Child,
             component:store02Child
-        }
-        /*
+        },
         {
             path: "/brother01",
             name: "brother01",
             component: brother01
-        },*/
+        },
+        {
+            path: "/brother02",
+            name: "brother02",
+            component: brother02
+        },
+        {
+            path: "/parent",
+            name: "parent",
+            component: parent
+        },
     ]
 })
