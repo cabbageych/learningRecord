@@ -23,6 +23,18 @@
         }
         print.apply(a);
         //console.log(Object.__proto__);
+
+
+        //bind实现
+        function bind(fun,obj){
+            obj.fn = fun;
+            obj.fn();
+            return function(){
+                obj.fn();
+            };
+        }
+        let target = bind(print,a);
+        target();
     </script>
 </body>
 
