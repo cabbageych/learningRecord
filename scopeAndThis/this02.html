@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>this02</title>
+</head>
+
+<body>
+    <script>
+        var a = 666;
+        function test() {
+            var a;
+            console.log(a);
+            a = 66;
+            console.log(this.a);
+            a = 77;
+            this.a = 55;
+        }
+
+        var b = new test();
+        var c = test();
+
+        /**
+         * result:
+         * undefined
+         * undefined
+         * undefined
+         * 666
+         */
+    </script>
+</body>
+
+</html>
