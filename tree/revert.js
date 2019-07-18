@@ -66,7 +66,25 @@ function revert(node) {
     }
 }
 
+function revertRecursion(node) {
+    if (node == null) {
+        return;
+    } else {
+        let tempNode = node.lChild;
+        node.lChild = node.rChild;
+        node.rChild = tempNode;
+        revertRecursion(node.lChild);
+        revertRecursion(node.rChild);
+    }
+
+}
+
 BFS(head);
-console.log('------revert---------')
+console.log('------revert---------');
 revert(head);
 BFS(head);
+
+console.log('------revertRecursion---------');
+revertRecursion(head);
+BFS(head);
+
