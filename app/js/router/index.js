@@ -24,6 +24,7 @@ import citylist from '../home/store/citylist.vue'
 import store01 from '../home/store/store01.vue'
 import store02 from '../home/store/store02.vue'
 import store02Child from '../home/store/store02Child.vue'
+import keepAlive from '../home/keep-alive/components.vue'
 //使用路由
 Vue.use(Router)
 //新建路由
@@ -72,6 +73,11 @@ export default new Router({
             path: "/parent",
             name: "parent",
             component: parent
+        },
+        {
+            path: "/keepAlive",
+            name: "keepAlive",
+            component: keepAlive
         },
     ]
 })
