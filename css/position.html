@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>position</title>
+        <title>absoluteAndFixed</title>
         <style>
+            #header01{
+                position: fixed;
+                height: 100px;
+                width: 100vw;
+                background: lightblue;
+            }
+            #header02{
+                position: absolute;
+                height: 200px;
+                width: 50vw;
+                background: rgb(230, 196, 173);
+            }
             #test01{
                 position:relative;
                 height:100px;
-                width: 100px;
-                background: lightcoral;
-                left:50%;
-            }
-            #test02{
-                
-                position:absolute;
-                height:300px;
-                width:200px;
-                background: lightblue;
+                width:100px;
+                background: lightgreen;
             }
         </style>
     </head>
     <body>
+        <h1>fixed与absolute均脱离文档流</h1>
+        <div id="header01"></div>
+        <div id="header02"></div>
         <div id="test01"></div>
-        <span id="test02"></span>
     </body>
 </html>
