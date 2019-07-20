@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>this</title>
+</head>
+
+<body>
+    <script>
+        let a = {
+            [window]: 'test',
+            print: function () {
+                console.log(this['window']);
+            }
+        }
+        a.print();
+        let b = a.print;
+        b();
+    </script>
+</body>
+
+</html>
