@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>onclick</title>
-    </head>
-    <body>
-        <div id="onclickTest">test</div>
-        <script>
-            var test = document.getElementById("onclickTest");
-            test.onclick = function(){
-                console.log(this);
-                alert("click!!!");
-            }
-            var a = {name:"cabbage"};
-            a.b = 1;
-            console.log(a.b);
-        </script>
-    </body>
+
+<head>
+    <title>onclick</title>
+</head>
+
+<body>
+    <div id="onclickTest">test</div>
+    <script>
+        var test = document.getElementById("onclickTest");
+        test.onclick = function () {
+            console.log(this);
+            alert("click!!!");
+        }
+        var a = { name: "cabbage" };
+        a.b = 1;
+        console.log(a.b);
+        document.addEventListener('click', (e) => {
+            console.log(e);
+        })
+    </script>
+</body>
+
 </html>

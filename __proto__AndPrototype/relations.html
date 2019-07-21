@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>relations</title>
+</head>
+
+<body>
+    <script>
+        function test(){
+            console.log('test');
+        }
+        console.log(Object.prototype.__proto__); //原型链终点
+        console.log(test.prototype.__proto__ == Object.prototype);
+        console.log(Object.__proto__ == Function.prototype);
+        console.log(Function.prototype.__proto__ == Object.prototype);
+    </script>
+</body>
+
+</html>

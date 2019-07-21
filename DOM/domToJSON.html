@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>domToJSON</title>
+</head>
+
+<body>
+    <div id="test" name="cabbage">cabbage</div>
+    <script>
+        let test = document.getElementById('test');
+        let attributes = test.attributes;
+        let a = {};
+        a.tagName = test.tagName;
+        a.innerHTML = test.innerHTML;
+        for (let i = 0; i < attributes.length; i++) {
+            a[attributes[i].name] = attributes[i].value;
+        }
+        console.log(a);
+    </script>
+</body>
+
+</html>
