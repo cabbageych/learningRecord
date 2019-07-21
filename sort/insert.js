@@ -1,11 +1,9 @@
 let arr = [11, 3, 72, 55, 6, 8, 10, 21];
 function insertSort(arr) {
     let temp, pos;
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 1; i < arr.length; i++) {
         let j = i - 1;
-        if (j < 0) {
-            continue;
-        }
+        
         let temp = arr[i];
         while (j >= 0 && arr[j] > arr[i]) {
             --j;
