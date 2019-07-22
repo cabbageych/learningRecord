@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>boolean</title>
+</head>
+
+<body>
+
+    <script>
+        let a = false;
+        let b = new Boolean(false);
+        let c = new Boolean('');
+
+        //boolean特殊之处
+        //使用new Boolean结果均转化为true
+        console.log(a, b, c);
+        if(a){
+            console.log('a',a);
+        }
+        if(b){
+            console.log('b',b);  //b Boolean {false}
+        }
+        if(c){
+            console.log('c',c);  //c Boolean {false}
+        }
+
+        //typeof and incetanceof
+        console.log(typeof a, typeof b);//boolean object
+        console.log(a instanceof Boolean,b instanceof Boolean);//false true
+
+
+        let d = new RegExp("abc",'gi');
+        let e = /abc/gi;
+        console.log(typeof d,typeof e);//object object
+        console.log(d instanceof RegExp,e instanceof RegExp);//true true
+
+        let f = new Number(123);
+        let g = 123;
+        let h = Number('12345');
+        console.log(typeof f,typeof g,typeof h);//object number number
+    </script>
+</body>
+
+</html>
