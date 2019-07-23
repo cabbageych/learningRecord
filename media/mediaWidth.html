@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>mediaWidth</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #center {
+            height: 300px;
+            width: 300px;
+            background: rgb(183, 29, 221);
+            font-size: 25px;
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-80%);
+            text-align: center;
+            line-height: 300px;
+            color:white;
+        }
+
+        @media (min-width:320px) and (max-width:375px) {
+            #center {
+                height: 200px;
+                width: 200px;
+                background: rgb(40, 92, 11);
+                font-size: 20px;
+                margin: 0 auto;
+                position: relative;
+                top: 50%;
+                transform: translateY(-80%);
+                text-align: center;
+                line-height: 200px;
+                color: white;
+            }
+        }
+
+        @media (min-width:768px) {
+            #center {
+                height: 500px;
+                width: 500px;
+                background: lightblue;
+                font-size: 30px;
+                margin: 0 auto;
+                position: relative;
+                top: 50%;
+                transform: translateY(-80%);
+                text-align: center;
+                line-height: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="center">
+        <p>media Test......</p>
+    </div>
+</body>
+
+</html>

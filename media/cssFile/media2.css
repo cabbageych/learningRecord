@@ -1,0 +1,14 @@
+@media (min-width:768px) {
+    #center {
+        height: 500px;
+        width: 500px;
+        background: lightblue;
+        font-size: 30px;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-80%);
+        text-align: center;
+        line-height: 500px;
+    }
+}
