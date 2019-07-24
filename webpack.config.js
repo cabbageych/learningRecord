@@ -6,6 +6,8 @@ const VueLoader = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 const SpritesmithPlugin = require('webpack-spritesmith');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const MyAwesomePlugin = require('./MyAwesomePlugin');
+
 
 
 
@@ -35,6 +37,8 @@ module.exports = {
         ]
     },
     plugins: [
+        //自定义插件
+        new MyAwesomePlugin(),
         //通过new一个类来使用刚才引入的插件 
         //开启gzip压缩     
         new CompressionWebpackPlugin({
