@@ -7,6 +7,8 @@
       <router-link to="/parent">parent</router-link>
       <router-link to="/store01">store01</router-link>
       <router-link to="/keepAlive">keep-alive</router-link>
+      <router-link to="/listRendering">listRendering</router-link>
+      <router-link to="/componentsCall">componentsCall</router-link>
       <router-link to="/">root</router-link>
     </div>
     <!--<div>

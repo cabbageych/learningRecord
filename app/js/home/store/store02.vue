@@ -38,13 +38,4 @@ export default {
 </script>
 
 <style>
-button {
-  height: 30px;
-  width: 80px;
-  font-size: 16px;
-  border: none;
-  background: none;
-  box-shadow: 0 0 5px gray;
-  border-radius: 5px;
-}
 </style>

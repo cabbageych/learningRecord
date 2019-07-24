@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router' //导入路由模块
 import VueRouter from 'vue-router'
-/*import Index from '../home/index.vue'
+import Index from '../home/index.vue'
 import TemplateSyntax from '../home/templateSyntax.vue'
 import ClassAndStyle from '../home/classAndStyle.vue'
 import TwoWayDataBinding from '../home/two-wayDataBinding.vue'
 import ConditionRendering from '../home/conditionRendering.vue'
-import ListRendering from '../home/listRendering.vue'
+import listRendering from '../home/listRendering.vue'
 import Event from '../home/event.vue'
-import formInputBinding from '../home/formInputBinding.vue'*/
+import formInputBinding from '../home/formInputBinding.vue'
 import component from '../home/component.vue'/*
 import props from '../home/props.vue'
 import animaiton01 from '../home/animation01.vue'
@@ -25,6 +25,8 @@ import store01 from '../home/store/store01.vue'
 import store02 from '../home/store/store02.vue'
 import store02Child from '../home/store/store02Child.vue'
 import keepAlive from '../home/keep-alive/components.vue'
+import componentsCall from '../home/components/componentsCall.vue'
+
 //使用路由
 Vue.use(Router)
 //新建路由
@@ -40,24 +42,24 @@ export default new Router({
             component: store02
         },
         {
-            path:'/citylist',
-            name:citylist,
-            component:citylist
+            path: '/citylist',
+            name: citylist,
+            component: citylist
         },
         {
-            path:'/store01',
-            name:store01,
-            component:store01
+            path: '/store01',
+            name: store01,
+            component: store01
         },
         {
-            path:'/store02',
-            name:store02,
-            component:store02
+            path: '/store02',
+            name: store02,
+            component: store02
         },
         {
-            path:'/store02Child',
-            name:store02Child,
-            component:store02Child
+            path: '/store02Child',
+            name: store02Child,
+            component: store02Child
         },
         {
             path: "/brother01",
@@ -79,5 +81,15 @@ export default new Router({
             name: "keepAlive",
             component: keepAlive
         },
+        {
+            path: "/listRendering",
+            name: listRendering,
+            component: listRendering
+        },
+        {
+            path: '/componentsCall',
+            name: componentsCall,
+            component: componentsCall
+        }
     ]
 })
