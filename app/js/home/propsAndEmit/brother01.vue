@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>非父子组件传值</h2>
+    <h2 :style="{marginTop:100+'px'}">非父子组件传值</h2>
     <ul>
       <li>
         创建公共文件bus.js（import Vue from 'vue';

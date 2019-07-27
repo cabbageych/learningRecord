@@ -26,6 +26,7 @@ import store02 from '../home/store/store02.vue'
 import store02Child from '../home/store/store02Child.vue'
 import keepAlive from '../home/keep-alive/components.vue'
 import componentsCall from '../home/components/componentsCall.vue'
+import slot from '../home/slot/parent.vue'
 
 //使用路由
 Vue.use(Router)
@@ -90,6 +91,11 @@ export default new Router({
             path: '/componentsCall',
             name: componentsCall,
             component: componentsCall
+        },
+        {
+            path:'/slot',
+            name:slot,
+            component:slot
         }
     ]
 })
