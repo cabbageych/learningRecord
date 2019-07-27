@@ -10,6 +10,8 @@
       <router-link to="/listRendering">listRendering</router-link>
       <router-link to="/componentsCall">componentsCall</router-link>
       <router-link to="/slot">slot</router-link>
+      <router-link to="/set">set</router-link>
+      <router-link to="/updateWithIndex">updateWithIndex</router-link>
       <router-link to="/">root</router-link>
     </div>
     <!--<div>

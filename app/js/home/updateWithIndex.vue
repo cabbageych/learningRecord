@@ -16,9 +16,9 @@ export default {
   },
   methods: {
     change: function() {
-      this.arr[2] = this.arr[2] + 1;
-      this.temp = this.arr[2];
-      alert(this.temp);
+      //this.arr[2] = this.arr[2] + 1; //视图不会更新
+      this.arr.splice(2,1,this.arr[2]+1); //splice实现更新
+      //this.$set(this.arr,2,this.arr[2]+1);  //this.$set实现更新
     }
   }
 };
