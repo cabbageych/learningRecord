@@ -10,7 +10,7 @@
 
     <script>
         //worker必须是同源的文件才能使用
-        var worker = new Worker('http://localhost:8081/worker.js');
+        var worker = new Worker('worker.js');
         worker.postMessage(["plus", { a: 666, b: 666 }]);
         worker.postMessage(["minus", { a: 666, b: 666 }]);
         //接收子线程发回来的消息

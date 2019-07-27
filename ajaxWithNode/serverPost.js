@@ -1,11 +1,13 @@
 'use strict'
 var http = require('http');
 var url = require('url');
+const fs = require('fs');
 var querystring = require('querystring');
 
 
 var arr = [];
 var server = http.createServer((request, response) => {
+    console.log(request.headers);
     response.setHeader("Access-Control-Allow-Origin", "*");
     //response.setHeader("Access-Control-Allow-Credentials", "true");
     response.setHeader("Access-Control-Allow-Methods", "*");
@@ -13,8 +15,21 @@ var server = http.createServer((request, response) => {
     //response.setHeader("Access-Control-Expose-Headers", "*");
     //面对post提交，nodejs用监听的写法处理
     //data是一个事件，表示一个小包传输完毕后做的事情
-    
+
     //console.log(request.method);
+    if (request.method == 'GET') {
+        let pathname = url.parse(request.url).pathname;
+        pathname = pathname.substr(1);
+        fs.readFile(pathname, (err, data) => {
+            if (err) {
+                response.writeHead(404, { "Content-Type": "text/html" });
+            } else {
+                response.writeHead(200, { "Content-Type": 'text/html' });
+                response.write(data.toString());
+            }
+            response.end();
+        })
+    }
     if (request.method == "POST") {
         request.on('data', function (message) {
             //console.log(message);

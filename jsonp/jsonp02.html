@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jsonp</title>
+</head>
+
+<body>
+    <script>
+        function hello(arg){
+            console.log('hello',arg);
+        }
+
+        let script = document.createElement('script');
+        script.src = 'http://localhost:8080?callback=hello';
+        let body = document.getElementsByTagName('body')[0];
+        body.appendChild(script);
+    </script>
+</body>
+
+</html>
