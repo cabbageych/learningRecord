@@ -26,7 +26,7 @@
             console.log("promise 04");
             resolve("resolve 04");
         })//.then(val => console.log('then04', val));
-        var arr = [a, b, c, d];
+        var arr = [a, c,b, d];
         /*Promise.all(arr).then((val) => { console.log(val) }, val => console.log(val)).catch((e) => {
             console.log('catch');
             console.log(e);
@@ -49,12 +49,16 @@
                 }
             });
         };
-        var test = all(arr);
+        /*var test = all(arr);
         test.then((val) => {
             console.log(val);
         }, (err) => {
             console.log(err);
-        });
+        });*/
+        let result = Promise.all(arr);
+        result.then(val=>{
+            console.log(val[1]);
+        })
     </script>
 </body>
 
