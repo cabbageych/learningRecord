@@ -1,37 +1,44 @@
-let arr = [11, 23, 45, 2, 6, 10, 9];
-
-function merge(arr, start, end) {
-    let arr1 = [];
-    let arr2 = [];
-    let count1 = 0, count2 = 0;
-    let mid = Math.floor((start + end) / 2);
-    for (let i = start; i <= mid; i++) {
-        arr1.push(arr[i]);
-    }
-    for (let i = mid + 1; i <= end; i++) {
-        arr2.push(arr[i]);
-    }
-    for (let i = start; i <= end; i++) {
-        if (count1 > arr1.length - 1) {
-            arr[i] = arr2[count2++];
-        } else if (count2 > arr2.length - 1) {
-            arr[i] = arr1[count1++];
-        } else {
-            arr[i] = arr1[count1] > arr2[count2] ? arr1[count1++] : arr2[count2++];
+let ans = Infinity;
+function fn(arr,len,str){
+    if(len<=0){
+        //console.log(str);
+        if(parseInt(str)<ans){
+            ans = parseInt(str);
         }
-    }
-}
-
-
-function mergeSort(arr, start, end) {
-    if (start >= end) {
         return;
     }
-    let mid = Math.floor((start + end) / 2);
-    mergeSort(arr, start, mid);
-    mergeSort(arr, mid + 1, end);
-    merge(arr, start, end);
+    for(let i = 0;i<len;i++){
+        let temp = arr[i];
+        str +=arr[i];
+        arr.splice(i,1);
+        fn(arr,len-1,str);
+        str = str.substr(0,str.length-temp.length);
+        arr.splice(i,0,temp);
+    }
+    
 }
 
-mergeSort(arr, 0, arr.length - 1);
-console.log(arr);
+
+function PrintMinNumber(numbers)
+{
+    if(numbers.length == 0){
+        return 0;
+    }
+    for(let i= 0;i<numbers.length;i++){
+        numbers[i] = numbers[i].toString();
+    }
+    let str = '';
+    fn(numbers,numbers.length,str);
+}
+
+let arr = [3,5,1,4,2];
+PrintMinNumber(arr);
+console.log(ans);
+
+let test = 'cabbage';
+test01 ='354234';
+test += test01;
+console.log(test.substr(0,test.length-test01.length));
+module.exports = {
+    PrintMinNumber : PrintMinNumber
+};

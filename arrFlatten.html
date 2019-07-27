@@ -7,7 +7,7 @@
 
 <body>
     <script>
-        let arr = [1, 2, ['3', [4]], 5];
+        let arr = [1, 2, ['3', [4]], 5, [{ a: 'cabbage' }]];
         let ans = [];
 
         function arrFlatten(arr) {
@@ -27,9 +27,10 @@
         arrFlatten(arr);
         console.log(ans);
 
-        //es6??flat
-        console.log(arr.flat(1)); //[1, 2, "3", Array(1), 5]
+        //es6 flat
         console.log(arr.flat(Infinity)); //[1, 2, "3", 4, 5]
+        console.log(arr.flat(1)); //[1, 2, "3", Array(1), 5]
+        
 
     </script>
 </body>
