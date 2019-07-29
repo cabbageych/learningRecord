@@ -19,7 +19,9 @@ import brother02 from '../home/propsAndEmit/brother02.vue'
 import reverseList from '../home/cases/reverseList.vue'
 import lifecycle from '../home/lifecycle.vue'
 import updateWithIndex from '../home/updateWithIndex.vue'
-import watchAndComputed from '../home/watchAndComputed.vue'
+import watchAndComputed from '../home/watchAndComputed/watchAndComputed.vue'
+import watch from '../home/watchAndComputed/watch.vue'
+import computed from '../home/watchAndComputed/computed.vue'
 import citylist from '../home/store/citylist.vue'
 import store01 from '../home/store/store01.vue'
 import store02 from '../home/store/store02.vue'
@@ -28,6 +30,8 @@ import keepAlive from '../home/keep-alive/components.vue'
 import componentsCall from '../home/components/componentsCall.vue'
 import slot from '../home/slot/parent.vue'
 import set from '../home/set.vue'
+import nextTick from '../home/nextTick/nextTick.vue'
+
 
 //使用路由
 Vue.use(Router)
@@ -107,6 +111,26 @@ export default new Router({
             path:'/updateWithIndex',
             name:updateWithIndex,
             component:updateWithIndex
+        },
+        {
+            path:'/nextTick',
+            name:nextTick,
+            component:nextTick
+        },
+        {
+            path:'/watchAndComputed',
+            name:watchAndComputed,
+            component:watchAndComputed
+        },
+        {
+            path:'/watch',
+            name:watch,
+            component:watch
+        },
+        {
+            path:'/computed',
+            name:computed,
+            component:computed
         }
     ]
 })

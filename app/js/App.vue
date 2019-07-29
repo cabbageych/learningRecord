@@ -12,6 +12,9 @@
       <router-link to="/slot">slot</router-link>
       <router-link to="/set">set</router-link>
       <router-link to="/updateWithIndex">updateWithIndex</router-link>
+      <router-link to="/nextTick">nextTick</router-link>
+      <router-link to="/watch">watch</router-link>
+      <router-link to="/computed">computed</router-link>
       <router-link to="/">root</router-link>
     </div>
     <!--<div>
