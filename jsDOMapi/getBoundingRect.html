@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>getBoundingClientRect</title>
+    <style>
+        body {
+            height: 200vh;
+            width: 200vw;
+        }
+
+        #test {
+            height: 300px;
+            width: 300px;
+            background: lightblue;
+        }
+
+        #show {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test"></div>
+    <h1 id="show">test在屏幕内</h1>
+    <script>
+        /***
+         * height（width）:盒子宽高(即content宽高)
+         * left(top):盒子左上角相对屏幕距离（屏幕上边与左边）
+         * right(bottom):盒子右下角相对屏幕距离（屏幕上边与左边）
+         * x(y):对应left(top)
+         */
+        let test = document.getElementById('test');
+        let show = document.getElementById('show');
+        let getboundingclientrect = test.getBoundingClientRect();
+        let clientWidth = document.documentElement.clientWidth;
+        let clientHeight = document.documentElement.clientHeight;
+        let th = throtting();
+        window.onscroll = function () {
+            th();
+        }
+
+        function throtting() {
+            let preTime = new Date();
+            return function () {
+                let curTime = new Date();
+                //console.log(preTime,curTime,curTime-preTime);
+                if (curTime - preTime >= 100) {
+                    preTime = curTime;
+                    getboundingclientrect = test.getBoundingClientRect();
+                    console.log(getboundingclientrect);
+                    if (getboundingclientrect.top <= clientHeight && getboundingclientrect.left <= clientWidth && getboundingclientrect.bottom > 0 && getboundingclientrect.right > 0) {
+                        show.innerText = 'test在屏幕内';
+                    } else {
+                        show.innerText = 'test不在屏幕内';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,45 +1,26 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>test</title>
-    <style>
-        body{
-            height:100vh;
-            width:100vw;
-            margin:0;
-            padding:0;
-        }
-        #test {
-            position:relative;
-            margin:0 auto;
-            padding:200px;
-            top:100px;
-            height:100px;
-            width:400px;
-            font-size: 80px;
-            text-align: center;
-            box-shadow: 0 0 10px gray;
-        }
-    </style>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .parent .test{
+      color:red;
+    }
+    a:focus{
+      color:blue;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="test">Waiting......</div>
-    <script>
-        a = {
-            name: 'cabbage',
-            age: 21
-        }
-
-        console.log = (function (fun) {
-            return function (arg) {
-                fun('hello',arg);
-                //fun.call(console, 'hello', arg);
-            }
-        })(console.log);
-        console.log(a);
-    </script>
+  <div class="parent">
+    <ul>
+      <li><a class="test" href="#">test01</a></li>
+      <li><a href="#">test02</a></li>
+    </ul>
+  </div>
 </body>
 
 </html>

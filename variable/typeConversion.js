@@ -7,6 +7,8 @@
 console.log(1 + '1'); //'11'
 console.log(2 * '2'); //4
 console.log([1, 2] + [2, 1]); // '1,22,1'
+console.log(1 + undefined);   //NaN
+console.log(1 + null, null);    //1
 // [1, 2].toString() -> '1,2'
 // [2, 1].toString() -> '2,1'
 // '1,2' + '2,1' = '1,22,1'
