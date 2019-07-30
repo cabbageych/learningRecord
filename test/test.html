@@ -5,22 +5,26 @@
   <meta charset="UTF-8">
   <title></title>
   <style>
-    .parent .test{
-      color:red;
+    .parent .test {
+      color: red;
     }
-    a:focus{
-      color:blue;
+
+    a:focus {
+      color: blue;
     }
   </style>
 </head>
 
 <body>
-  <div class="parent">
-    <ul>
-      <li><a class="test" href="#">test01</a></li>
-      <li><a href="#">test02</a></li>
-    </ul>
+  <div class="parent">parent
   </div>
+  <script>
+    let parent = document.getElementsByClassName('parent')[0];
+    let test = document.createElement('p');
+    test.innerHTML = 'xixihaha';
+
+    parent.before(test);
+  </script>
 </body>
 
 </html>

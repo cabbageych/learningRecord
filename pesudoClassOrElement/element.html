@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>element</title>
+    <style>
+        #test {
+            height: 200px;
+            width: 200px;
+            background: rgb(117, 71, 25);
+        }
+
+        #test::first-letter {
+            font-size: 30px;
+            color: lightseagreen;
+        }
+        #test:first-line{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <p>注意: 由::before 和::after 生成的伪元素 包含在元素格式框内， 因此不能应用在替换元素上， 比如&lt;img&gt;或&lt;br&gt; 元素。</p>
+    <p>::before(:before)CSS中，::before 创建一个伪元素，其将成为匹配选中的元素的第一个子元素。<br>
+        常通过 content 属性来为一个元素添加修饰性的内容。此元素默认为行内元素。</p>
+    <p>::after(:after)用来创建一个伪元素，作为已选中元素的最后一个子元素。通常会配合content属性来为该元素添加装饰内容。<br>
+        这个虚拟元素默认是行内元素。 </p>
+    <p>::first-letter(:first-letter)会选中某 block-level element（块级元素）第一行的第一个字母（第一个字），<br>
+        并且文字所处的行之前没有其他内容（如图片和内联的表格）</p>
+    <p>::first-line (:first-line)在某 block-level element （块级元素）的第一行应用样式。<br>
+        第一行的长度取决于很多因素，包括元素宽度，文档宽度和文本的文字大小。</p>
+    <div id="test">
+        <!--<img>加上imgfirst-letter失效-->
+        hello cabbage!<br>
+        happy everyday!!!
+    </div>
+</body>
+
+</html>
