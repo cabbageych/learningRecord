@@ -15,6 +15,7 @@
       <router-link to="/nextTick">nextTick</router-link>
       <router-link to="/watch">watch</router-link>
       <router-link to="/computed">computed</router-link>
+      <router-link to="/setTimeOutAndThis">setTimeOutAndThis</router-link>
       <router-link to="/">root</router-link>
     </div>
     <!--<div>

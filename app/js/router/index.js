@@ -31,6 +31,7 @@ import componentsCall from '../home/components/componentsCall.vue'
 import slot from '../home/slot/parent.vue'
 import set from '../home/set.vue'
 import nextTick from '../home/nextTick/nextTick.vue'
+import setTimeOutAndThis from '../home/this.vue'
 
 
 //使用路由
@@ -98,39 +99,44 @@ export default new Router({
             component: componentsCall
         },
         {
-            path:'/slot',
-            name:slot,
-            component:slot
+            path: '/slot',
+            name: slot,
+            component: slot
         },
         {
-            path:'/set',
-            name:set,
-            component:set
+            path: '/set',
+            name: set,
+            component: set
         },
         {
-            path:'/updateWithIndex',
-            name:updateWithIndex,
-            component:updateWithIndex
+            path: '/updateWithIndex',
+            name: updateWithIndex,
+            component: updateWithIndex
         },
         {
-            path:'/nextTick',
-            name:nextTick,
-            component:nextTick
+            path: '/nextTick',
+            name: nextTick,
+            component: nextTick
         },
         {
-            path:'/watchAndComputed',
-            name:watchAndComputed,
-            component:watchAndComputed
+            path: '/watchAndComputed',
+            name: watchAndComputed,
+            component: watchAndComputed
         },
         {
-            path:'/watch',
-            name:watch,
-            component:watch
+            path: '/watch',
+            name: watch,
+            component: watch
         },
         {
-            path:'/computed',
-            name:computed,
-            component:computed
+            path: '/computed',
+            name: computed,
+            component: computed
+        },
+        {
+            path: '/setTimeOutAndThis',
+            name: setTimeOutAndThis,
+            component: setTimeOutAndThis
         }
     ]
 })
