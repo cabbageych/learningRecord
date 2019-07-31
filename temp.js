@@ -1,44 +1,52 @@
-let ans = Infinity;
-function fn(arr,len,str){
-    if(len<=0){
-        //console.log(str);
-        if(parseInt(str)<ans){
-            ans = parseInt(str);
+function TreeNode(x) {
+    this.val = x;
+    this.left = null;
+    this.right = null;
+}
+let mark = true;
+let left = 0, leftMin = 0, leftMax = 0;
+let ans = [];
+
+
+function IsBalanced_Solution(pRoot) {
+    if (!pRoot) {
+        return true;
+    }
+    ans = [];
+    mark = true;
+    right = 0;
+    left = 0;
+    let head = pRoot;
+    let arr = [];
+    ans.push(pRoot)
+    while (ans.length) {
+        let temp = ans.shift();
+        if (temp)
+            arr.push(temp.val);
+        else
+            arr.push(temp)
+        if (temp) {
+            ans.push(temp.left);
+            ans.push(temp.right);
         }
-        return;
     }
-    for(let i = 0;i<len;i++){
-        let temp = arr[i];
-        str +=arr[i];
-        arr.splice(i,1);
-        fn(arr,len-1,str);
-        str = str.substr(0,str.length-temp.length);
-        arr.splice(i,0,temp);
-    }
-    
+    console.log(arr);
+    return mark;
 }
 
+let a = new TreeNode(1);
+let b = new TreeNode(2);
+let c = new TreeNode(3);
+let d = new TreeNode(4);
+let e = new TreeNode(5);
+let f = new TreeNode(6);
+let g = new TreeNode(7);
+a.left = b;
+a.right = c;
+b.left = d;
+b.right = e;
+c.right = f;
+e.left = g;
 
-function PrintMinNumber(numbers)
-{
-    if(numbers.length == 0){
-        return 0;
-    }
-    for(let i= 0;i<numbers.length;i++){
-        numbers[i] = numbers[i].toString();
-    }
-    let str = '';
-    fn(numbers,numbers.length,str);
-}
-
-let arr = [3,5,1,4,2];
-PrintMinNumber(arr);
+console.log(IsBalanced_Solution(a));
 console.log(ans);
-
-let test = 'cabbage';
-test01 ='354234';
-test += test01;
-console.log(test.substr(0,test.length-test01.length));
-module.exports = {
-    PrintMinNumber : PrintMinNumber
-};
