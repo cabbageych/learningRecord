@@ -6,11 +6,12 @@
 </head>
 
 <body>
+    <h2>defineProperty</h2>
     <input id="def" type="text"><span id="defShow"></span>
     <hr>
+    <h2>Proxy</h2>
     <input id="pro" type="text"><span id="proShow"></span>
     <hr>
-    <input id="cabbagePro" type="text"><span id="cabbageShow"></span>
     <script>
         let obj = {};
         let arr = [1, 2, 3, 4, 5, 6, 7];
@@ -19,7 +20,6 @@
         let myPro = document.getElementById('cabbagePro');
         let proShow = document.getElementById('proShow');
         let defShow = document.getElementById('defShow');
-        let myShow = document.getElementById('cabbageShow');
 
 
         //proxy相比definedProperty在数组上的提升
@@ -46,11 +46,11 @@
         let arr02 = [1, 2, 3];
         let obj02 = new Proxy(arr02, {
             set: function (target, key, newVal, receiver) {
-                console.log('set', 'index:', key, 'newVal:', newVal);
-                return Reflect.set(target, key, newVal, receiver);
+                console.log('Proxy set', 'index:', key, 'newVal:', newVal);
+                return target[key] = newVal;
             },
             get: function (target, key, receiver) {
-                console.log('get', 'index:', key, 'value:', target[key]);
+                console.log('Proxy get', 'index:', key, 'value:', target[key]);
                 return target[key];
             }
         })
@@ -61,6 +61,7 @@
             //obj02 = [1, 2, 3, 4, 5, 56]; //修改obj02指向，proxy设置失效
             obj02[2] = e.target.value; //触发set: set index: 2 newVal: 2
             proShow.innerHTML = obj02[2]; //触发get: arr get
+            console.log(obj02);
         });
     </script>
 </body>
