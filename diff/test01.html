@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test01</title>
+</head>
+
+<body>
+    <div id="container">
+        。。。。。。
+        <ul id="ul">
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+        </ul>
+    </div>
+    <button id="btn">
+        change
+    </button>
+    <button id="btn2">
+        change2
+    </button>
+</body>
+<script>
+    
+    let btn = document.getElementById('btn');
+    let li = document.createElement('li');
+    li.innerHTML = 'item4';
+    let li2 = document.createElement('li');
+    li2.innerHTML = 'item5';
+    let ul = document.getElementById('ul');
+    btn.addEventListener('click', function (e) {
+        ul.appendChild(li);
+        ul.appendChild(li2);
+    })
+
+    
+    let btn2 = document.getElementById('btn2');
+    btn2.addEventListener('click', function (e) {
+        ul.removeChild(li);
+        ul.removeChild(li2);
+    })
+</script>
+
+</html>
