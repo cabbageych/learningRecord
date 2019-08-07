@@ -5,19 +5,27 @@
   <meta charset="UTF-8">
   <title></title>
   <style>
-    .triangle{
-      height:0;
-      width:0;
+    .triangle {
+      height: 0;
+      width: 0;
       border-left: 50px solid transparent;
       border-right: 50px solid transparent;
       border-bottom: 50px solid lightblue;
-      
+
     }
   </style>
 </head>
 
 <body>
-  <div class="triangle"></div>
+  <script>
+
+    document.body.style.background = 'black'
+    let i = 1
+    while (i < 2000000000) {
+      i += 1
+    }
+    document.body.style.background = 'white'
+
   </script>
 </body>
 
