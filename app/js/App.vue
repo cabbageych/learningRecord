@@ -16,6 +16,7 @@
       <router-link to="/watch">watch</router-link>
       <router-link to="/computed">computed</router-link>
       <router-link to="/setTimeOutAndThis">setTimeOutAndThis</router-link>
+      <router-link to="/key">key</router-link>
       <router-link to="/">root</router-link>
     </div>
     <!--<div>
@@ -32,8 +33,8 @@
 </template>
 <script>
 import reverseList from "./home/cases/reverseList.vue";
-import brother01 from './home/propsAndEmit/brother01.vue';
-import brother02 from './home/propsAndEmit/brother02.vue';
+import brother01 from "./home/propsAndEmit/brother01.vue";
+import brother02 from "./home/propsAndEmit/brother02.vue";
 export default {
   data() {
     return {
@@ -51,8 +52,8 @@ export default {
   },
   components: {
     reverseList: reverseList,
-    brother01:brother01,
-    brother02:brother02
+    brother01: brother01,
+    brother02: brother02
   },
   mounted() {
     //let c = document.getElementById("cabbage");
@@ -62,7 +63,7 @@ export default {
 };
 </script>
 <style>
-#app{
+#app {
   text-align: center;
 }
 .title {

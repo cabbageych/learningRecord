@@ -32,7 +32,7 @@ import slot from '../home/slot/parent.vue'
 import set from '../home/set.vue'
 import nextTick from '../home/nextTick/nextTick.vue'
 import setTimeOutAndThis from '../home/this.vue'
-
+import key from '../home/key.vue'
 
 //使用路由
 Vue.use(Router)
@@ -137,6 +137,11 @@ export default new Router({
             path: '/setTimeOutAndThis',
             name: setTimeOutAndThis,
             component: setTimeOutAndThis
+        },
+        {
+            path: '/key',
+            name: key,
+            component: key
         }
     ]
 })
