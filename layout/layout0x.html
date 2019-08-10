@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>layout</title>
+        <style>
+            #container{
+                display: flex;
+                flex-direction: row;
+                width: 200px;
+            }
+            #im{
+                height: 200px;
+                width: 60px;
+                background: lightblue;
+            }
+            #child{
+                display: flex;
+                background: lightcoral;
+                flex-direction: column;
+                justify-content: space-between;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: calc(100% - 60px);
+                word-break: break-all;
+            }
+            p{
+                margin: 0;
+                padding:0;
+            }
+            #c01{
+                
+                
+            }
+            #c02{
+                
+            }
+        </style>
+    </head>
+    <body>
+        <!--child使用flex实现文字长度自适应-->
+        <div id="container">
+            <div id="im"></div>
+            <div id="child">
+                <p id="c01">.sdfsdfdswwwwwwwwwwww.......</p>
+                <p id="c02">..dfsdfsdfsdfsfdsfsdfsdfsdfds.</p>
+            </div>
+        </div>
+    </body>
+</html>
