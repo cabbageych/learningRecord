@@ -1,12 +1,20 @@
 <template>
   <div>
-      <h2 v-if="show">内容展示</h2>
+      <p>p:parent,c:child</p>
+      <p>pbeforeCreate->pcreated->pbeforeMount->cbeforeCreate->cCreated->cbeforeMount->cMounted->pmounted->pbeforeDestroy->cbeforeDestroy->cdestroyed->pdestroyed</p>
+      <p>?????????????????updated?beforeUpdate</p>
+      <h2 v-if="show">lifeCycle</h2>
       <button @click="show = !show">showTitle?</button>
+      <child></child>
   </div>
 </template>
 
 <script>
+import child from './lifecycleChild.vue'
 export default {
+    components:{
+        child
+    },
     data(){
         return{
             show:false

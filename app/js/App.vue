@@ -17,6 +17,7 @@
       <router-link to="/computed">computed</router-link>
       <router-link to="/setTimeOutAndThis">setTimeOutAndThis</router-link>
       <router-link to="/key">key</router-link>
+      <router-link to="/lifecycle">lifecycle</router-link>
       <router-link to="/">root</router-link>
     </div>
     <!--<div>

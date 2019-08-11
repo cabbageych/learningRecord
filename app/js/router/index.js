@@ -142,6 +142,11 @@ export default new Router({
             path: '/key',
             name: key,
             component: key
+        },
+        {
+            path: '/lifecycle',
+            name: lifecycle,
+            component: lifecycle
         }
     ]
 })
