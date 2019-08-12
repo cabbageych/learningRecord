@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>cases</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <canvas id="c1" height="300" width="300"></canvas>
+    <canvas id="c2" height="300" width="300"></canvas>
+    <canvas id="c3" height="300" width="300"></canvas>
+    <canvas id="c4" height="300" width="300"></canvas>
+    <canvas id="c5" height="650" width="600"></canvas>
+    <canvas id="c6" height="300" width="300"></canvas>
+
+
+    <script>
+        let c1 = document.getElementById('c1');
+        let c2 = document.getElementById('c2');
+        let c3 = document.getElementById('c3');
+        let c4 = document.getElementById('c4');
+        let c5 = document.getElementById('c5');
+        let c6 = document.getElementById('c6');
+
+
+
+
+        let ctx = c1.getContext('2d');
+        for (let i = 0; i < 6; i++) {
+            for (let j = 0; j < 6; j++) {
+                ctx.fillStyle = 'rgb(' + Math.floor(180 - 30 * i) + ',0,' + Math.floor(360 - j * 60) + ')';
+                ctx.fillRect(i * 30, j * 30, 30, 30);
+            }
+        }
+        ctx.font="30px serif";
+        ctx.fillText('渐变效果', 30, 220);
+
+
+        let ctx2 = c2.getContext('2d');
+        ctx2.lineWidth = 10;
+        ctx2.lineCap = 'round';
+        ctx2.beginPath();
+        ctx2.moveTo(100.6,100.6);
+        ctx2.lineTo(100.6,150.6);
+        ctx2.lineTo(150.6,150.6);
+        ctx2.lineTo(150.6,100.6);
+        ctx2.stroke();
+        ctx2.font="30px serif";
+        ctx2.fillText('矩形(line)', 30, 220);
+
+
+        let ctx3 = c3.getContext('2d');
+        ctx3.setLineDash([4,3,2,1]);
+        ctx3.lineDashOffset = -2;
+        ctx3.strokeRect(20,20,200,200);
+        ctx3.font="30px serif";
+        ctx3.fillText('虚线', 30, 250);
+
+
+        let ctx4 = c4.getContext('2d');
+        let g = ctx4.createRadialGradient(100,100,0,100,100,100);
+        g.addColorStop(0,'white');
+        g.addColorStop(1,'black');
+        ctx4.fillStyle = g;
+        ctx4.arc(100,100,100,0,Math.PI*2,true);
+        ctx4.fill();
+        ctx4.font="30px serif";
+        ctx4.fillText('圆形渐变', 30, 250);
+
+        let ctx5 = c5.getContext('2d');
+        let pattern = ctx5.createPattern(c4,'repeat');
+        ctx5.fillStyle = pattern;
+        ctx5.fillRect(0,0,600,600);
+        
+
+        let ctx6 = c6.getContext('2d');
+        let img = new Image();
+        img.onload = function(){
+            ctx6.drawImage(img,50,50,100,100);
+            ctx6.drawImage(img,20,20,100,100,130,130,100,100); //切片（裁剪img中图像到指定位置）
+        }
+        img.src="./IMG_20170425_164207.jpg";
+        ctx6.font="30px serif";
+        ctx6.fillText('drawImage', 30, 250);
+    </script>
+</body>
+
+</html>

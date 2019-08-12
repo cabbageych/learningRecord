@@ -41,14 +41,18 @@
             //实心文字
             if (canvas03.getContext) {
                 var ctx = canvas03.getContext("2d");
-                ctx.font = "30px serif";
+                ctx.font = "25px serif";
+                ctx.direction = 'rtl';
                 ctx.fillText("cabbage!", 50, 50);
+                let text = ctx.measureText('我说');
+                console.log(text);
             }
 
             //空心文字
             if (canvas04.getContext) {
                 var ctx = canvas04.getContext("2d");
-                ctx.font = "30px serif";
+                ctx.font = "25px serif";
+                ctx.direction = 'rtl';
                 ctx.strokeText("cabbage!", 50, 50);
             }
 
