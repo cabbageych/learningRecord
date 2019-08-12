@@ -1,0 +1,26 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8">
+    <title>Path2D</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body onload="draw();">
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script type="application/javascript">
+        function draw() {
+            var canvas = document.getElementById("myCanvas");
+            let ctx = canvas.getContext('2d');
+            let rect = new Path2D();
+            rect.rect(0,0,50,50);
+            let cir = new Path2D();
+            cir.arc(100,100,50,0,Math.PI*2,true);
+            ctx.stroke(cir);
+            ctx.fill(rect);
+        }
+    </script>
+</body>
+
+</html>

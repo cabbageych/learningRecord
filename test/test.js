@@ -1,19 +1,11 @@
-let a = [
-    { age: 16, name: 'cabbage' },
-    { age: 11, name: 'cabbage' },
-    { age: 15, name: 'cabbage' },
-    { age: 1, name: 'cabbage' }
-];
+console.log([] instanceof Object);
+let a = [1, 2, 3, [1, 2, [1, 2, 3, 4, 5, 6, 7, 8, 9, 0], 3], 5, 6];
+console.log(JSON.parse(JSON.stringify(a)));
 
-function fn(arr, fn) {
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = i + 1; j < arr.length; j++) {
-            if (fn(arr[i]) == fn(arr[j])) {
-                arr.splice(j, 1);
-            }
-        }
-    }
-    return arr;
+function fn() {
+    console.log(arguments.length);
+    let [...a] = arguments;
+    console.log(a);
 }
 
-console.log(fn(a, (a) => a.age));
+fn(1, 2, 3, 4, 5, 6);
