@@ -32,6 +32,12 @@
         let img1 = new Image();
         img1.onload = function () {
             ctx1.drawImage(img1, 50, 50, 160, 160);
+
+            //转成图片并引用
+            let toPNG = c1.toDataURL('image/jpg', 1);
+            let imgContainer = document.createElement('img');
+            imgContainer.src = toPNG;
+            document.body.appendChild(imgContainer);
         }
         img1.src = "./IMG_20170425_164207.jpg";
         let color = document.getElementById('color');
@@ -49,6 +55,7 @@
 
         ctx1.font = "30px serif";
         ctx1.fillText('imageData', 80, 250);
+
 
 
         //颜色反转
