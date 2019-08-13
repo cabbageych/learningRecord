@@ -1,52 +1,34 @@
-function TreeNode(x) {
+function TreeLinkNode(x) {
     this.val = x;
     this.left = null;
     this.right = null;
 }
-let mark = true;
-let left = 0, leftMin = 0, leftMax = 0;
-let ans = [];
-
-
-function IsBalanced_Solution(pRoot) {
-    if (!pRoot) {
-        return true;
+function fn(node,arr){
+    if(!node){
+        return ;
     }
-    ans = [];
-    mark = true;
-    right = 0;
-    left = 0;
-    let head = pRoot;
-    let arr = [];
-    ans.push(pRoot)
-    while (ans.length) {
-        let temp = ans.shift();
-        if (temp)
-            arr.push(temp.val);
-        else
-            arr.push(temp)
-        if (temp) {
-            ans.push(temp.left);
-            ans.push(temp.right);
-        }
-    }
-    console.log(arr);
-    return mark;
+    fn(node.left,arr);
+    arr.push(node.val);
+    fn(node.right,arr);
 }
 
-let a = new TreeNode(1);
-let b = new TreeNode(2);
-let c = new TreeNode(3);
-let d = new TreeNode(4);
-let e = new TreeNode(5);
-let f = new TreeNode(6);
-let g = new TreeNode(7);
-a.left = b;
-a.right = c;
-b.left = d;
-b.right = e;
-c.right = f;
-e.left = g;
+function KthNode(pRoot, k)
+{
+    let arr = [];
+    fn(pRoot,arr);
+    return arr[k-1];
+}
+let n8 = new TreeLinkNode(8);
+let n6 = new TreeLinkNode(6);
+let n10 = new TreeLinkNode(10);
+let n5 = new TreeLinkNode(5);
+let n7 = new TreeLinkNode(7);
+let n9 = new TreeLinkNode(9);
+let n11 = new TreeLinkNode(11);
+n8.left = n6, n8.right = n10;
+n6.next = n8, n6.left = n5, n6.right = n7;
+n5.next = n6, n7.next = n6;
+n10.next = n8, n10.left = n9, n10.right = n11;
+n9.next = n10, n11.next = n10;
 
-console.log(IsBalanced_Solution(a));
-console.log(ans);
+console.log(KthNode(n8,1));
