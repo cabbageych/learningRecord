@@ -10,12 +10,20 @@
         let a = {
             [window]: 'test',
             print: function () {
-                console.log(this['window']);
+                console.log(this['window'], this['[object Window]']);
             }
         }
         a.print();
         let b = a.print;
         b();
+
+        var c = 666;
+
+        function fn() {
+            console.log(this.c);
+        }
+
+        fn();  //undefined
     </script>
 </body>
 

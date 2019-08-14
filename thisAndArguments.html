@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>thisAndArguments</title>
+</head>
+
+<body>
+    <script>
+        var length = 10;
+        function fn(a,b,c) {
+            console.log(this.length)
+        }
+        var obj = {
+            length: 5,
+            method: function (fn) {
+                fn();  //10
+                arguments[0](); //1
+            }
+        }
+        obj.method(fn)
+
+        console.log(fn.length);
+        /*var len = 10;
+        function fn() {
+            console.log(this.len)
+        }
+        var obj = {
+            len: 5,
+            method: function (fn) {
+                fn();
+                arguments[0]();
+            }
+        }
+        fn();
+        obj.method(fn)*/
+
+    </script>
+</body>
+
+</html>
