@@ -1,3 +1,15 @@
-let url = "http://localhost:8008/index.jsp";
-let reg = /\/([\.|\w]*$)/;
-console.log(url.match(reg)[1]);
+const readline = require('readline');
+const input = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+
+input.on('line', (line) => {
+    console.log(line);
+})
+
+
+input.on('close', () => {
+    process.exit(0);
+});
