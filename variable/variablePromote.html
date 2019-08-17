@@ -9,13 +9,22 @@
     <script>
         /*在提升的过程中，相同的函数会覆盖上一个函数，并且函数优先于变量提升*/
         b();
-        function b(){
+        function b() {
             console.log("funciton b first time!")
         }
-        function b(){
+        function b() {
             console.log("funciton b second time!")
         }
         var b = "string b";
+
+        let a = 666;
+        let a = {
+            name: 'cabbage'
+        }
+        console.log(a);
+
+        console.log(c);  //undefined
+        let c = 666;
     </script>
 </body>
 
