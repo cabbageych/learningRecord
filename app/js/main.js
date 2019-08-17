@@ -4,6 +4,10 @@ import router from "./router" //路由文件，用于页面管理
 import '../css/style.css' //样式文件
 import '../css/sprites-generated.css'
 import store from './store/store.js'
+import myPlugin from './myPlugin/plugin.js'
+
+Vue.use(myPlugin);
+//通过全局方法 Vue.use() 即可使用该插件，其自动会调用install方法。Vue.use会自动阻止注册相同插件多次，届时只会注册一次该插件
 Vue.config.productionTip = false
 
 
@@ -81,6 +85,7 @@ var vm = new Vue({
     el: "#app",
     router,
     store,
+    myPlugin,
     components: {
         App
     },

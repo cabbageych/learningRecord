@@ -33,6 +33,7 @@ import set from '../home/set.vue'
 import nextTick from '../home/nextTick/nextTick.vue'
 import setTimeOutAndThis from '../home/this.vue'
 import key from '../home/key.vue'
+import object from '../home/forObject.vue'
 
 //使用路由
 Vue.use(Router)
@@ -147,6 +148,11 @@ export default new Router({
             path: '/lifecycle',
             name: lifecycle,
             component: lifecycle
+        },
+        {
+            path: '/object',
+            name: object,
+            component: object
         }
     ]
 })

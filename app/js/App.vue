@@ -18,6 +18,7 @@
       <router-link to="/setTimeOutAndThis">setTimeOutAndThis</router-link>
       <router-link to="/key">key</router-link>
       <router-link to="/lifecycle">lifecycle</router-link>
+      <router-link to="/object">object</router-link>
       <router-link to="/">root</router-link>
     </div>
     <!--<div>
@@ -30,6 +31,9 @@
     <router-view></router-view>
     <brother01></brother01>
     <brother02></brother02>
+    <hr>
+    <h1>myPlugin</h1>
+    <button @click="show">changeShow</button>
   </div>
 </template>
 <script>
@@ -50,6 +54,18 @@ export default {
         { id: 3, title: "why vue is so fun", content: "welcome to vue test03" }
       ]
     };
+  },
+  methods:{
+    show:function(){
+      if(!this.$show){
+        this.$loading.show();
+        this.$show = true;
+      }else{
+        this.$loading.hide();
+        this.$show = false;
+      }
+      console.log(this.$show);
+    }
   },
   components: {
     reverseList: reverseList,

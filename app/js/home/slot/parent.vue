@@ -1,8 +1,8 @@
 <template>
     <div>
-        <h1>Vue插槽</h1>
+        <h1>Vue slot</h1>
         <child>
-            emmmm
+            {{show}}
             <p slot="s01">content s01</p>
             <div slot="s02">content s02</div>
         </child>
@@ -14,6 +14,11 @@ import child from './child.vue'
 export default {
     components:{
         child:child
+    },
+    data(){
+        return{
+            show:'data from parent!'
+        }
     }
 }
 </script>
