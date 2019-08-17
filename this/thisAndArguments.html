@@ -7,20 +7,24 @@
 
 <body>
     <script>
+        //函数this指向函数调用者，没有调用者则指向window
         var length = 10;
-        function fn(a,b,c) {
+        function fn(a, b, c) {
             console.log(this.length)
         }
         var obj = {
             length: 5,
             method: function (fn) {
+                //this.length = 6;
+                console.log(this.length); //5
                 fn();  //10
-                arguments[0](); //1
+                //arguments[0](); //1
             }
         }
-        obj.method(fn)
-
-        console.log(fn.length);
+        //obj.method(fn)
+        let a = obj.method;
+        a(fn);
+        console.log(fn.length);  //3
         /*var len = 10;
         function fn() {
             console.log(this.len)

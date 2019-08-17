@@ -1,10 +1,18 @@
+var b = 666;
+function fnTest(a,b,c){
+    console.log(this.b);
+}
+
 let a = 666;
 
 function fn() {
+    this.b = 999;
+    //this.a = 111;
     console.log(this.a);
+    fnTest();
 }
 
-fn();  //undefined
+fn();  
 
 console.log(typeof fn.prototype); //object
 
