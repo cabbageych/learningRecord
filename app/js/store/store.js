@@ -1,57 +1,54 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 
 Vue.use(Vuex);
 
 let store = new Vuex.Store({
-    //1.state
     state: {
-        city: 'cityName',
-        count: 0
+        curCity: 'init',
+        cityList: ['东莞', '深圳', '福州', '杭州', '北京', '上海', '广州'],
+        curCount: 0
     },
-    //2.getters
     getters: {
-        getCityFn(state) {
-            return state.city;
+        getCurCity: function (state) {
+            return state.curCity;
         },
-        getCount(state) {
-            return state.count;
+        getCurCityFromList: function (state) {
+            return state.cityList[state.curCount];
+        },
+        getListNum: function (state) {
+            return state.cityList.length;
+        },
+        getList: function (state) {
+            return state.cityList;
+        },
+        getCount:function(state){
+            return state.curCount;
         }
     },
-    //3.actions
-    //通常跟api接口打交道
-    //提供跟后台接口打交道的方法，并调用mutations提供的方法
-    actions: {
-        // 参数列表：{commit, state}
-        // state指的是state数据
-        // commit调用mutations的方法 
-        // name就是调用此方法时要传的参数
-        setCityName({ commit, state }, name) {
-            //跟后台打交道
-            //调用mutations中的方法
-            commit("setCity", name);
-        },
-        addCount({ commit, state }) {
-            commit('addCount');
-        },
-        minCount({ commit, state }) {
-            commit('minCount');
-        }
-    },
-    //4.mutations
-    //提供存储设置state数据的方法
     mutations: {
-        //state指的是state的数据
-        //name传递过来的数据
-        setCity(state, name) {
-            state.city = name; //将传参设置给state的city
+        addCity: function (state, city) {
+            state.cityList.push(city);
         },
-        addCount(state) {
-            ++state.count;
+        setCity: function (state, city) {
+            state.curCity = city;
         },
-        minCount(state) {
-            --state.count;
+        setCurCount: function (state, num) {
+            //console.log(num);
+            state.curCount = num;
+        }
+    },
+    actions: {
+        setCity: function ({ commit }, city) {
+            commit('setCity', city);
         },
+        addCity: function ({ commit }, city) {
+            commit('addCity', city);
+        },
+        setCurCount:function({commit},num){
+            commit('setCurCount',num);
+        }
+
     }
 });
 

@@ -1,21 +1,31 @@
 <template>
-  <div class="loading-box" v-show="show">
-    <div class="loading-mask"></div>
-    <div class="loading-content">
-      <div class="animate"></div>
-      <div class="text">{{text}}</div>
-    </div>
+  <div>
+    <button id="cabbageButton" @click="fn">cabbage-button</button>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    show: Boolean,
-    text: {
-      type: String,
-      default: "正在加载中..."
+  name:'cabbage-button',
+  methods:{
+    fn:function(){
+      this.$showAttr();
     }
   }
 };
 </script>
+<style scoped>
+#cabbageButton{
+  height:50px;
+  font-size: 20px;
+  border:none;
+  background: lightblue;
+  padding:15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px gray;
+}
+#cabbageButton:hover{
+  background: rgb(6, 148, 184);
+  color: white;
+}
+</style>

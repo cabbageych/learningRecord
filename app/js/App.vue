@@ -33,7 +33,7 @@
     <brother02></brother02>
     <hr>
     <h1>myPlugin</h1>
-    <button @click="show">changeShow</button>
+    <cabbage-button></cabbage-button>
   </div>
 </template>
 <script>

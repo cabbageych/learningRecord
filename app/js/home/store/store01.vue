@@ -12,7 +12,7 @@ export default {
   },
   computed: {
     city: function() {
-      return this.$store.getters.getCityFn;
+      return this.$store.getters.getCurCity;
     }
   }
 };

@@ -85,7 +85,6 @@ var vm = new Vue({
     el: "#app",
     router,
     store,
-    myPlugin,
     components: {
         App
     },

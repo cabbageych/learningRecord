@@ -5,6 +5,10 @@
         <h2>{{item}}</h2>
       </li>
     </ul>
+    <input type="text" v-model="tempCity" />
+    <button @click="addCity">addCity</button>
+    <hr />
+    <span>length of cityList:{{cityList}}</span>
   </div>
 </template>
 
@@ -12,25 +16,30 @@
 export default {
   data() {
     return {
-      cityArr: [
-        "北京",
-        "上海",
-        "广州",
-        "深圳",
-        "茂名",
-        "张家界",
-        "清远",
-        "汕头",
-        "佛山"
-      ]
+      tempCity: "",
+      cityArr: []
     };
+  },
+  mounted() {
+    this.cityArr = this.$store.getters.getList;
   },
   methods: {
     backFn: function(index) {
-      //调用vuex的ations设置城市的值
-      this.$store.dispatch("setCityName", this.cityArr[index]);
+      this.$store.dispatch("setCurCount", index);
+      let city = this.$store.getters.getCurCityFromList;
+      //console.log(index,city);
+      //console.log(this.$store.getters.getCount);
+      this.$store.dispatch("setCity", city);
       //返回首页
-      this.$router.push("/");
+      this.$router.push("/store01");
+    },
+    addCity: function() {
+      this.$store.dispatch("addCity", this.tempCity);
+    }
+  },
+  computed: {
+    cityList: function() {
+      return this.$store.getters.getListNum;
     }
   }
 };
