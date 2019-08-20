@@ -1,11 +1,4 @@
-let fn = console.log;
+console.log(parseInt(9,8));
 
-console.log = function(){
-    fn.apply(this,arguments);
-}
-
-let a = {
-    name:'cabbage',
-    age:18
-}
-console.log('cabbage',123,a);
+let a = ['1234','2048'];
+console.log(a.map(parseFloat));

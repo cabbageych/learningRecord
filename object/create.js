@@ -21,3 +21,17 @@ object.attr02 = "writable 02";
 console.log(object);//{ attr01: 'writable 01', attr02: 'cabbage02' }
 delete object.attr02;  //configurable为false，则无法删除
 console.log(object);  //{ attr01: 'writable 01', attr02: 'cabbage02' }
+
+
+
+
+
+let obj = Object.create({},{
+    'attr':{
+        value:'cabbage'
+    }
+});
+console.log(obj.attr); //cabbage
+obj.attr = 'xixihaha';
+console.log(obj.attr);  //cabbage
+//使用create创建对象，默认情况下，writable，configurable以及enumerable均为false
