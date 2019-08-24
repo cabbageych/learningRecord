@@ -20,10 +20,10 @@
         var fc=s.firstChild;   //获得s的第一个子节点
         var lc=s.lastChild;   //获得s的最后一个子节点
         */
-       //直接使用上述方法会将换行符和空格也计算在内
-       //在属性中间加上Element解决上述问题
+        //直接使用上述方法会将换行符和空格也计算在内
+        //在属性中间加上Element解决上述问题
 
-       //父节点的首个子节点
+        //父节点的首个子节点
         var parent = document.getElementById("parent");
         var child01 = parent.firstElementChild;
         var c01 = parent.firstChild;
@@ -54,7 +54,9 @@
 
         //获得全部子节点
         var all = parent.childNodes; //包括空格和换行符
+        var allWithout = parent.children;
         console.log(all);
+        console.log(allWithout);
     </script>
 </body>
 
