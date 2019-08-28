@@ -1,4 +1,5 @@
 function fn() {
+    console.log(arguments);
     [...a] = arguments;
     console.log(a);
     console.log(arguments.length);

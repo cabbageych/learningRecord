@@ -24,3 +24,8 @@ console.log(Object.keys(e)); //[ 'name', 'age', 'gender' ]
 
 let f = new d('cabbage', 21);
 console.log(Object.keys(f)); //[ 'name', 'age', 'gender' ]
+
+
+let g = null;
+console.log(g == null);
+//console.log(Object.keys(g)); //error
