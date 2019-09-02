@@ -5,46 +5,22 @@ const input = readline.createInterface({
 });
 
 
-let a, b;
+let year;
 
 function fn() {
-    if (a % b == 0) {
-        console.log(b);
-        return;
-    } else if (b % a == 0) {
-        console.log(a);
-        return;
+    if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+        console.log(29);
+    } else {
+        console.log(28);
     }
-    let ans = [];
-    let temp = a > b ? b : a;
-    let flag = true;
-    while (flag) {
-        for (let i = 2; i < temp; i++) {
-            if(i == temp-1){
-                flag = false;
-                break;
-            }
-            if (a % i == 0 && b % i == 0) {
-                ans.push(i);
-                a = a / i;
-                b = b / i;
-                break;
-            }
-        }
-    }
-    console.log(ans.reduce((pre,cur)=>{
-        return pre*cur;
-    }))
 }
 
 input.on('line', (line) => {
-    if (a == undefined) {
-        a = parseInt(line);
-    } else if (b == undefined) {
-        b = parseInt(line);
+    line = line.trim();
+    if (year == undefined) {
+        year = parseInt(line);
         fn();
-        a = undefined;
-        b = undefined;
+        year = undefined;
     }
 })
 

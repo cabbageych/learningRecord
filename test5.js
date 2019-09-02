@@ -8,9 +8,18 @@ const input = readline.createInterface({
 let num;
 let list;
 
+function compare(a, b) {
+    if (a[0] != b[0]) {
+        return b[0] - a[0];
+    } else {
+        return a[1] - b[1];
+    }
+}
+
 function fn() {
     let swap, ans = 0;
-    for (let i = 0; i < list.length; i++) {
+    list.sort(compare);
+    /*for (let i = 0; i < list.length; i++) {
         for (let j = i + 1; j < list.length; j++) {
             if (list[i][0] < list[j][0]) {
                 swap = list[i];
@@ -24,7 +33,7 @@ function fn() {
                 }
             }
         }
-    }
+    }*/
     let temp;
     for (let i = 0; i < list.length; i++) {
         temp = i * list[i][0] + (list.length - i - 1) * list[i][1];
