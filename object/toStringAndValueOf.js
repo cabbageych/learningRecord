@@ -17,3 +17,5 @@ let test = [1, 2, 3, 4, [1, 2, 3, 4, 5, 6, [83, 34, 6], 98], 112, [23, 45]];
 test = test.toString();
 test = test.split(",");
 console.log(test.map(val => parseInt(val)));
+
+console.log(Object.prototype.toString.call(null),Object.prototype.toString.call(undefined)); //[object Null] [object Undefined]

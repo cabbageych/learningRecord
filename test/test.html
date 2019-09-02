@@ -1,116 +1,37 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="UTF-8">
-  <title></title>
-  <style type="text/css">
-    * {
-      margin: 0;
-      padding: 0;
+<title>钟摆</title>
+<style>
+ #container{
+    position:relative;
+    height:500px;
+    width:500px;
+}
+#ball{
+    position:absolute;
+    left:225px;
+    top:300px;
+    height:50px;
+    width:50px;
+    background:lightblue;
+    border-radius:50%;
+    transform-origin:0 -300px;
+    animation:myRotate 5s infinite alternate;
+}
+@keyframes myRotate{
+    from{
+        transform:rotate(-90deg);
     }
-
-    #wei {
-      width: 500px;
-      height: 600px;
-      border: 0px solid gray;
-      position: relative;
-      margin: 300px auto;
+    to{
+        transform:rotate(90deg);
     }
-
-    #text {
-      width: 476px;
-      height: 50px;
-      line-height: 50px;
-      padding-left: 20px;
-      font-size: 16px;
-      position: absolute;
-    }
-
-    #list {
-      height: auto;
-      border: 1px solid #ccc;
-      display: none;
-      position: absolute;
-      top: 53px;
-    }
-
-    #wei ul li {
-      width: 498px;
-      height: 30px;
-      line-height: 30px;
-      text-indent: 10px;
-      font-size: 16px;
-      list-style: none;
-      color: #000;
-    }
-
-    #wei ul li a {
-      text-decoration: none;
-      color: #000;
-    }
-
-    #wei ul li:hover {
-      display: block;
-      background: #ccc;
-      color: #fff;
-    }
-
-    #btn {
-      width: 80px;
-      height: 54px;
-      background: deepskyblue;
-      outline: none;
-      border: 0;
-      position: absolute;
-      left: 500px;
-      color: #fff;
-    }
-
-    p {
-      height: 58px;
-    }
-  </style>
+}
+</style>
 </head>
-
-<body ng-controller="show">
-  <div id="wei">
-    <p>
-      <input type="text" id="text">
-      <input type="button" name="btn" id="btn" value="百度一下" />
-    </p>
-    <ul id="list"></ul>
-  </div>
-  <script type="text/javascript">
-    var txt = document.getElementById("text");
-    var oUl = document.getElementById("list");
-    var oBtn = document.getElementById("btn");
-
-    txt.onkeyup = function () {
-      oUl.innerHTML = "";
-      var val = txt.value;
-      var oScript = document.createElement("script");//动态创建script标签  
-      oScript.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" + val + "&cb=callback";
-      //添加链接及回调函数  
-      document.body.appendChild(oScript);//添加script标签  
-      document.body.removeChild(oScript);//删除script标签  
-    }
-    //回调函数  
-
-    function callback(data) {
-      data.s.forEach(function (value) {
-        var oLi = document.createElement("li");
-        oLi.innerHTML = "<a href=\"https://www.baidu.com/s?wd=" + value + "\">" + value + "</a>";
-        oUl.appendChild(oLi);
-      })
-      oUl.style.display = "block";
-    }
-    //点击跳转到百度页面，并搜索其中内容
-    oBtn.onclick = function () {
-      var val = txt.value;
-      location.href = "http://www.baidu.com.cn/s?wd=" + val + "&cl=3";
-    }
-  </script>
+<body>
+<div id="container">
+    <div id="ball"></div>
+</div>
 </body>
-
 </html>
