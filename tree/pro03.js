@@ -42,8 +42,9 @@ function print(node) {
     if (!node) {
         return;
     }
-    print(node.lChild);
     console.log(node.data);
+    print(node.lChild);
+
     print(node.rChild);
 }
 
@@ -54,7 +55,7 @@ let head = new Node();
 for (let i = 0; i < arr.length; i++) {
     insert(head, arr[i]);
 }
-//print(head);
+print(head);
 
 
 //console.log(num21);
