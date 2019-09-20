@@ -1,37 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>钟摆</title>
-<style>
- #container{
-    position:relative;
-    height:500px;
-    width:500px;
-}
-#ball{
-    position:absolute;
-    left:225px;
-    top:300px;
-    height:50px;
-    width:50px;
-    background:lightblue;
-    border-radius:50%;
-    transform-origin:0 -300px;
-    animation:myRotate 5s infinite alternate;
-}
-@keyframes myRotate{
-    from{
-        transform:rotate(-90deg);
-    }
-    to{
-        transform:rotate(90deg);
-    }
-}
-</style>
+    <meta charset="utf-8">
+    <title>tab切换页面</title>
+    <style>
+        input {
+            display: none
+        }
+
+        .nav>li {
+            display: inline-block
+        }
+
+        /* tab??????? */
+        .nav>li>label {
+            display: block;
+            padding: 1rem 2rem;
+            cursor: pointer
+        }
+
+        /* content??????? */
+        .content>li {
+            display: none;
+            padding: 1rem;
+            animation: fade-out .5s cubic-bezier(0.075, 0.82, 0.165, 1)
+        }
+
+        /* tab??????? */
+        .nav1:checked~.nav li:first-child,
+        .nav2:checked~.nav li:last-child {
+            background-color: #bf8963;
+            color: #fff
+        }
+
+        /* content????? */
+        .nav1:checked~.content>li:first-child,
+        .nav2:checked~.content>li:last-child {
+            display: block
+        }
+
+        /* ????????? */
+        @keyframes fade-out {
+            from {
+                transform: translateX(2rem);
+                opacity: 0
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div id="container">
-    <div id="ball"></div>
-</div>
+    <!-- ???????Tab -->
+    <div class="container">
+        <input class="nav1" id="li1" type="radio" name="nav" checked>
+        <input class="nav2" id="li2" type="radio" name="nav">
+        <ul class='nav'>
+            <li>
+                <label for="li1">Tab1</label>
+            </li>
+            <li>
+                <label for="li2">Tab2</label>
+            </li>
+        </ul>
+        <ul class="content">
+            <li>Content1</li>
+            <li>Content2</li>
+        </ul>
+    </div>
 </body>
+
 </html>
