@@ -19,6 +19,7 @@
       <router-link to="/key">key</router-link>
       <router-link to="/lifecycle">lifecycle</router-link>
       <router-link to="/object">object</router-link>
+      <router-link to="/ifShowFor">ifShowFor</router-link>
       <router-link to="/">root</router-link>
     </div>
     <!--<div>
@@ -31,7 +32,7 @@
     <router-view></router-view>
     <brother01></brother01>
     <brother02></brother02>
-    <hr>
+    <hr />
     <h1>myPlugin</h1>
     <cabbage-button></cabbage-button>
   </div>
@@ -55,12 +56,12 @@ export default {
       ]
     };
   },
-  methods:{
-    show:function(){
-      if(!this.$show){
+  methods: {
+    show: function() {
+      if (!this.$show) {
         this.$loading.show();
         this.$show = true;
-      }else{
+      } else {
         this.$loading.hide();
         this.$show = false;
       }
