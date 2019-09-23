@@ -19,7 +19,7 @@
         //默认绑定外层this
         var thisTest = "cabbage window";
         var test = () => {
-            console.log(this.thisTest);  
+            console.log(this.thisTest);
         }
         test();   //cabbage window
         function test02() {
@@ -31,19 +31,27 @@
         }
         test02();  //cabbage test02
 
-        let newTest = ()=>{
-            this.a  = 666;
+        let newTest = () => {
+            this.a = 666;
             this.b = 'cabbage';
         };
         //let t = new newTest(); //Uncaught TypeError: newTest is not a constructor at arrowTest.html:38
 
         let test1 = x => x;
-        let test2 = x => {x};
-        let test3 = x => ({x});
+        let test2 = x => { x };
+        let test3 = x => ({ x });
 
         console.log(test1(1));   //1
         console.log(test2(2));   //undefined
         console.log(test3(3));   //{x:3}
+
+
+
+        //箭头函数不绑定arguments
+        let arrowFun = () => {
+            console.log(arguments);
+        }
+        arrowFun(1, 2, 3);  //Uncaught ReferenceError: arguments is not defined
     </script>
 </body>
 

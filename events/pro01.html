@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>dom事件题</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            padding: 0;
+        }
+
+        #a {
+            height: 500px;
+            width: 500px;
+            background: lightblue;
+        }
+
+        #b {
+            height: 300px;
+            width: 300px;
+            background: lightcoral;
+        }
+
+        #c {
+            height: 100px;
+            width: 100px;
+            background: lightseagreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="a">a
+        <div id="b">b
+            <div id="c">c</div>
+        </div>
+    </div>
+    <script>
+        /**
+         *13、编程题：dom事件流模型
+            <div id="a"><div id="b"><div id="c"></div></div></div>实现 a c b的输出 
+         */
+        /**
+         * addEventListener默认开启事件捕获，关闭事件冒泡。false开启事件冒泡，true开启事件捕获
+         */ 
+        let a = document.getElementById('a');
+        a.addEventListener('click', (e) => {
+            console.log('a');
+        }, true);
+
+        let b = document.getElementById('b');
+        b.addEventListener('click', (e) => {
+            console.log('b')
+        }, false);
+
+        let c = document.getElementById('c');
+        c.addEventListener('click', (e) => {
+            console.log('c');
+        }, true);
+    </script>
+</body>
+
+</html>
