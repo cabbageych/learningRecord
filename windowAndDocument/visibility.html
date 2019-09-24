@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>visibility</title>
+</head>
+
+<body>
+    <script>
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState == 'hidden') {
+                console.log('hide',new Date());
+            } else if (document.visibilityState == 'visible') {
+                console.log('show',new Date());
+            }
+        })
+    </script>
+</body>
+
+</html>
