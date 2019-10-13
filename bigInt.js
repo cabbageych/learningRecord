@@ -1,4 +1,3 @@
-
 //console.log(window.getComputedStyle(document.getElementById('test'))['width']);
 var a =      '121234354657343524';
 var b = '48912312312345467586798';
