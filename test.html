@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>test</title>
+    <style>
+        #test {
+            position: relative;
+            height: 20vh;
+            width: 20vh;
+            background: radial-gradient(red, white);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script>
+
+        window.onload = function () {
+            let test = document.getElementById('test');
+            let top = -20;
+            let end = 5;
+            let gap = (end + 20) / 150;
+            let current = top;
+            requestAnimationFrame(fall);
+            function fall() {
+                if (current >= end) {
+                    return;
+                } else {
+                    test.style.top = current + 'vh';
+                    current += gap;
+                    requestAnimationFrame(fall);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
