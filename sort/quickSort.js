@@ -1,6 +1,6 @@
 let arr = [11, 23, 55, 2, 66, 8];
 function quickSort(arr, start, end) {
-    if (start >= end) {
+    if (start > end) {
         return;
     }
     let left = start;
