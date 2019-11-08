@@ -8,20 +8,28 @@
             /*应用于设置了href的标签*/
             color: red;
         }
-        a:visited{
+
+        a:visited {
             /*访问链接过后*/
-            color:aqua;
+            color: aqua;
         }
-        a:hover{
-            color:blueviolet;
+
+        a:hover {
+            color: blueviolet;
         }
-        a:active{
+
+        a:active {
             /*鼠标点击瞬间*/
-            color:yellow;
+            color: yellow;
         }
+
         /*a:focus{
             color:cadetblue;
         }*/
+        p:first-child {
+            font-size: 20px;
+            color: lightseagreen;
+        }
     </style>
 </head>
 
@@ -30,6 +38,10 @@
     <a href="http://www.huajiyang.com">to'huajiyang.com'</a><br>
     <a href="http://github.com/cabbageych">to'cabbageych.git'</a><br>
     <a href="http://www.huajiyang.com/messageBoard.html">to'huajiyang.com/messageBoard.html'</a><br>
+    <div>
+        <p>div's first child(p:first-child)</p>
+        <p>div's second child</p>
+    </div>
 </body>
 
 </html>
