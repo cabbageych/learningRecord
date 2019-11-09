@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>percent</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        div {
+            position: relative;
+            display: inline-block;
+            height: 200px;
+            width: 200px;
+        }
+
+        #test {
+            background: lightcoral;
+        }
+
+        #test2 {
+            margin: 50%;
+            /*百分比的值相对于父元素*/
+            background: lightcoral;
+        }
+
+        #test3 {
+            padding: 50%;
+            /*百分比的值相对于父元素*/
+            background: lightcoral;
+        }
+
+        #test4 {
+            border: 50%;
+            /*0*/
+            background: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test"></div>
+    <div id="test2"></div>
+    <div id="test3"></div>
+    <div id="test4"></div>
+</body>
+
+</html>

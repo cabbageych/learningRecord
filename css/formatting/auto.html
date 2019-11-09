@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>auto</title>
+        <style>
+            *{
+                box-sizing: content-box;
+            }
+            #container{
+                height: 200px;
+                width: 500px;
+                background: burlywood;
+            }
+            #innerContainer{
+                background: white;
+                height: 50px;
+                margin-right: 50px;
+                margin-left: auto;/*不写默认auto*/
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <p id="innerContainer">hello cabbage</p>
+        </div>
+        <div>
+            test content <span style="display: run-in;">run-in(支持性测试)</span>
+        </div>
+    </body>
+</html>
