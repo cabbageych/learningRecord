@@ -1,50 +1,40 @@
 let arr = [11, 23, 55, -6, 8, 102, 55, 66, 99, -10];
+console.log(arr);
 
-function merge(arr, start, end) {
-    let mid = (start + end) / 2;
-    mid = Math.floor(mid);
-    let temp1 = [], temp2 = [];
-    for (let i = 0, j = start; i <= mid; i++ , j++) {
-        temp1[i] = arr[j];
-    }
-    for (let i = 0, j = mid + 1; i < end - mid; i++ , j++) {
-        temp2[i] = arr[j];
-    }
-    //console.log(start + " " + end);
-    //console.log(temp1);
-    //console.log(temp2);
+function sort(arr, start, end) {
+    let left = start;
+    let right = end;
+    let mid = Math.floor((start + end) / 2);
+    let arr1 = [], arr2 = [];
     let count1 = 0, count2 = 0;
-    for (let i = start; i <= end; i++) {
-        if (count1 >= temp1.length) {
-            arr[i] = temp2[count2];
-            ++count2;
-        } else if (count2 >= temp2.length) {
-            arr[i] = temp1[count1];
-            ++count1;
+    for (let i = left; i <= mid; i++) {
+        arr1[count1++] = arr[i];
+    }
+    for (let i = mid + 1; i <= right; i++) {
+        arr2[count2++] = arr[i];
+    }
+    for (let i = left; i <= right; i++) {
+        if (!arr1.length) {
+            arr[i] = arr2.shift();
+        } else if (!arr2.length) {
+            arr[i] = arr1.shift();
+        } else if (arr1[0] > arr2[0]) {
+            arr[i] = arr2.shift();
         } else {
-            if (temp1[count1] >= temp2[count2]) {
-                arr[i] = temp2[count2];
-                ++count2;
-            } else {
-                arr[i] = temp1[count1];
-                ++count1;
-            }
+            arr[i] = arr1.shift();
         }
     }
 }
 
-function mergeSort(arr, start, end) {
+function mergesort(arr, start, end) {
     if (start >= end) {
         return;
     }
-
-    let mid = (start + end) / 2;
-    mid = Math.floor(mid);
-    mergeSort(arr, start, mid);
-    mergeSort(arr, mid + 1, end);
-    merge(arr, start, end);
+    let mid = Math.floor((start + end) / 2);
+    mergesort(arr, start, mid);
+    mergesort(arr, mid + 1, end);
+    sort(arr, start, end);
 }
 
-console.log(arr);
-mergeSort(arr, 0, arr.length - 1);
+mergesort(arr, 0, arr.length - 1);
 console.log(arr);
