@@ -31,10 +31,11 @@ console.log('script end')
 /**
  * script start
  * async1 start
- * async2
+ * enter async2
  * promise1
  * script end
  * promise2
+ * async2
  * async1 end
  * setTimeout
  */
