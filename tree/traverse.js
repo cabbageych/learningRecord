@@ -52,12 +52,22 @@ function BFS(node) {
 BFS(head);
 
 console.log('-------withRecursion------');
-function BFSRecursion(node) {
-    if (node == null) {
+function BFSRecursion(list) {
+    if (list.length == 0) {
         return;
     } else {
-        console.log(node.data);
-        BFSRecursion(node.lChild);
-        BFSRecursion(node.rChild);
+        let arr = [];
+        while (list.length != 0) {
+            let temp = list.shift();
+            console.log(temp.data);
+            if (temp.lChild) {
+                arr.push(temp.lChild);
+            }
+            if (temp.rChild) {
+                arr.push(temp.rChild);
+            }
+        }
+        BFSRecursion(arr);
     }
 }
+BFSRecursion([head]);
