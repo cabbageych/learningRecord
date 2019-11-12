@@ -42,9 +42,9 @@ function print(node) {
     if (!node) {
         return;
     }
-    console.log(node.data);
-    print(node.lChild);
 
+    print(node.lChild);
+    console.log(node.data);
     print(node.rChild);
 }
 
@@ -61,24 +61,27 @@ print(head);
 //console.log(num21);
 //中序遍历num21下一个结点
 function indexNode(node) {
+    if (!node) {
+        console.log('error!');
+        return;
+    }
     if (node.rChild) {
         let temp = node.rChild;
-        while (temp.lChild) {
-            temp = temp.lChild;
+        while (temp.rChild) {
+            temp = temp.rChild;
         }
-        console.log(temp.data)
+        console.log(temp.data);
     } else {
-        if (node.parent) {
-            let temp = node.parent;
-            while (temp.parent) {
-                if (temp == temp.parent.lChild) {
-                    console.log(temp.parent.data);
-                    return;
-                } else {
-                    temp = temp.parent;
-                }
+        let temp = node.parent;
+        while (temp) {
+            if (temp == temp.parent.lChild) {
+                console.log(temp.parent.data);
+                return;
+            } else {
+                temp = temp.parent;
             }
         }
+        console.log('已到达最后一个结点!');
     }
 }
 
