@@ -1,4 +1,17 @@
-console.log(parseInt(9,8));
+function test() {
+    this.name = 'cabbage';
+    this.hello = function () {
+        console.log('hello ', this.name);
+    }
+}
 
-let a = ['1234','2048'];
-console.log(a.map(parseFloat));
+function New(target) {
+    let obj = {};
+    obj.__proto__ = target.prototype;
+    let temp = target.call(obj);
+    //console.log(temp);
+    return temp ? temp : obj;
+}
+
+let a = New(test);
+a.hello();
