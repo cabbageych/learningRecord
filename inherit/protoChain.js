@@ -28,6 +28,7 @@ parent.prototype.pMethod = function () {
 function child(name, age) {
     //...
 }
+//实现继承
 child.prototype = new parent('cabbage', 18);
 child.prototype.constructor = child;
 
