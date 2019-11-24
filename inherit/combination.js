@@ -1,3 +1,7 @@
+/**
+ * 组合继承（结合构造函数继承和原型链继承，解决两者问题，使用较多）
+ */
+
 function parent(name, age) {
     this.name = name;
     this.age = age;
@@ -25,10 +29,12 @@ parent.prototype.pMethod = function () {
     console.log('method in parent\'s prototype!');
 }
 
-//借用构造函数实现继承
+//将构造函数与原型链结合实现继承
 function child(name, age) {
     parent.call(this, name, age);
 }
+child.prototype = new parent();
+child.prototype.constructor = child;
 let test = new child('cabbage', 18);
 let test02 = new child('cabbage02', 18);
 
@@ -38,9 +44,4 @@ test02.pritnArr(); //[ 1, 2, 3, 4, 5, 666 ]
 test.pritnArr(); //[ 1, 2, 3, 4, 5 ]
 
 console.log(child.prototype === test.__proto__); //true
-
-/**
- * 存在的问题：
- * 父类原型中定义的属性方法对子类不可见(实例原型指向child原型而不是parent原型)，如下。
- */
-//test.pMethod(); //test.pMethod is not a function
+test.pMethod();  //method in parent's prototype!
