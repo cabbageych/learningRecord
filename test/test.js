@@ -1,13 +1,4 @@
-let a = false;
-let b = new Boolean(false);
-let c = Boolean(false);
-console.log('a:', a, 'b:', b, 'c:', c);
-if (a) {
-    console.log('enter a!');
-}
-if (b) {
-    console.log('enter b!'); //enter b!
-}
-if (c) {
-    console.log('enter c!');
+let arr = [1, 2, 3, 4, 5, 6];
+for (let el in arr) {
+    console.log(arr[el]);
 }
