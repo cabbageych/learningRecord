@@ -10,7 +10,7 @@ fs.readFile('sample.txt', 'utf-8', function (err, data) {
         console.log(data); //如果省略参数utf-8编码方式的声明，可使用tostring的方式进行转换
     }
 });
-//读取二进制文件不传文件编码ß
+//读取二进制文件不设置文件编码方式
 fs.readFile('huaji.jpg', function (err, data) {
     if (err) {
         console.log(err);
