@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>debounce</title>
+</head>
+
+<body>
+    <button onclick="print()">consoleLog2</button>
+    <button onclick="print2()">consoleLog3</button>
+    <script>
+        /**
+        写一个防抖
+        样例1
+        debounce(() => {console.log(2)},2000)
+        样例2
+        obj = {
+            b:3,
+            x:function(){console.log(this.b)}
+        }
+        debounce(()=>{obj.x},2000)
+        */
+        function debounce(fn, time) {
+            let timer;
+            return function () {
+                if (!timer) {
+                    //console.log(timer);
+                    timer = setTimeout(fn, time);
+                } else {
+                    clearTimeout(timer);
+                    timer = setTimeout(fn, time);
+                }
+            }
+        }
+        let print = debounce(() => { console.log(2) }, 2000);
+
+        obj = {
+            b: 3,
+            x: function () { console.log(this.b) }
+        }
+        let print2 = debounce(() => { obj.x() }, 2000);
+    </script>
+</body>
+
+</html>

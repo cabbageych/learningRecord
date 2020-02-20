@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>windowProxy</title>
+</head>
+
+<body>
+    <script>
+        let num = 2;
+        Object.defineProperty(window,'a',{
+            get:function(){
+                //console.log('get');
+                return num--;
+            }
+        })
+        console.log(a === a + 1);
+
+
+    </script>
+</body>
+
+</html>
