@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>get</title>
+</head>
+
+<body>
+    <p>onreadystatechange与readystate改变有关，需要将其写在open方法之前。(js高程第三版原话：确保跨浏览器兼容性)</p>
+    <button onclick="ajaxSub()">ajaxSub</button><span id="ajaxData"></span>
+    <hr>
+    <button onclick="fetchSub()">fetchSub</button><span id="fetchData"></span>
+    <script>
+        var ajaxData = document.getElementById('ajaxData');
+        var fetchData = document.getElementById('fetchData');
+        function ajaxSub() {
+            let xml = new XMLHttpRequest();
+            xml.onreadystatechange = function () {
+                console.log(xml.readyState);
+                if (xml.readyState != 4) {
+                    return;
+                }
+                if (xml.status >= 200 && xml.status < 300 || xml.status == 304) {
+                    let temp = xml.responseText;
+                    if (isJSON(temp)) {
+                        temp = JSON.parse(temp);
+                        console.log(temp);
+                        ajaxData.innerHTML = "isJSON";
+                    } else {
+                        console.log(temp);
+                        ajaxData.innerHTML = xml.responseText;
+                    }
+
+                } else {
+                    console.log(xml.statusText);
+                }
+            }
+            //需要中断请求时，可用xml.abort();
+            //设置跨域时带上cookie信息
+            xml.withCredentials = true;
+            xml.open('GET', 'http://localhost:8080?name=cabbage&age=18', true);
+            xml.send();
+        }
+
+        function fetchSub() {
+            fetch("http://localhost:8080?age=18&name=cabbage", {
+                method: 'GET',
+                //默认值是：同源的时候发送，不同源的时候不发送。并且这个默认值在不同的浏览器中同一浏览器不同版本中都不同，Safari 11是完全不发送，Safari 12是现在的默认值。
+                credentials: "include"
+            }).then((response) => {
+                //console.log(response);
+                return response.text();
+            }).then((val) => {
+                if (isJSON(val)) {
+                    fetchData.innerHTML = 'isJSON';
+                    val = JSON.parse(val);
+                } else {
+                    fetchData.innerHTML = val;
+                }
+                console.log(val);
+            });
+        }
+
+
+        function isJSON(str) {
+            try {
+                if (typeof JSON.parse(str) == 'object') {
+                    return true;
+                }
+            } catch (e) {
+                return false;
+            }
+
+        }
+    </script>
+</body>
+
+</html>
