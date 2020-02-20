@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>post</title>
+    <style>
+        .progressFrame {
+            width: 300px;
+            height: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background: #cecece;
+            margin-top: 10px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .progress {
+            width: 0px;
+            height: 9.5px;
+            background: salmon;
+
+        }
+
+        #beforehand {
+            display: block;
+            margin-top: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST" enctype="multipart/form-data" action="http://localhost:8080" accept-charset="utf-8">
+        <input type="file" name="upload" multiple="multiple" id="file">
+        <input type="submit" value="submit">
+    </form>
+    <div class="progressFrame">
+        <div class="progress"></div>
+    </div>
+    <img src="" alt="" id="beforehand">
+    <script>
+        let fu = new fileUpload();
+        console.log(fu);
+        let fileUpload = document.getElementById('file');
+        let fileReader = new FileReader();
+        let mimeRegex = /^image\/.*$/;
+        let file;
+        let viewObj = {
+            modifyDate: null,
+            filename: null,
+            size: null
+        };
+        //进度监听
+        fileReader.addEventListener('progress', e =>{
+            document.querySelector('.progress').style.width = (e.loaded / e.total) * 100 + '%';
+            console.log(e.loaded/e.total);
+        }); 
+        //读取中断
+        fileReader.addEventListener('abort', () => {
+            console.log('读取中断');
+        });
+
+        //读取错误
+        fileReader.addEventListener('error', err => { throw err });
+
+        //读取开始
+        fileReader.addEventListener('loadstart', () => console.log('读取开始'));
+
+        //读取结束
+        fileReader.addEventListener('loadend', () => {
+            console.log('读取结束');
+            document.querySelector('#beforehand').src = fileReader.result;
+        });
+
+
+        //文件选择被更改
+        fileUpload.addEventListener('change', () => {
+            //获取文件对象
+            file = fileUpload.files[0];
+            if (!mimeRegex.test(file.type)) {
+                alert("file type must be a image");
+                return;
+            }
+            //显示图片
+            if (file) fileReader.readAsDataURL(file);
+        });
+    </script>
+</body>
+
+</html>
