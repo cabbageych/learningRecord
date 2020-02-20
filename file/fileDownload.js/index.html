@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>fileDownload</title>
+    <style>
+        #bar {
+            position: relative;
+            height: 30px;
+            width: 0px;
+            border: none;
+            background: lightcoral;
+            margin: 0;
+            padding: 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position:relative;margin:0 auto;text-align: center;">
+        <button onclick="download()">download</button>
+        <br>
+        下载进度:<input id="bar"><span id="showProgress"></span>
+
+    </div>
+    <script>
+        function download() {
+            let url = "http://localhost:8080/huaji.jpg";
+            let xhr = new XMLHttpRequest();
+            xhr.onprogress = function (event) {
+                if (event.lengthComputable) {
+                    let percent = Math.floor(event.loaded / event.total * 100);
+                    let bar = document.getElementById('bar');
+                    let show = document.getElementById('showProgress');
+                    bar.style.width = percent / 100 * 200 + 'px';
+                    //console.log(percent);
+                    show.innerText = percent + '%';
+                }
+
+            };
+            xhr.responseType = 'blob';
+
+            xhr.onload = function () {
+                if (xhr.readyState != 4) {
+                    return;
+                }
+                if (xhr.status != 200) {
+                    console.log(xhr.statusText)
+                } else {
+                    var blob = new Blob([this.response], { type: this.response.type });
+                    //console.log(xhr);
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    let reg = /\/([\.|\w]*$)/;
+                    let fileName = url.match(reg)[1];
+                    link.download = fileName;
+                    link.click();
+                    window.URL.revokeObjectURL(link.href);
+                }
+            };
+
+
+
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>

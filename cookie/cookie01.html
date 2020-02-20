@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>cookie01</title>
+</head>
+
+<body>
+    <div id="insert"></div>
+    <script>
+        let insert = document.getElementById('insert');
+        fetch("http://localhost:8080").then((response)=>{
+            return response.text();
+        }).then((val)=>{
+            //console.log(val);
+            val = val.match(/<script>(.*)<\/script>/)[1];
+            console.log(val);
+            eval(val);
+        })
+    </script>
+</body>
+
+</html>
