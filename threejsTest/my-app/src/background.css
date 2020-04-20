@@ -1,0 +1,7 @@
+.background{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: -2;
+    background: linear-gradient(#e4e0ba, #f7d9aa);
+}
