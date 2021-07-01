@@ -1,8 +1,0 @@
-@import url(tobeImported.css);
-*{
-    font-size: 25px;
-    margin:0;
-    padding:0;
-    border:2px solid gray;
-}
-@import url(tobeImported02.css); /*无效（IE除外）*/

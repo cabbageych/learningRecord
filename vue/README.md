@@ -1,2 +1,0 @@
-# webpackAndVueLearning
-something about learning
